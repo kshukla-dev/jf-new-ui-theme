@@ -1519,12 +1519,60 @@ const getCountryDetails = (name: string) => {
   }
 }
 @media (max-width: 640px) {
+  .process-box {
+    padding: 32px 20px;
+  }
+  .process-title {
+    font-size: 28px;
+    margin-bottom: 32px;
+    text-align: center;
+    line-height: 1.3;
+  }
   .process-flow {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 24px;
+    text-align: left;
   }
   .process-line {
     display: none;
+  }
+  .process-step {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+      "icon num"
+      "icon title"
+      "icon desc";
+    gap: 0 16px;
+    align-items: start;
+  }
+  .ps-icon-wrap {
+    grid-area: icon;
+    margin-bottom: 0;
+  }
+  .ps-icon {
+    width: 48px;
+    height: 48px;
+  }
+  .ps-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+  .ps-num {
+    grid-area: num;
+    margin-bottom: 2px;
+    font-size: 12px;
+  }
+  .process-step h3 {
+    grid-area: title;
+    margin-bottom: 4px;
+    font-size: 16px;
+  }
+  .process-step p {
+    grid-area: desc;
+    padding: 0;
+    font-size: 13px;
   }
   .how-grid-4 { grid-template-columns: 1fr; }
   .cs-grid { grid-template-columns: -1fr; }
@@ -1539,14 +1587,21 @@ const getCountryDetails = (name: string) => {
   
   .borderless-grid {
     grid-template-columns: 1fr;
-    row-gap: 32px;
+    row-gap: 24px;
   }
   .bg-divider-v, .bg-divider-h { display: none; }
   
-  .borderless-feature { padding-bottom: 32px; border-bottom: 1px solid #f0f0f0; }
+  .borderless-feature { padding-bottom: 24px; border-bottom: 1px solid #f0f0f0; }
   .borderless-feature:last-child { border-bottom: none; padding-bottom: 0; }
   
-  .borderless-card { padding: 32px; }
+  .borderless-card { padding: 24px 20px; }
+  .borderless-header { flex-direction: column; text-align: center; gap: 12px; margin-bottom: 32px; }
+  .borderless-header h2 { font-size: 28px; }
+  .borderless-header-icon { width: 48px; height: 48px; }
+  .bf-icon { width: 40px; height: 40px; }
+  .bf-text h3 { font-size: 16px; margin-bottom: 4px; }
+  .bf-text p { font-size: 13px; }
+  .borderless-image { height: 240px; margin-top: -16px; }
   
   .entities-main-title {
     font-size: 32px;
@@ -1609,6 +1664,24 @@ const getCountryDetails = (name: string) => {
   }
   .trust-banner-wrap {
     margin-top: 20px;
+  }
+  .trust-banner {
+    padding: 24px 16px;
+  }
+  .trust-logos {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+    padding-bottom: 12px;
+    scrollbar-width: none; /* Firefox */
+  }
+  .trust-logos::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+  }
+  .t-logo {
+    flex-shrink: 0;
   }
 }
 </style>
