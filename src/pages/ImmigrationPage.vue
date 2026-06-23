@@ -661,4 +661,28 @@ const trustAvatars = [
     justify-content: center;
   }
 }
+
+@media (max-width: 960px) {
+  .how-grid-4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .services-grid,
+  .eor-bridge-grid,
+  .how-grid-4,
+  .service-card ul {
+    grid-template-columns: 1fr;
+  }
+  .service-card {
+    padding: 24px;
+  }
+  .how-card {
+    padding: 24px;
+  }
+  .eor-bridge-card {
+    padding: 24px;
+  }
+}
 </style>
