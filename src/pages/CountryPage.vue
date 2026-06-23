@@ -75,7 +75,7 @@ const resources = [
 <template>
   <template v-if="config && data">
     <!-- ============= HERO ============= -->
-    <header class="cp-hero" :style="{ backgroundImage: 'linear-gradient(90deg, #0e0f3b 0%, rgba(14, 15, 59, 0.8) 40%, rgba(14, 15, 59, 0) 70%, transparent 100%), url(' + config.image + ')' }">
+    <header class="cp-hero" :style="{ '--bg-img': 'url(' + config.image + ')' }">
       <div class="container cp-hero-inner">
         <div class="cp-hero-copy">
           <h1 class="cp-hero-title">
@@ -246,9 +246,10 @@ const resources = [
 /* HERO */
 .cp-hero {
   background-color: #0E0F3B;
+  background-image: linear-gradient(90deg, #0e0f3b 0%, rgba(14, 15, 59, 0.8) 40%, rgba(14, 15, 59, 0) 70%, transparent 100%), var(--bg-img);
   background-size: cover;
   background-position: right center;
-  padding: 100px 0 140px; /* Increased bottom padding for banner overlap */
+  padding: 120px 0 160px; /* Increased bottom padding for banner overlap */
   color: #ffffff;
 }
 .cp-hero-inner {
@@ -594,15 +595,75 @@ const resources = [
 .country-missing h1 { margin-bottom: 28px; }
 
 @media (max-width: 1024px) {
+  .cp-hero { padding: 120px 0 140px; }
   .cp-stats-grid { grid-template-columns: repeat(3, 1fr); padding: 0 20px; }
+  .cp-stat-item { border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 16px; border-right: none; }
+  .cp-stat-item:nth-child(3n) { border-right: none; }
   .cp-why-grid, .cp-resources-grid { grid-template-columns: repeat(2, 1fr); }
   .cp-timeline { grid-template-columns: 1fr; }
   .cp-timeline-line { display: none; }
 }
 @media (max-width: 768px) {
-  .cp-stats-grid { grid-template-columns: 1fr; }
-  .cp-why-grid, .cp-resources-grid { grid-template-columns: 1fr; }
-  .cp-stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 16px; }
-  .cp-stat-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .cp-hero {
+    background-image: linear-gradient(0deg, #0e0f3b 5%, rgba(14, 15, 59, 0.6) 50%, rgba(14, 15, 59, 0.2) 100%), var(--bg-img);
+    background-position: center center;
+    padding: 100px 0 120px;
+  }
+  .cp-hero-title { font-size: 36px; }
+  .cp-hero-actions { flex-direction: column; align-items: stretch; }
+  .btn-primary-solid, .btn-outline-gold { width: 100%; text-align: center; justify-content: center; }
+
+  .cp-stats-banner {
+    margin: -60px 16px -40px;
+    padding: 24px 16px;
+    border-radius: 16px;
+  }
+  .cp-stats-grid { 
+    grid-template-columns: repeat(2, 1fr); 
+    padding: 0;
+    gap: 20px 12px;
+  }
+  .cp-stat-item { 
+    border-bottom: none; 
+    padding-bottom: 0; 
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .cp-stat-item:nth-child(3) { border-right: none; }
+  
+  .cp-first-section { padding-top: 100px; }
+  .cp-section-title { font-size: 28px; }
+
+  .cp-why-grid, .cp-resources-grid { 
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 24px 16px;
+  }
+
+  /* TIMELINE MOBILE */
+  .cp-timeline {
+    padding-left: 28px;
+    border-left: 2px solid #e5e7eb;
+    margin-left: 16px;
+    gap: 24px;
+    display: flex;
+    flex-direction: column;
+  }
+  .cp-timeline-step {
+    text-align: left;
+    position: relative;
+  }
+  .cp-timeline-num {
+    position: absolute;
+    left: -45px; /* 28px padding + 1px border + 16px half circle */
+    top: 24px; /* align with card padding */
+    margin: 0;
+  }
+  .cp-step-card {
+    padding: 20px 16px;
+  }
+  .cp-step-icon {
+    padding: 10px;
+  }
 }
 </style>
