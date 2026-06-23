@@ -640,15 +640,22 @@ const testiAvatars = ["/testimonials/priya.jpg", "/testimonials/James.jpg", "/te
   .cs-dark-hero {
     padding: 120px 0 140px;
   }
-  .cs-hero-stats {
-    grid-template-columns: 1fr;
-  }
   .stat-glass-card {
-    border-right: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 24px 16px;
   }
-  .stat-glass-card:last-child {
-    border-bottom: none;
+  .stat-value {
+    font-size: 26px;
+    margin-bottom: 4px;
+  }
+  .stat-label {
+    font-size: 12px;
+  }
+  .stat-icon {
+    margin-bottom: 12px;
+  }
+  .stat-icon svg {
+    width: 20px;
+    height: 20px;
   }
   .featured-content-col {
     padding: 32px 24px;
@@ -1169,17 +1176,6 @@ const testiAvatars = ["/testimonials/priya.jpg", "/testimonials/James.jpg", "/te
   }
   .why-matters-section {
     margin-top: -80px;
-  }
-  .cs-hero-stats {
-    grid-template-columns: 1fr;
-  }
-  .stat-glass-card {
-    border-right: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    padding: 24px 16px;
-  }
-  .stat-glass-card:last-child {
-    border-bottom: none;
   }
   .cs-list { gap: 32px; }
   
