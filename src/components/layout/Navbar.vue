@@ -131,12 +131,14 @@ const currentPreview = computed(() =>
 </script>
 
 <template>
-  <nav>
-    <div class="container nav-inner">
-      <!-- Logo (left) -->
-      <RouterLink to="/" class="logo" @click="close">
-        <img src="/logo-dark.svg" alt="Jackson & Frank" class="logo-img" />
-      </RouterLink>
+  <div class="nav-wrapper">
+    <div class="nav-placeholder"></div>
+    <nav>
+      <div class="container nav-inner">
+        <!-- Logo (left) -->
+        <RouterLink to="/" class="logo" @click="close">
+          <img src="/logo-dark.svg" alt="Jackson & Frank" class="logo-img" />
+        </RouterLink>
 
       <!-- Center nav -->
       <div class="nav-links">
@@ -329,12 +331,20 @@ const currentPreview = computed(() =>
       </Transition>
     </Teleport>
   </nav>
+  </div>
 </template>
 
 <style scoped>
+.nav-placeholder {
+  height: 76px;
+  width: 100%;
+}
 nav {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
   z-index: 100;
   backdrop-filter: blur(12px);
   background: var(--header-bg);
