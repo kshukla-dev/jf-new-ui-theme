@@ -44,22 +44,27 @@ async function handleSubmit(e: Event) {
     return
   }
 
-  // Log form entry to the console instead of using API
-  console.log('Contact Form Submitted:', JSON.parse(JSON.stringify(form)))
+  status.value = 'sending'
 
-  // Reset form fields
-  Object.assign(form, {
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    company: '',
-    reason: '',
-    message: '',
-    consent: false,
-  })
+  // Simulate network request
+  setTimeout(() => {
+    // Log form entry to the console instead of using API
+    console.log('Contact Form Submitted:', JSON.parse(JSON.stringify(form)))
 
-  alert('Form submitted successfully! Check the console for the logged data.')
+    // Reset form fields
+    Object.assign(form, {
+      firstName: '',
+      lastName: '',
+      email: '',
+      phone: '',
+      company: '',
+      reason: '',
+      message: '',
+      consent: false,
+    })
+
+    status.value = 'success'
+  }, 1200)
 }
 
 const carouselTrack = ref<HTMLElement | null>(null)

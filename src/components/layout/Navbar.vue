@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount, computed } from 'vue'
+import { ref, onMounted, onBeforeUnmount, computed, watch } from 'vue'
 import { RouterLink } from 'vue-router'
-import { Palette } from 'lucide-vue-next'
+import { Menu, X } from 'lucide-vue-next'
 import navigation from '@/data/navigation.json'
 // import { fetchServiceNavigation } from '@/services/navigation'
 
@@ -19,6 +19,14 @@ function toggleTheme() {
 }
 const mobileOpen = ref(false)
 let closeTimer: ReturnType<typeof setTimeout> | null = null
+
+watch(mobileOpen, (val) => {
+  if (val) {
+    document.body.style.overflow = 'hidden'
+  } else {
+    document.body.style.overflow = ''
+  }
+})
 
 function toggle(key: Exclude<DropdownKey, null>) {
   openDropdown.value = openDropdown.value === key ? null : key
@@ -181,8 +189,8 @@ const currentPreview = computed(() =>
         <RouterLink to="/contact" class="btn-consultation" @click="close">
           Book a consultation
         </RouterLink>
-        <button class="mobile-toggle" @click="mobileOpen = !mobileOpen" aria-label="Open menu">
-          ☰
+        <button class="mobile-toggle" @click="mobileOpen = true" aria-label="Open menu" aria-haspopup="true" :aria-expanded="mobileOpen">
+          <Menu :size="28" />
         </button>
       </div>
     </div>
@@ -269,49 +277,54 @@ const currentPreview = computed(() =>
     <!-- Mobile drawer -->
     <Teleport to="body">
       <Transition name="mobile">
-        <div v-if="mobileOpen" class="mobile-drawer">
-          <button class="mobile-close" @click="mobileOpen = false" aria-label="Close menu">×</button>
-          <div class="mobile-section">
-            <span class="dropdown-eyebrow">Solutions</span>
-            <RouterLink
-              v-for="item in services"
-              :key="item.title"
-              :to="item.href"
-              @click="mobileOpen = false"
-            >
-              {{ item.title }}
+        <div v-if="mobileOpen">
+          <div class="mobile-overlay" @click="mobileOpen = false" aria-hidden="true"></div>
+          <div class="mobile-drawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
+            <button class="mobile-close" @click="mobileOpen = false" aria-label="Close menu">
+              <X :size="32" />
+            </button>
+            <div class="mobile-section">
+              <span class="dropdown-eyebrow">Solutions</span>
+              <RouterLink
+                v-for="item in services"
+                :key="item.title"
+                :to="item.href"
+                @click="mobileOpen = false"
+              >
+                {{ item.title }}
+              </RouterLink>
+            </div>
+            <div class="mobile-section">
+              <span class="dropdown-eyebrow">Resources</span>
+              <RouterLink
+                v-for="item in insights"
+                :key="item.title"
+                :to="item.href"
+                @click="mobileOpen = false"
+              >
+                {{ item.title }}
+              </RouterLink>
+            </div>
+            <div class="mobile-section">
+              <span class="dropdown-eyebrow">About Us</span>
+              <RouterLink
+                v-for="item in about"
+                :key="item.title"
+                :to="item.href"
+                @click="mobileOpen = false"
+              >
+                {{ item.title }}
+              </RouterLink>
+            </div>
+            <div class="mobile-section">
+              <RouterLink to="/contact" @click="mobileOpen = false" style="font-weight: 700; border-bottom: none;">
+                Contact Us
+              </RouterLink>
+            </div>
+            <RouterLink to="/contact" class="btn-consultation mobile-cta" @click="mobileOpen = false">
+              Book a consultation
             </RouterLink>
           </div>
-          <div class="mobile-section">
-            <span class="dropdown-eyebrow">Resources</span>
-            <RouterLink
-              v-for="item in insights"
-              :key="item.title"
-              :to="item.href"
-              @click="mobileOpen = false"
-            >
-              {{ item.title }}
-            </RouterLink>
-          </div>
-          <div class="mobile-section">
-            <span class="dropdown-eyebrow">About Us</span>
-            <RouterLink
-              v-for="item in about"
-              :key="item.title"
-              :to="item.href"
-              @click="mobileOpen = false"
-            >
-              {{ item.title }}
-            </RouterLink>
-          </div>
-          <div class="mobile-section">
-            <RouterLink to="/contact" @click="mobileOpen = false" style="font-weight: 700; border-bottom: none;">
-              Contact Us
-            </RouterLink>
-          </div>
-          <RouterLink to="/contact" class="btn-consultation mobile-cta" @click="mobileOpen = false">
-            Book a consultation
-          </RouterLink>
         </div>
       </Transition>
     </Teleport>
@@ -562,13 +575,30 @@ nav {
 }
 .mobile-toggle {
   display: none;
-  font-size: 22px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
   color: var(--ink);
-  padding: 6px 10px;
+  padding: 6px;
+  min-width: 44px;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+}
+.mobile-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(14, 15, 59, 0.4);
+  backdrop-filter: blur(4px);
+  z-index: 190;
 }
 .mobile-drawer {
   position: fixed;
-  inset: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 85%;
+  max-width: 400px;
   background: var(--bg);
   z-index: 200;
   padding: 80px 32px 32px;
@@ -576,16 +606,21 @@ nav {
   flex-direction: column;
   gap: 28px;
   overflow-y: auto;
+  box-shadow: -10px 0 40px rgba(0, 0, 0, 0.1);
 }
 .mobile-close {
-  position: fixed;
+  position: absolute;
   top: 18px;
   right: 24px;
-  font-size: 32px;
-  color: var(--ink);
   background: transparent;
   border: none;
   cursor: pointer;
+  color: var(--ink);
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   z-index: 210;
 }
 .mobile-section {
@@ -598,6 +633,7 @@ nav {
   color: var(--ink);
   padding: 10px 0;
   border-bottom: 1px solid var(--border);
+  text-decoration: none;
 }
 .mobile-cta {
   align-self: flex-start;
@@ -605,12 +641,19 @@ nav {
 }
 .mobile-enter-active,
 .mobile-leave-active {
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  transition: opacity 0.3s ease;
+}
+.mobile-enter-active .mobile-drawer,
+.mobile-leave-active .mobile-drawer {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .mobile-enter-from,
 .mobile-leave-to {
   opacity: 0;
-  transform: translateY(-10px);
+}
+.mobile-enter-from .mobile-drawer,
+.mobile-leave-to .mobile-drawer {
+  transform: translateX(100%);
 }
 
 @media (max-width: 1024px) {

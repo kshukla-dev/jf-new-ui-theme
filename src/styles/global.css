@@ -37,6 +37,8 @@ html {
   /* Anchor targets clear the fixed navbar */
   scroll-padding-top: 90px;
   -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
+  max-width: 100vw;
 }
 
 body {
@@ -49,6 +51,13 @@ body {
   text-rendering: optimizeLegibility;
   font-feature-settings: 'kern' 1, 'liga' 1;
   overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* Accessibility Focus States */
+*:focus-visible {
+  outline: 3px solid var(--accent-warm);
+  outline-offset: 2px;
 }
 
 a {

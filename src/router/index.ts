@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router'
+import type { RouteRecordRaw } from 'vue-router'
 
 // Eagerly load the homepage (it's the entry point); lazy-load everything else.
 import HomePage from '@/pages/HomePage.vue'
@@ -27,8 +27,9 @@ const PressReleasePage = () => import('@/pages/PressReleasePage.vue')
 const PrivacyPolicyPage = () => import('@/pages/PrivacyPolicyPage.vue')
 const SitemapPage = () => import('@/pages/SitemapPage.vue')
 const UnsubscribePage = () => import('@/pages/UnsubscribePage.vue')
+const NotFoundPage = () => import('@/pages/NotFoundPage.vue')
 
-const routes: RouteRecordRaw[] = [
+export const routes: RouteRecordRaw[] = [
   { path: '/', name: 'home', component: HomePage, meta: { title: 'Hire talent, anywhere' } },
 
   // About cluster
@@ -88,21 +89,7 @@ const routes: RouteRecordRaw[] = [
   { path: '/united-kingdom-contractor', name: 'uk-contractor', component: CountryPage, meta: { title: 'United Kingdom Contractor', cluster: 'Country' } },
 
   // 404
-  { path: '/:pathMatch(.*)*', name: 'not-found', component: StubPage, meta: { title: 'Not found' } },
+  { path: '/:pathMatch(.*)*', name: 'not-found', component: NotFoundPage, meta: { title: 'Not found' } },
 ]
 
-export const router = createRouter({
-  history: createWebHistory(),
-  routes,
-  scrollBehavior(to, from, savedPosition) {
-    if (savedPosition) return savedPosition
-    if (to.hash) return { el: to.hash, behavior: 'smooth' }
-    return { top: 0, behavior: 'smooth' }
-  },
-})
-
-// Update document.title based on route meta
-router.afterEach((to) => {
-  const title = (to.meta?.title as string | undefined) ?? 'Jackson & Frank'
-  document.title = `${title} - Jackson & Frank`
-})
+// Removed createRouter instance for ViteSSG compatibility
