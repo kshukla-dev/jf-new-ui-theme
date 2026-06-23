@@ -1,0 +1,1614 @@
+<script setup lang="ts">
+import GlobalCTA from '@/components/sections/GlobalCTA.vue'
+import { ref, computed } from 'vue'
+import { RouterLink } from 'vue-router'
+import ghg from '@/data/global-hiring.json'
+
+const activeEntity = ref(0)
+
+interface Country {
+  name: string
+  status?: string
+  address: string
+  href: string
+}
+
+const openFaq = ref(0)
+function toggleFaq(i: number) {
+  openFaq.value = openFaq.value === i ? -1 : i
+}
+
+const allCountries = ghg.countries as Country[]
+const available = computed(() => allCountries.filter((c) => c.status?.toLowerCase() !== 'coming soon'))
+const comingSoon = computed(() => allCountries.filter((c) => c.status?.toLowerCase() === 'coming soon'))
+
+const getFlag = (name: string) => {
+  const map: Record<string, string> = {
+    'The Netherlands': '🇳🇱',
+    'India': '🇮🇳',
+    'Poland': '🇵🇱',
+    'United Kingdom': '🇬🇧',
+    'Germany': '🇩🇪',
+    'Italy': '🇮🇹',
+    'Czech Republic': '🇨🇿',
+    'France': '🇫🇷',
+    'Belgium': '🇧🇪',
+    'Spain': '🇪🇸',
+    'UAE': '🇦🇪',
+    'Hong Kong': '🇭🇰',
+    'China': '🇨🇳',
+    'Portugal': '🇵🇹',
+    'Sweden': '🇸🇪',
+    'Hungary': '🇭🇺',
+    'Romania': '🇷🇴',
+    'Mexico': '🇲🇽'
+  }
+  return map[name] || '🌍'
+}
+
+const getFlagUrl = (name: string) => {
+  const map: Record<string, string> = {
+    'The Netherlands': '/countries/flag/Flag_of_the_Netherlands.svg.webp',
+    'India': '/countries/flag/Flag_of_India.svg.webp',
+    'Poland': '/countries/flag/Flag_of_Poland.svg.png',
+    'United Kingdom': '/countries/flag/Flag-United-Kingdom.webp',
+    'Germany': '/countries/flag/Flag_of_Germany_(3-2).svg.png',
+    'Italy': '/countries/flag/Flag_of_Italy.svg.png',
+    'Czech Republic': '/countries/flag/Flag_of_the_Czech_Republic.svg.webp',
+    'France': '/countries/flag/Flag_of_France.svg.webp',
+    'Belgium': '/countries/flag/Flag_of_Belgium.svg.png',
+    'Spain': '/countries/flag/Flag_of_Spain.svg.png',
+    'UAE': '/countries/flag/Flag_of_the_United_Arab_Emirates.svg',
+    'Hong Kong': '/countries/flag/Flag_of_Hong_Kong.svg (1).png',
+    'China': '/countries/flag/Flag_of_the_People\'s_Republic_of_China.svg.webp',
+  }
+  return map[name] || ''
+}
+
+const getCountryImage = (name: string) => {
+  const map: Record<string, string> = {
+    'The Netherlands': '/countries/eor-netherlands.webp',
+    'India': '/countries/eor-india.webp',
+    'Poland': '/countries/eor-poland.webp',
+    'United Kingdom': '/countries/eor-uk.webp',
+    'Germany': '/countries/eor-germany.webp',
+    'Italy': '/countries/eor-Italy.webp',
+    'Czech Republic': '/countries/eor-czech.webp',
+    'France': '/countries/eor-france.webp',
+    'Belgium': '/countries/eor-belgium.webp',
+    'Spain': '/countries/eor-spain.webp',
+    'UAE': '/countries/eor-uae.webp',
+    'Hong Kong': '/countries/eor-hong-kong.webp',
+    'China': '/countries/eor-china.webp',
+    'Portugal': '/countries/eor-spain.webp',
+    'Sweden': '/countries/eor-uk.webp',
+    'Hungary': '/countries/eor-czech.webp',
+    'Romania': '/countries/eor-poland.webp',
+    'Mexico': '/countries/eor-spain.webp'
+  }
+  return map[name] || '/countries/eor-spain.webp'
+}
+
+const getShortAddress = (name: string) => {
+  const map: Record<string, string> = {
+    'The Netherlands': 'Amsterdam, Netherlands',
+    'India': 'Bengaluru, Karnataka, India',
+    'Poland': 'Poznań, Poland',
+    'United Kingdom': 'London, United Kingdom',
+    'Germany': 'Berlin, Germany',
+    'Italy': 'Milan, Italy',
+    'Czech Republic': 'Prague, Czech Republic',
+    'France': 'Paris, France',
+    'Belgium': 'Sint-Agatha-Berchem, Belgium',
+    'Spain': 'Seville, Spain',
+    'UAE': 'Sharjah, UAE',
+    'Hong Kong': 'Tsim Sha Tsui, Hong Kong',
+    'China': 'Shanghai, China'
+  }
+  return map[name] || name
+}
+
+const getCountryDetails = (name: string) => {
+  const defaults = { type: 'Private Limited', currency: 'USD', time: '2-4 weeks' }
+  const map: Record<string, { type: string, currency: string, time: string }> = {
+    'The Netherlands': { type: 'B.V.', currency: 'EUR', time: '2-4 weeks' },
+    'India': { type: 'Private Limited', currency: 'INR', time: '3-6 weeks' },
+    'Poland': { type: 'Sp. z o.o.', currency: 'PLN', time: '2-4 weeks' },
+    'United Kingdom': { type: 'LTD', currency: 'GBP', time: '1-3 weeks' },
+    'Germany': { type: 'GmbH', currency: 'EUR', time: '3-5 weeks' },
+    'Italy': { type: 'S.r.l.', currency: 'EUR', time: '2-4 weeks' },
+    'Czech Republic': { type: 's.r.o.', currency: 'CZK', time: '2-4 weeks' },
+    'France': { type: 'SAS', currency: 'EUR', time: '2-4 weeks' },
+    'Belgium': { type: 'BV', currency: 'EUR', time: '2-4 weeks' },
+    'Spain': { type: 'S.L.', currency: 'EUR', time: '2-4 weeks' },
+    'UAE': { type: 'LLC', currency: 'AED', time: '2-4 weeks' },
+    'Hong Kong': { type: 'Limited', currency: 'HKD', time: '1-3 weeks' },
+    'China': { type: 'WFOE', currency: 'CNY', time: '4-8 weeks' }
+  }
+  return map[name] || defaults
+}
+</script>
+
+<template>
+  <header class="ghg-hero">
+    <div class="ghg-hero-inner container">
+      <div class="ghg-hero-copy">
+        <h1 class="hero-title">Hire anywhere,<br /><em>one partner</em></h1>
+        <p class="hero-desc">
+          Streamline global operations by managing payroll in over 160+ countries under one roof, thereby eliminating the ongoing administrative burdens of local compliance, taxes, benefits, and other complexities.
+        </p>
+        <button class="btn-primary-gold">
+          Get the guide <span class="arrow">→</span>
+        </button>      </div>
+    </div>
+    
+    <div class="container trust-banner-wrap">
+      <div class="trust-banner">
+        <div class="trust-left">
+          <span class="trust-tag">TRUSTED BY GLOBAL COMPANIES</span>
+          <h3>Join 500+ companies<br>growing globally</h3>
+        </div>
+        <div class="trust-logos">
+          <span class="t-logo klarna">Klarna.</span>
+          <span class="t-logo hubspot">HubS<span>p</span>ot</span>
+          <span class="t-logo scale">scale</span>
+          <span class="t-logo rippling">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:2px"><path d="M4 22V2"/><path d="M8 22V2"/><path d="M12 22v-8"/><path d="M16 22v-8"/><path d="M20 22V2"/></svg>
+            RIPPLING
+          </span>
+          <span class="t-logo brex">BREX</span>
+          <span class="t-logo dlocal">dlocal</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+  <!-- Built for Borderless Teams -->
+  <section class="container">
+    <div class="borderless-teams-wrap">
+      <div class="borderless-card">
+        <div class="borderless-header">
+          <div class="borderless-header-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          </div>
+          <h2>Built for borderless teams</h2>
+        </div>
+        
+        <div class="borderless-grid">
+          <!-- Cross dividers -->
+          <div class="bg-divider-v"></div>
+          <div class="bg-divider-h"></div>
+          
+          <div class="borderless-feature">
+            <div class="bf-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+            </div>
+            <div class="bf-text">
+              <h3>Global reach</h3>
+              <p>Hire in 160+ countries without setting up local entities.</p>
+            </div>
+          </div>
+          
+          <div class="borderless-feature">
+            <div class="bf-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><circle cx="16" cy="16" r="4"></circle><text x="16" y="17.5" font-size="6" font-family="sans-serif" font-weight="bold" text-anchor="middle" fill="currentColor" stroke="none">G</text></svg>
+            </div>
+            <div class="bf-text">
+              <h3>Compliance first</h3>
+              <p>Stay compliant with local laws, taxes, and labor regulations.</p>
+            </div>
+          </div>
+          
+          <div class="borderless-feature">
+            <div class="bf-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </div>
+            <div class="bf-text">
+              <h3>Faster hiring</h3>
+              <p>Onboard talent quickly with our streamlined process.</p>
+            </div>
+          </div>
+          
+          <div class="borderless-feature">
+            <div class="bf-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><path d="M12 12s-3 1.5-3 4c0 2.5 3 4 3 4s3-1.5 3-4c0-2.5-3-4-3-4z"></path></svg>
+            </div>
+            <div class="bf-text">
+              <h3>One partner</h3>
+              <p>Everything you need to manage and scale global teams.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="borderless-image">
+        <img src="/case-study/BuiltForBorderlessTeams.png" alt="Built For Borderless Teams" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="container" style="margin-bottom: 100px;">
+    <div class="process-box">
+      <h2 class="process-title">From candidate to compliant hire</h2>
+      
+      <div class="process-flow">
+        <div class="process-line"></div>
+        
+        <div class="process-step">
+          <div class="ps-icon-wrap">
+            <div class="ps-icon">
+              <!-- Briefcase SVG -->
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+            </div>
+          </div>
+          <span class="ps-num">01</span>
+          <h3>Job Posted</h3>
+          <p>You find the right talent.</p>
+        </div>
+
+        <div class="process-step">
+          <div class="ps-icon-wrap">
+            <div class="ps-icon">
+              <!-- Person Add SVG -->
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line></svg>
+            </div>
+          </div>
+          <span class="ps-num">02</span>
+          <h3>We Onboard</h3>
+          <p>We handle contracts and documentation.</p>
+        </div>
+
+        <div class="process-step">
+          <div class="ps-icon-wrap">
+            <div class="ps-icon">
+              <!-- Shield SVG -->
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M9 12l2 2 4-4"></path></svg>
+            </div>
+          </div>
+          <span class="ps-num">03</span>
+          <h3>We Employ</h3>
+          <p>We become the legal employer.</p>
+        </div>
+
+        <div class="process-step">
+          <div class="ps-icon-wrap">
+            <div class="ps-icon">
+              <!-- Card SVG -->
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+            </div>
+          </div>
+          <span class="ps-num">04</span>
+          <h3>We Manage</h3>
+          <p>Payroll, benefits, taxes, and compliance.</p>
+        </div>
+
+        <div class="process-step">
+          <div class="ps-icon-wrap">
+            <div class="ps-icon">
+              <!-- Chart SVG -->
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="16" width="4" height="4"></rect><rect x="9" y="12" width="4" height="8"></rect><rect x="15" y="6" width="4" height="14"></rect><line x1="3" y1="9" x2="21" y2="3"></line><polyline points="16 3 21 3 21 8"></polyline></svg>
+            </div>
+          </div>
+          <span class="ps-num">05</span>
+          <h3>You Scale</h3>
+          <p>Focus on growth while we handle the rest.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Entities & locations -->
+  <section class="entities-section container">
+    <div class="entities-header-row">
+      <div class="entities-title-block">
+        <span class="tag-centered">OUR ENTITIES &amp; LOCATIONS</span>
+        <h2 class="entities-main-title">A truly global presence.<br><span class="gold-text">Built for borderless teams.</span></h2>
+        <p class="entities-subtitle">Our own legal entities in 40+ countries allow you to hire, pay, and support talent compliantly-wherever your business grows.</p>
+      </div>
+      <RouterLink to="/contact" class="btn-outline-gold">View all locations <span aria-hidden>→</span></RouterLink>
+    </div>
+
+    <!-- Main Grid: Left is Map/Stats, Right is Featured Entities -->
+    <div class="entities-main-grid">
+      <!-- Left side: Map & Stats -->
+      <div class="map-stats-card">
+        <!-- Dotted pattern background is styled via CSS radial-gradient -->
+        <div class="map-dotted-bg"></div>
+        <div class="map-card-content">
+          <!-- Stats Row at bottom of map card -->
+          <div class="map-stats-row">
+            <div class="map-stat-item">
+              <div class="map-stat-icon-wrap">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+              </div>
+              <div class="map-stat-info">
+                <span class="map-stat-number">40+</span>
+                <span class="map-stat-label">Countries<br>Our entities</span>
+              </div>
+            </div>
+            
+            <div class="map-stat-item">
+              <div class="map-stat-icon-wrap">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><line x1="9" y1="22" x2="9" y2="16"></line><line x1="15" y1="22" x2="15" y2="16"></line><line x1="9" y1="16" x2="15" y2="16"></line><path d="M8 6h.01M16 6h.01M8 10h.01M16 10h.01M12 6h.01M12 10h.01"></path></svg>
+              </div>
+              <div class="map-stat-info">
+                <span class="map-stat-number">50+</span>
+                <span class="map-stat-label">Legal entities<br>Worldwide</span>
+              </div>
+            </div>
+
+            <div class="map-stat-item">
+              <div class="map-stat-icon-wrap">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+              </div>
+              <div class="map-stat-info">
+                <span class="map-stat-number">160+</span>
+                <span class="map-stat-label">Countries supported<br>for hiring</span>
+              </div>
+            </div>
+
+            <div class="map-stat-item">
+              <div class="map-stat-icon-wrap">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M9 12l2 2 4-4"></path></svg>
+              </div>
+              <div class="map-stat-info">
+                <span class="map-stat-number">98%</span>
+                <span class="map-stat-label">Client satisfaction<br>rate</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right side: Featured Entities Card -->
+      <div class="featured-entities-card">
+        <div class="fe-card-header">
+          <h3 class="fe-card-title">Featured entities</h3>
+          <RouterLink to="/contact" class="fe-see-all">See all <span aria-hidden>→</span></RouterLink>
+        </div>
+        <div class="fe-list">
+          <RouterLink
+            v-for="(c, index) in available"
+            :key="c.name"
+            :to="c.href || '/contact'"
+            class="fe-item"
+            :class="{ 'is-open': activeEntity === index }"
+            @mouseenter="activeEntity = index"
+          >
+            <div class="fe-item-header">
+              <div class="fe-item-left">
+                <div class="fe-flag-wrap">
+                  <img v-if="getFlagUrl(c.name)" :src="getFlagUrl(c.name)" :alt="c.name + ' flag'" class="fe-flag-img" />
+                  <span v-else class="fe-flag-emoji">{{ getFlag(c.name) }}</span>
+                </div>
+                <div class="fe-info">
+                  <span class="fe-name">{{ c.name }}</span>
+                  <span class="fe-desc">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:2px; vertical-align: -1px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    {{ getShortAddress(c.name) }}
+                  </span>
+                </div>
+              </div>
+              
+              <div class="fe-item-right-wrap">
+                <span class="fe-active-badge">Active</span>
+                <div class="fe-arrow">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </div>
+              </div>
+            </div>
+
+            <div class="fe-item-details">
+              <div class="fe-details-stats">
+                <div class="fe-detail-box">
+                  <div class="fe-detail-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line></svg>
+                  </div>
+                  <div class="fe-detail-text">
+                    <span class="fe-detail-label">Entity type</span>
+                    <span class="fe-detail-val">{{ getCountryDetails(c.name).type }}</span>
+                  </div>
+                </div>
+                <div class="fe-detail-box">
+                  <div class="fe-detail-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"></path><line x1="12" y1="18" x2="12" y2="22"></line><line x1="12" y1="2" x2="12" y2="6"></line></svg>
+                  </div>
+                  <div class="fe-detail-text">
+                    <span class="fe-detail-label">Currency</span>
+                    <span class="fe-detail-val">{{ getCountryDetails(c.name).currency }}</span>
+                  </div>
+                </div>
+                <div class="fe-detail-box">
+                  <div class="fe-detail-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                  </div>
+                  <div class="fe-detail-text">
+                    <span class="fe-detail-label">Setup time</span>
+                    <span class="fe-detail-val">{{ getCountryDetails(c.name).time }}</span>
+                  </div>
+                </div>
+              </div>
+              <div class="fe-details-address">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fe-pin-icon-address"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <p>{{ c.address }}</p>
+              </div>
+            </div>
+          </RouterLink>
+          
+         
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom section: Coming soon locations -->
+    <div class="coming-soon-section">
+      <h3 class="cs-title">COMING SOON LOCATIONS</h3>
+      <div class="cs-grid">
+        <div v-for="c in comingSoon" :key="c.name" class="cs-card" :style="{ backgroundImage: `url(${getCountryImage(c.name)})` }">
+          <div class="cs-card-overlay"></div>
+          <div class="cs-card-content">
+          <div class="cs-card-header">
+            <div class="cs-flag-wrap">
+              <img v-if="getFlagUrl(c.name)" :src="getFlagUrl(c.name)" :alt="c.name + ' flag'" class="cs-flag-img" />
+              <span v-else class="cs-flag-emoji">{{ getFlag(c.name) }}</span>
+            </div>
+            <span class="cs-country-name">{{ c.name }}</span>
+          </div>
+          <p class="cs-card-text">Full country guide and<br>local EOR details.</p>
+          <div class="cs-location-pill">
+           {{ c.address || c.name }}
+          </div>
+          <button class="btn-notify">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px;"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+            Notify me
+          </button>
+          </div>
+        </div>
+        
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section container">
+    <div class="faq-block">
+      <div class="faq-head">
+        <span class="tag">FAQs</span>
+        <h2 class="section-title">{{ ghg.faqs.title }}</h2>
+        <p class="section-lead">{{ ghg.faqs.subtitle }}</p>
+      </div>
+      <div class="faq-list">
+        <button
+          v-for="(item, i) in ghg.faqs.items"
+          :key="i"
+          class="faq-item"
+          :class="{ open: openFaq === i }"
+          @click="toggleFaq(i)"
+          :aria-expanded="openFaq === i"
+        >
+          <span class="faq-q">{{ item.question }}</span>
+          <span class="faq-toggle" aria-hidden>{{ openFaq === i ? '−' : '+' }}</span>
+          <p v-show="openFaq === i" class="faq-a">{{ item.answer }}</p>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <GlobalCTA title="Start hiring globally today" />
+</template>
+
+<style scoped>
+@import '@/styles/service-page.css';
+
+/* ============================================================
+   NEW HERO STYLES
+   ============================================================ */
+.ghg-hero {
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  width: 100vw;
+  box-sizing: border-box;
+  display: block;
+  background-color: #0E0F3B;
+  background-image: linear-gradient(90deg, #0e0f3b 0%, rgba(14, 15, 59, 0.75) 40%, rgba(14, 15, 59, 0.17) 70%, transparent 100%), url(/case-study/global-hiring-guide.png);
+  background-size: 72% auto;
+  background-position: right;
+  background-repeat: no-repeat;
+  color: #ffffff;
+  min-height: 700px;
+  overflow: hidden;
+  padding: 88px 0 96px;
+}
+
+.ghg-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top right, rgba(9, 64, 123, 0.3), transparent 60%);
+  pointer-events: none;
+}
+
+.ghg-hero-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.ghg-hero-copy {
+  max-width: 650px;
+  animation: fade-slide-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fade-slide-up {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.hero-tag {
+  color: var(--accent-sky, #7FCDEE);
+  background: rgba(127, 205, 238, 0.1);
+  border: 1px solid rgba(127, 205, 238, 0.2);
+  margin-bottom: 24px;
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.hero-title {
+  font-family: var(--serif);
+  font-size: clamp(40px, 5vw, 64px);
+  line-height: 1.1;
+  font-weight: 400;
+  color: #ffffff;
+  margin-bottom: 24px;
+}
+
+.hero-title em {
+  color: var(--accent-warm, #F7931E);
+  font-style: italic;
+}
+
+.hero-desc {
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 40px;
+}
+
+.btn-primary-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: #F7931E;
+  color: #fff;
+  border: none;
+  padding: 16px 32px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.btn-primary-gold:hover {
+  background: #e07d10;
+  transform: translateY(-2px);
+}
+
+/* ============================================================
+   TRUST BANNER
+   ============================================================ */
+.trust-banner-wrap {
+  
+  margin-top: 12rem;
+}
+
+.trust-banner {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+  padding: 32px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.trust-left {
+  flex: 0 0 280px;
+}
+
+.trust-tag {
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.trust-left h3 {
+  font-family: var(--serif);
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.2;
+}
+
+.trust-logos {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  flex: 1;
+  justify-content: space-between;
+}
+
+.t-logo {
+  font-size: 20px;
+  font-weight: 700;
+  color: #111;
+  opacity: 0.85;
+}
+
+.t-logo.klarna { font-family: sans-serif; font-weight: 800; letter-spacing: -0.5px; }
+.t-logo.hubspot { font-family: sans-serif; font-weight: 700; }
+.t-logo.scale { font-family: monospace; font-size: 24px; letter-spacing: -1px; }
+.t-logo.rippling { font-family: sans-serif; font-weight: 800; font-size: 18px; display: inline-flex; align-items: center; }
+.t-logo.brex { font-family: sans-serif; font-weight: 800; font-size: 18px; letter-spacing: 2px; }
+.t-logo.dlocal { font-family: sans-serif; font-weight: 700; font-size: 22px; letter-spacing: -1px; }
+
+.how-grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+.borderless-teams-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 100px 0;
+}
+
+.borderless-card {
+  border-radius: 12px;
+  padding: 48px;
+  box-shadow: 0 4px 40px rgba(0,0,0,0.03);
+  border: 1px solid rgba(0,0,0,0.04);
+}
+
+.borderless-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 48px;
+}
+
+.borderless-header-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.borderless-header h2 {
+  font-family: var(--serif);
+  font-size: 36px;
+  font-weight: 400;
+  color: #111;
+  letter-spacing: -0.02em;
+}
+
+.borderless-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 60px;
+  column-gap: 40px;
+  position: relative;
+}
+
+.bg-divider-v {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  background: #f0f0f0;
+}
+
+.bg-divider-h {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #f0f0f0;
+}
+
+.borderless-feature {
+  display: flex;
+  gap: 20px;
+  position: relative;
+  z-index: 2;/* covers the divider behind it if needed, but not necessary if gap is used */
+}
+
+.bf-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  border: 1.5px solid var(--border);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.bf-text h3 {
+  font-family: var(--serif);
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #111;
+}
+
+.bf-text p {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.6;
+}
+
+.borderless-image {
+  border-radius: 12px;
+  overflow: hidden;
+  height: 100%;
+}
+
+.borderless-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ============================================================
+   PROCESS SECTION
+   ============================================================ */
+.process-box {
+  background: var(--accent-soft);
+  border-radius: 20px;
+  padding: 64px 48px;
+  border: 1px solid rgba(20, 51, 105, 0.08);
+}
+
+.process-title {
+  font-family: var(--serif);
+  font-size: 36px;
+  font-weight: 400;
+  color: #111;
+  margin-bottom: 64px;
+}
+
+.process-flow {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  text-align: center;
+}
+
+.process-line {
+  position: absolute;
+  top: 40px; /* Center of 80px icon */
+  left: 10%;
+  right: 10%;
+  border-top: 2px dotted var(--accent);
+  z-index: 1;
+}
+
+.process-step {
+  position: relative;
+}
+
+.ps-icon-wrap {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  margin-bottom: 24px;
+}
+
+.ps-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  border: 1.5px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+}
+
+.ps-num {
+  display: block;
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.process-step h3 {
+  font-family: var(--serif);
+  font-size: 18px;
+  font-weight: 600;
+  color: #111;
+  margin-bottom: 8px;
+}
+
+.process-step p {
+  font-size: 13px;
+  color: #555;
+  line-height: 1.5;
+  padding: 0 10px;
+}
+
+.entities-section {
+  padding: 100px 0;
+
+}
+.entities-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 56px;
+  position: relative;
+}
+.entities-title-block {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto;
+}
+.tag-centered {
+  display: block;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+.entities-main-title {
+  font-family: var(--serif);
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 1.2;
+  color: #111;
+}
+.entities-main-title .gold-text {
+  color: var(--accent);
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+}
+.entities-subtitle {
+  font-size: 14px;
+  color: #64748b;
+  line-height: 1.6;
+  margin-top: 16px;
+}
+.btn-outline-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+.btn-outline-gold:hover {
+  background: var(--bg);
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+
+/* Main Grid */
+.entities-main-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 32px;
+  margin-bottom: 64px;
+}
+
+/* Map Stats Card */
+.map-stats-card {
+  position: relative;
+  background-color: #fefefe;
+  background-image: url('/case-study/OurEntitiesLocations.png');
+  background-repeat: no-repeat;
+  background-size: 103% auto;
+  background-position: -20px 14%;
+  border-radius: 16px;
+  padding: 32px;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 480px;
+  overflow: hidden;
+}
+.map-dotted-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.map-card-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+.map-stats-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 20px;
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  gap: 8px;
+}
+.map-stat-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-right: 1px solid var(--border);
+}
+.map-stat-item:last-child {
+  border-right: none;
+}
+.map-stat-icon-wrap {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+.map-stat-info {
+  display: flex;
+  flex-direction: column;
+}
+.map-stat-number {
+  font-size: 20px;
+  font-weight: 700;
+  color: #111;
+  line-height: 1.1;
+}
+.map-stat-label {
+  font-size: 9px;
+  color: #64748b;
+  line-height: 1.3;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* Featured Entities Card */
+.featured-entities-card {
+  background: var(--accent-soft);
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.fe-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+.fe-card-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #111;
+}
+.fe-see-all {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+}
+.fe-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 420px;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+.fe-list::-webkit-scrollbar {
+  width: 6px;
+}
+.fe-list::-webkit-scrollbar-track {
+  background: rgba(20,51,105,0.06);
+  border-radius: 4px;
+}
+.fe-list::-webkit-scrollbar-thumb {
+  background: #e5e7eb;
+  border-radius: 4px;
+}
+.fe-list::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+.fe-item {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  text-decoration: none;
+  color: #111;
+  transition: all 0.3s ease;
+  background: #fff;
+}
+.fe-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.fe-item:hover, .fe-item.is-open {
+  border-color: #e5e7eb;
+  box-shadow: 0 4px 12px rgba(20,51,105,0.05);
+}
+.fe-item:hover .fe-name, .fe-item.is-open .fe-name {
+  color: var(--accent);
+}
+.fe-item-details {
+  display: none;
+}
+.fe-item.is-open .fe-item-details {
+  display: block;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #e5e7eb44;
+}
+.fe-arrow svg {
+  transition: transform 0.3s ease;
+}
+.fe-item.is-open .fe-arrow svg {
+  transform: rotate(-90deg);
+}
+
+.fe-details-stats {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.fe-detail-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  border-right: 1px solid #e5e7eb44;
+}
+.fe-detail-box:last-child {
+  border-right: none;
+}
+.fe-detail-icon {
+  color: var(--accent);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+}
+.fe-detail-text {
+  display: flex;
+  flex-direction: column;
+}
+.fe-detail-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #64748b;
+  margin-bottom: 2px;
+}
+.fe-detail-val {
+  font-size: 13px;
+  font-weight: 600;
+  color: #111;
+}
+.fe-details-address {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: 12px;
+  color: #555;
+  line-height: 1.5;
+}
+.fe-details-address svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.fe-details-address p {
+  margin: 0;
+}
+.fe-item-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.fe-flag-wrap {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  flex-shrink: 0;
+}
+.fe-flag-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.fe-flag-emoji {
+  font-size: 20px;
+}
+.fe-info {
+  display: flex;
+  flex-direction: column;
+}
+.fe-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1e293b;
+}
+.fe-desc {
+  font-size: 11px;
+  color: #64748b;
+  margin-top: 2px;
+}
+.fe-item-right-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.fe-active-badge {
+  font-size: 10px;
+  font-weight: 700;
+  background: #e2f5ec;
+  color: #0b7c4a;
+  padding: 3px 9px;
+  border-radius: 99px;
+}
+.fe-arrow {
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+}
+.fe-more {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  border: 1.5px dashed #e5e7eb;
+  background: var(--bg-card);
+  border-radius: 12px;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  margin-top: 4px;
+}
+.fe-more:hover {
+  background: var(--bg-card);
+  border-color: var(--accent);
+}
+.fe-more-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  position: relative;
+  z-index: 2;
+}
+.fe-plus-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border);
+  background: var(--bg-card);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.fe-more-text {
+  display: flex;
+  flex-direction: column;
+}
+.fe-more-text span:first-child {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent);
+}
+.fe-more-sub {
+  font-size: 11px;
+  color: #64748b;
+  margin-top: 2px;
+}
+.fe-globe-watermark {
+  position: absolute;
+  right: -8px;
+  bottom: -8px;
+  color: #e5e7eb;
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Coming soon section */
+.coming-soon-section {
+  margin-top: 48px;
+  margin:1rem;
+}
+.cs-title {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #64748b;
+  margin-bottom: 24px;
+}
+.cs-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
+}
+.cs-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  min-height: 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: all 0.35s ease;
+  position: relative;
+  overflow: hidden;
+  cursor:pointer;
+}
+.cs-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.88), rgba(255,255,255,0.93));
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+  border-radius: 12px;
+}
+.cs-card:hover .cs-card-overlay {
+  opacity: 0.35;
+}
+.cs-card-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  gap: 0;
+}
+.cs-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
+  border-color: var(--accent);
+}
+.cs-location-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 10px;
+  font-weight: 700;
+  color: #fff;
+  padding: 4px 10px;
+  width: fit-content;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  margin-bottom: 8px;
+  backdrop-filter: blur(4px);
+}
+.cs-card:hover .cs-location-pill {
+  opacity: 1;
+  transform: translateY(0);
+}
+.cs-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.cs-flag-wrap {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+}
+.cs-flag-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.cs-flag-emoji {
+  font-size: 16px;
+}
+.cs-country-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1e293b;
+}
+.cs-card-text {
+  font-size: 12px;
+  color: #64748b;
+  line-height: 1.5;
+  margin: 16px 0;
+  font-weight: 500;
+}
+.btn-notify {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 16px;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+.btn-notify:hover {
+  background: var(--bg);
+  color: var(--ink);
+  border-color: var(--accent);
+}
+
+/* Request a location card */
+.cs-card-request {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: var(--bg-card);
+  border: 1.5px dashed #e5e7eb;
+  cursor: pointer;
+  text-decoration: none;
+}
+.cs-card-request:hover {
+  background: var(--bg-card);
+  border-color: var(--accent);
+}
+.cs-request-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+.cs-request-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #64748b;
+  margin-bottom: 6px;
+}
+.cs-request-link {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+@media (max-width: 1200px) {
+  .cs-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 1024px) {
+  .how-grid-4 { grid-template-columns: 1fr 1fr; }
+  .borderless-teams-wrap { grid-template-columns: 1fr; }
+  .borderless-image { height: 400px; }
+  .entities-main-grid {
+    grid-template-columns: 1fr;
+  }
+  .btn-outline-gold {
+    position: static;
+    margin-top: 24px;
+  }
+  .entities-header-row {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  
+@media (min-width: 641px) and (max-width: 1024px) {
+  .ghg-hero {
+    padding: 80px 0 80px;
+    background-image: linear-gradient(90deg, #0e0f3b 0%, rgba(14, 15, 59, 0.75) 40%, rgba(14, 15, 59, 0.17) 70%, transparent 100%), url(/case-study/global-hiring-guide.png);
+    background-size: cover;
+    background-position: 40% center;
+    min-height: 540px;
+  }
+  .ghg-hero-copy {
+    max-width: 480px;
+    padding-bottom: 20px;
+    padding-top: 10px;
+  }
+  .trust-banner-wrap {
+    margin-top: 30px;
+  }
+}
+  .trust-banner {
+    flex-direction: column;
+    gap: 24px;
+    text-align: center;
+    padding: 32px;
+  }
+  .trust-left {
+    flex: auto;
+  }
+  .trust-logos {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+@media (max-width: 768px) {
+  .cs-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .map-stats-row {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .map-stat-item {
+    border-right: none;
+  }
+}
+@media (max-width: 640px) {
+  .process-flow {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .process-line {
+    display: none;
+  }
+  .how-grid-4 { grid-template-columns: 1fr; }
+  .cs-grid { grid-template-columns: -1fr; }
+  .cs-card {
+    min-height: 170px;
+    padding: 16px;
+  }
+  .cs-card-text {
+    margin: 8px 0;
+    font-size: 11px;
+  }
+  
+  .borderless-grid {
+    grid-template-columns: 1fr;
+    row-gap: 32px;
+  }
+  .bg-divider-v, .bg-divider-h { display: none; }
+  
+  .borderless-feature { padding-bottom: 32px; border-bottom: 1px solid #f0f0f0; }
+  .borderless-feature:last-child { border-bottom: none; padding-bottom: 0; }
+  
+  .borderless-card { padding: 32px; }
+  
+  .entities-main-title {
+    font-size: 32px;
+  }
+  .map-stats-card {
+    padding: 12px;
+    min-height: 320px;
+    background-size: 100% auto;
+    background-position: 0% 12%;
+  }
+  .map-stats-row {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    padding: 12px;
+  }
+  .map-stat-item {
+    gap: 6px;
+  }
+  .map-stat-icon-wrap {
+    width: 28px;
+    height: 28px;
+  }
+  .map-stat-icon-wrap svg {
+    width: 14px;
+    height: 14px;
+  }
+  .map-stat-number {
+    font-size: 15px;
+  }
+  .map-stat-label {
+    font-size: 8px;
+  }
+
+  .ghg-hero {
+    min-height: auto;
+    padding: 260px 20px 60px;
+    background-size: cover;
+    background-position: center;
+    background-image: none;
+    background-color: #0E0F3B;
+  }
+  .ghg-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 280px;
+    background-image: url(/case-study/global-hiring-guide.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    -webkit-mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+    pointer-events: none;
+  }
+  .ghg-hero-inner {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .trust-banner-wrap {
+    margin-top: 20px;
+  }
+}
+</style>

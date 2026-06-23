@@ -1,0 +1,570 @@
+<script setup lang="ts">
+import GlobalCTA from '@/components/sections/GlobalCTA.vue'
+import { ref } from 'vue'
+import { RouterLink } from 'vue-router'
+import career from '@/data/career.json'
+
+const openFaq = ref(0)
+function toggleFaq(i: number) {
+  openFaq.value = openFaq.value === i ? -1 : i
+}
+
+function getRoleTheme(dept: string) {
+  const d = dept.toLowerCase()
+  if (d.includes('human') || d.includes('hr') || d.includes('mobility')) {
+    return 'blue'
+  }
+  if (d.includes('sales') || d.includes('business') || d.includes('develop')) {
+    return 'green'
+  }
+  return 'purple'
+}
+</script>
+
+<template>
+  <header class="service-hero careers-hero">
+    <div class="careers-hero-inner">
+      <div class="service-hero-copy">
+        <h1>Build the future of <em>global HR</em></h1>
+        <p class="service-hero-lede">{{ career.definition.description }}</p>
+        <ul class="service-hero-features">
+          <li v-for="(f, i) in career.definition.keyFeatures" :key="i" class="hero-feature">
+            <span class="hero-feature-check">✓</span>
+            {{ f }}
+          </li>
+        </ul>
+        <div class="cta-row">
+          <a href="#open-positions" class="btn-primary">
+            {{ career.definition.primaryButtonText }} <span class="arrow">→</span>
+          </a>
+          <RouterLink to="/about-us" class="btn-secondary">
+            {{ career.definition.secondaryButtonText }}
+          </RouterLink>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="stats-strip">
+    <div class="container stats-strip-inner">
+      <div v-for="(s, i) in career.definition.trustSignals.stats" :key="i" class="stat-item">
+        <strong>{{ s.value }}</strong>
+        <span v-if="s.label" class="stat-label">{{ s.label }}</span>
+        <span class="stat-desc">{{ s.description }}</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits -->
+  <section class="section container">
+    <div class="section-head">
+      <span class="tag">Why work here</span>
+      <h2 class="section-title">Benefits that <em>matter</em></h2>
+    </div>
+    <div class="benefits-grid">
+      <div v-for="(b, i) in career.benefits" :key="i" class="benefit-card">
+        <span class="benefit-mark">{{ String(i + 1).padStart(2, '0') }}</span>
+        <h3>{{ b.title }}</h3>
+        <p>{{ b.description }}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Open positions -->
+  <section id="open-positions" class="positions-strip">
+    <div class="container">
+      <div class="section-head">
+        <span class="tag">Open roles</span>
+        <h2 class="section-title">Current <em>openings</em></h2>
+        <p class="section-lead">Join a mission-driven team building the infrastructure for the future of work.</p>
+      </div>
+      <div class="positions-list">
+        <div
+          v-for="(p, i) in career.openPositions"
+          :key="i"
+          class="position-card"
+          :class="getRoleTheme(p.department)"
+        >
+          <!-- Card top accent header -->
+          <div class="position-card-header" :class="getRoleTheme(p.department)">
+            <div class="pos-dept-icon">
+              <svg v-if="getRoleTheme(p.department) === 'blue'" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/><circle cx="9" cy="7" r="4"/><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/></svg>
+              <svg v-else-if="getRoleTheme(p.department) === 'green'" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+              <svg v-else width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            </div>
+            <span class="pos-dept-label">{{ p.department }}</span>
+            <span class="pos-type-pill">{{ p.type }}</span>
+          </div>
+
+          <!-- Card body -->
+          <div class="position-body">
+            <h3 class="position-title">{{ p.title }}</h3>
+
+            <div class="pos-meta-row">
+              <span class="pos-meta-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                {{ p.location }}
+              </span>
+              <span class="pos-meta-sep">·</span>
+              <span class="pos-meta-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                {{ p.type }}
+              </span>
+            </div>
+
+            <p class="position-desc">{{ p.description }}</p>
+
+            <a :href="p.href" target="_blank" rel="noopener" class="position-apply" :class="getRoleTheme(p.department)">
+              Apply Now <span aria-hidden>→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section container">
+    <div class="faq-block">
+      <div class="faq-head">
+        <span class="tag">FAQs</span>
+        <h2 class="section-title">{{ career.faqs.title }}</h2>
+        <p class="section-lead">{{ career.faqs.subtitle }}</p>
+      </div>
+      <div class="faq-list">
+        <button
+          v-for="(item, i) in career.faqs.items"
+          :key="i"
+          class="faq-item"
+          :class="{ open: openFaq === i }"
+          @click="toggleFaq(i)"
+          :aria-expanded="openFaq === i"
+        >
+          <span class="faq-q">{{ item.question }}</span>
+          <span class="faq-toggle" aria-hidden>{{ openFaq === i ? '−' : '+' }}</span>
+          <p v-show="openFaq === i" class="faq-a">{{ item.answer }}</p>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <GlobalCTA title="Don't see the right role?" />
+</template>
+
+<style scoped>
+@import '@/styles/service-page.css';
+
+.careers-hero {
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  width: 100vw;
+  box-sizing: border-box;
+  padding: 0px 0 96px;
+  display: block;
+  background-color: #0E0F3B;
+  background-image: linear-gradient(90deg, #0e0f3b 0%, rgb(14 15 59 / 0%) 40%, rgb(14 15 59 / 0%) 70%, transparent 100%), url(/services/service-page/career.png);
+  background-size: 60% auto;
+  background-position: right 0% center;
+  background-repeat: no-repeat;
+  color: #ffffff;
+  min-height: 700px;
+  overflow: hidden;
+}
+
+.careers-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top right, rgba(9, 64, 123, 0.3), transparent 60%);
+  pointer-events: none;
+}
+
+.careers-hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+.careers-hero-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 10px 32px;
+}
+
+.careers-hero .service-hero-copy {
+  max-width: 720px;
+  animation: fade-slide-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fade-slide-up {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.careers-hero h1 {
+  color: #ffffff;
+  text-shadow: none;
+}
+
+.careers-hero .service-hero-copy h1 em {
+  color: #F7931E;
+}
+
+.careers-hero .service-hero-lede {
+  color: rgba(255,255,255,0.82);
+  text-shadow: none;
+  font-size: 19px;
+}
+
+.careers-hero .service-hero-features {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 32px;
+  list-style: none;
+  padding: 0;
+}
+
+.careers-hero .hero-feature {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: rgba(255,255,255,0.85);
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-shadow: none;
+}
+
+.careers-hero .hero-feature-check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #F7931E;
+  font-size: 13px;
+  font-weight: 800;
+  flex-shrink: 0;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+}
+
+.careers-hero .cta-row {
+  margin-top: 40px;
+}
+
+.careers-hero .btn-primary {
+  background: #F7931E;
+  color: #ffffff;
+  border: none;
+  box-shadow: 0 8px 24px rgba(247, 147, 30, 0.4);
+}
+
+.careers-hero .btn-primary:hover {
+  background: #e07d10;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(247, 147, 30, 0.5);
+}
+
+.careers-hero .btn-secondary {
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.careers-hero .btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255,255,255,0.7);
+  color: #ffffff;
+}
+
+@media (max-width: 960px) {
+  .careers-hero {
+    padding: 52px 24px 72px;
+    background-size: 100% auto;
+    background-position: top 20% center;
+     background-image: linear-gradient(90deg, #0e0f3b 0%, rgb(14 15 59 / 0%) 40%, rgb(14 15 59 / 0%) 70%, transparent 100%), url(/services/service-page/career.png);
+  
+  }
+}
+
+@media (max-width: 640px) {
+  .careers-hero {
+    min-height: auto;
+    padding: 260px 20px 60px;
+    background-image: none;
+    background-color: #0E0F3B;
+  }
+  .careers-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 280px;
+    background-image: url(/services/service-page/career.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    -webkit-mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+    pointer-events: none;
+  }
+  .careers-hero-inner {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .careers-hero .service-hero-copy h1 {
+    font-size: clamp(36px, 8vw, 48px);
+  }
+  .careers-hero .cta-row {
+    flex-direction: column;
+    gap: 16px;
+  }
+  .careers-hero .btn-primary,
+  .careers-hero .btn-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.benefit-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 32px 28px;
+  box-shadow: 0 16px 32px rgba(9, 64, 123, 0.04);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.benefit-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+  box-shadow: 0 20px 40px rgba(9, 64, 123, 0.1);
+}
+.benefit-mark {
+  display: inline-block;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 32px;
+  color: var(--accent);
+  margin-bottom: 14px;
+}
+.benefit-card h3 {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  color: var(--ink);
+}
+.benefit-card p {
+  font-size: 14px;
+  color: var(--ink-soft);
+  line-height: 1.6;
+}
+
+.positions-strip {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 100px 0;
+  scroll-margin-top: 80px;
+}
+.positions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+/* === POSITION CARDS (CARD STYLE) === */
+.positions-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 32px;
+}
+.position-card {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  min-height: 460px;
+}
+.position-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.1);
+}
+
+/* Colored top header strip */
+.position-card-header {
+  padding: 28px 28px 24px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  position: relative;
+  overflow: hidden;
+}
+.position-card-header.blue {
+  background: linear-gradient(135deg, #1c1915 0%, #2c241a 100%);
+}
+.position-card-header.green {
+  background: linear-gradient(135deg, #143369 0%, #7d6635 100%);
+}
+.position-card-header.purple {
+  background: linear-gradient(135deg, #3d2e1e 0%, #1e1812 100%);
+}
+.position-card-header::after {
+  content: '';
+  position: absolute;
+  right: -20px;
+  top: -20px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+}
+.pos-dept-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  flex-shrink: 0;
+  backdrop-filter: blur(4px);
+}
+.pos-dept-label {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.85);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  flex: 1;
+}
+.pos-type-pill {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 600;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 4px 12px;
+  border-radius: 99px;
+  white-space: nowrap;
+}
+
+/* Card body */
+.position-body {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.position-title {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+.pos-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.pos-meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ink-muted);
+  font-family: var(--sans);
+}
+.pos-meta-sep {
+  color: var(--ink-muted);
+  font-size: 12px;
+}
+.position-desc {
+  font-size: 14px;
+  color: var(--ink-soft);
+  line-height: 1.75;
+  flex: 1;
+  min-height: 130px;
+  margin-bottom: 24px;
+}
+.position-apply {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-family: var(--sans);
+  font-weight: 600;
+  color: #ffffff;
+  text-decoration: none;
+  align-self: flex-start;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease;
+}
+.position-apply.blue { background: #1c1915; }
+.position-apply.green { background: #143369; }
+.position-apply.purple { background: #3d2e1e; }
+.position-card:hover .position-apply {
+  transform: translateX(4px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* FAQ Font Standardizations */
+.faq-q {
+  font-family: var(--sans);
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--ink);
+  transition: color 0.2s;
+}
+.faq-item.open .faq-q {
+  color: var(--accent);
+}
+.faq-toggle {
+  font-size: 24px;
+  color: var(--ink-muted);
+  line-height: 1;
+  transition: color 0.2s;
+}
+.faq-item.open .faq-toggle {
+  color: var(--accent);
+}
+.faq-a {
+  grid-column: 1 / -1;
+  margin-top: 14px;
+  font-size: 15px;
+  color: var(--ink-soft);
+  line-height: 1.65;
+}
+
+@media (max-width: 1024px) {
+  .benefits-grid { grid-template-columns: 1fr 1fr; }
+  .positions-list { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px) {
+  .benefits-grid { grid-template-columns: 1fr; }
+  .positions-list { grid-template-columns: 1fr; }
+}
+</style>

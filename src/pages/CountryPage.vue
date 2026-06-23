@@ -1,0 +1,608 @@
+<script setup lang="ts">
+import { ref, computed, watch, onMounted } from 'vue'
+import { useRoute, RouterLink } from 'vue-router'
+import { COUNTRY_CONFIG, loadCountryData } from '@/data/country-config'
+import type { CountryData, ServiceType } from '@/data/country-config'
+
+const route = useRoute()
+
+const config = computed(() => COUNTRY_CONFIG[route.path])
+const data = ref<CountryData | null>(null)
+
+const openFaq = ref(0)
+function toggleFaq(i: number) {
+  openFaq.value = openFaq.value === i ? -1 : i
+}
+
+function load() {
+  openFaq.value = 0
+  if (config.value) {
+    data.value = loadCountryData(config.value.dataKey)
+    if (data.value) {
+      document.title = `${data.value.metadata.title} - Jackson & Frank`
+    }
+  } else {
+    data.value = null
+  }
+}
+
+onMounted(load)
+watch(() => route.path, () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' })
+  load()
+})
+
+const isEor = computed(() => config.value?.type === 'eor')
+
+function howSteps(type: ServiceType, country: string) {
+  if (type === 'eor') {
+    return [
+      { title: 'Agree scope', description: `Tell us your hiring needs and we'll share the best solution.` },
+      { title: 'Onboard compliantly', description: `We handle contracts, payroll, benefits, and compliance from day one.` },
+      { title: 'Start your hire', description: `Your new hire is ready to contribute while we manage the rest.` },
+    ]
+  }
+  return [
+    { title: 'Draft the agreement', description: `Compliant contractor agreements aligned to ${country} classification rules.` },
+    { title: 'Process payments', description: `Accurate, on-time payments to contractors in ${country} in local currency.` },
+    { title: 'Stay compliant', description: `We monitor classification and tax requirements to reduce misclassification risk.` },
+  ]
+}
+
+const stats = [
+  { value: '160+', label: 'Countries', desc: 'we serve', icon: 'globe' },
+  { value: '12+', label: 'Years of global', desc: 'experience', icon: 'experience' },
+  { value: '50,000+', label: 'Employees', desc: 'onboarded globally', icon: 'users' },
+  { value: '2–3 days', label: 'Average', desc: 'onboarding time', icon: 'clock' },
+  { value: '98%', label: 'Client satisfaction', desc: 'rate', icon: 'shield' },
+]
+
+const whyFeatures = [
+  { title: 'Strong economy', desc: 'One of the most stable and prosperous economies in Europe with a high standard of living.', icon: 'chart' },
+  { title: 'Access to Europe', desc: 'Strategically located with excellent infrastructure and access to the EU single market.', icon: 'globe' },
+  { title: 'Innovative workforce', desc: 'A highly educated, diverse and English-proficient talent pool across industries.', icon: 'users' },
+  { title: 'Business friendly', desc: 'Transparent regulations, competitive tax structure, and a business-friendly environment.', icon: 'shield' }
+]
+
+const resources = [
+  { tag: 'GUIDE', title: 'The Ultimate Guide to EOR', label: 'Read more', icon: 'book' },
+  { tag: 'CHECKLIST', title: 'Compliance Checklist', label: 'Read more', icon: 'clipboard' },
+  { tag: 'ARTICLE', title: 'Payroll Rules & Best Practices', label: 'Read more', icon: 'document' },
+  { tag: 'CASE STUDY', title: 'How We Helped a SaaS Company Expand Globally', label: 'Read more', icon: 'user' }
+]
+</script>
+
+<template>
+  <template v-if="config && data">
+    <!-- ============= HERO ============= -->
+    <header class="cp-hero" :style="{ backgroundImage: 'linear-gradient(90deg, #0e0f3b 0%, rgba(14, 15, 59, 0.8) 40%, rgba(14, 15, 59, 0) 70%, transparent 100%), url(' + config.image + ')' }">
+      <div class="container cp-hero-inner">
+        <div class="cp-hero-copy">
+          <h1 class="cp-hero-title">
+            <template v-if="isEor">
+              Hire in <em class="gold-text">{{ config.name }}</em><br/>without an entity
+            </template>
+            <template v-else>
+              Pay contractors in<br/><em class="gold-text">{{ config.name }}</em>
+            </template>
+          </h1>
+          
+          <p class="cp-hero-desc">
+            {{ isEor ? `Compliant, fast and hassle-free hiring in ${config.name}. Hire top talent in just a few days - without setting up a local entity.` : data.metadata.description }}
+          </p>
+          
+          <div class="cp-hero-actions">
+            <RouterLink
+              :to="`/contact?reason=${isEor ? 'eor_services' : 'contractor_management'}`"
+              class="btn-primary-solid"
+            >
+              {{ isEor ? `Hire in ${config.name}` : 'Manage contractors' }} <span class="arrow">→</span>
+            </RouterLink>
+            <RouterLink to="/contact?reason=consultation" class="btn-outline-gold">
+              Book a call
+            </RouterLink>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ============= STATS BANNER ============= -->
+    <section class="cp-stats-banner">
+      <div class="container cp-stats-grid">
+        <div v-for="(s, i) in stats" :key="i" class="cp-stat-item">
+          <div class="cp-stat-icon">
+            <svg v-if="s.icon === 'globe'" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
+            <svg v-if="s.icon === 'experience'" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <svg v-if="s.icon === 'users'" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <svg v-if="s.icon === 'clock'" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <svg v-if="s.icon === 'shield'" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+          </div>
+          <div class="cp-stat-text">
+            <span class="cp-stat-val">{{ s.value }}</span>
+            <span class="cp-stat-label">{{ s.label }}</span>
+            <span class="cp-stat-desc">{{ s.desc }}</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============= WHY HIRE ============= -->
+    <section class="cp-section cp-bg-light cp-first-section">
+      <div class="container">
+        <div class="cp-section-header">
+          <span class="cp-tag">WHY HIRE IN {{ config.name.toUpperCase() }}</span>
+          <h2 class="cp-section-title">A strategic hub for <em class="gold-text">global business</em></h2>
+        </div>
+        
+        <div class="cp-why-grid">
+          <div v-for="(feat, i) in whyFeatures" :key="i" class="cp-why-card">
+            <div class="cp-why-icon">
+              <svg v-if="feat.icon === 'chart'" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/><path d="M9 15h12"/><path d="M9 11h12"/><path d="M9 19h12"/></svg>
+              <svg v-if="feat.icon === 'globe'" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
+              <svg v-if="feat.icon === 'users'" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              <svg v-if="feat.icon === 'shield'" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+            </div>
+            <h3 class="cp-why-title">{{ feat.title }}</h3>
+            <p class="cp-why-desc">{{ feat.desc }}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============= HOW IT WORKS ============= -->
+    <section class="cp-section">
+      <div class="container">
+        <div class="cp-section-header">
+          <span class="cp-tag">HOW IT WORKS</span>
+          <h2 class="cp-section-title">
+            {{ isEor ? 'Hiring' : 'Engaging contractors' }} in <em class="gold-text">{{ config.name }}</em>, in 3 simple steps
+          </h2>
+        </div>
+        
+        <div class="cp-timeline">
+          <div class="cp-timeline-line"></div>
+          <div v-for="(step, i) in howSteps(config.type, config.name)" :key="i" class="cp-timeline-step">
+            <div class="cp-timeline-num">0{{ i + 1 }}</div>
+            <div class="cp-step-card">
+              <div class="cp-step-icon">
+                <svg v-if="i === 0" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                <svg v-if="i === 1" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+                <svg v-if="i === 2" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+              <div class="cp-step-content">
+                <h3 class="cp-step-title">{{ step.title }}</h3>
+                <p class="cp-step-desc">{{ step.description }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============= EXPLORE RESOURCES ============= -->
+    <section class="cp-section cp-bg-light">
+      <div class="container">
+        <div class="cp-section-header">
+          <span class="cp-tag">EXPLORE MORE RESOURCES</span>
+        </div>
+        
+        <div class="cp-resources-grid">
+          <div v-for="(res, i) in resources" :key="i" class="cp-resource-card">
+            <div class="cp-resource-top">
+              <span class="cp-resource-tag">{{ res.tag }}</span>
+              <h3 class="cp-resource-title">{{ res.title }}</h3>
+              <RouterLink to="/blog" class="cp-resource-link">{{ res.label }} &rarr;</RouterLink>
+            </div>
+            <div class="cp-resource-icon">
+              <svg v-if="res.icon === 'book'" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+              <svg v-if="res.icon === 'clipboard'" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><line x1="9" y1="10" x2="15" y2="10"/><line x1="9" y1="14" x2="15" y2="14"/><line x1="9" y1="18" x2="15" y2="18"/></svg>
+              <svg v-if="res.icon === 'document'" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+              <svg v-if="res.icon === 'user'" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============= FAQ ============= -->
+    <section class="section container">
+      <div class="faq-block">
+        <div class="faq-head">
+          <span class="tag">FAQs</span>
+          <h2 class="section-title">{{ data.faqs.title }}</h2>
+          <p class="section-lead">{{ data.faqs.subtitle }}</p>
+        </div>
+        <div class="faq-list">
+          <button
+            v-for="(item, i) in data.faqs.items"
+            :key="i"
+            class="faq-item"
+            :class="{ open: openFaq === i }"
+            @click="toggleFaq(i)"
+            :aria-expanded="openFaq === i"
+          >
+            <span class="faq-q">{{ item.question }}</span>
+            <span class="faq-toggle" aria-hidden>{{ openFaq === i ? '−' : '+' }}</span>
+            <p v-show="openFaq === i" class="faq-a">{{ item.answer }}</p>
+          </button>
+        </div>
+      </div>
+    </section>
+  </template>
+
+  <!-- Fallback if route/data missing -->
+  <div v-else class="container country-missing">
+    <span class="cp-tag">Country not found</span>
+    <h1 class="cp-section-title">We couldn't load this <em class="gold-text">country page</em></h1>
+    <RouterLink to="/employer-of-record" class="btn-primary-solid" style="margin-top: 24px;">
+      Browse all services <span class="arrow">→</span>
+    </RouterLink>
+  </div>
+</template>
+
+<style scoped>
+@import '@/styles/service-page.css';
+
+/* HERO */
+.cp-hero {
+  background-color: #0E0F3B;
+  background-size: cover;
+  background-position: right center;
+  padding: 100px 0 140px; /* Increased bottom padding for banner overlap */
+  color: #ffffff;
+}
+.cp-hero-inner {
+  display: block;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+.cp-hero-copy {
+  max-width: 600px;
+}
+.cp-hero-tag {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 6px 12px;
+  border-radius: 99px;
+  margin-bottom: 24px;
+}
+.cp-hero-flag {
+  width: 20px;
+  height: 14px;
+  border-radius: 2px;
+  margin-right: 8px;
+  object-fit: cover;
+}
+.cp-hero-tag-text {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #F7931E;
+}
+.cp-hero-title {
+  font-family: var(--serif);
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 1.1;
+  color: #ffffff;
+  margin-bottom: 24px;
+}
+.gold-text {
+  color: #F7931E;
+  font-style: italic;
+  font-weight: 400;
+}
+.cp-hero-desc {
+  font-size: 16px;
+  color: rgba(255,255,255,0.85);
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+.cp-hero-actions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+.btn-primary-solid {
+  background: #F7931E;
+  color: #ffffff;
+  padding: 14px 28px;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.3s ease;
+  border: none;
+  box-shadow: 0 8px 24px rgba(247, 147, 30, 0.4);
+}
+.btn-primary-solid:hover {
+  background: #e07d10;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(247, 147, 30, 0.5);
+}
+.btn-primary-solid .arrow {
+  margin-left: 8px;
+}
+.btn-outline-gold {
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #ffffff;
+  padding: 14px 28px;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  background: transparent;
+}
+.btn-outline-gold:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255,255,255,0.7);
+}
+
+/* STATS BANNER */
+.cp-stats-banner {
+  background: rgba(14, 15, 59, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 40px 0;
+  color: #fff;
+  border-radius: 24px;
+  margin: -80px auto -80px; /* Pulls up into hero, pulls next section up behind it */
+  max-width: 1200px;
+  position: relative;
+  z-index: 10;
+  box-shadow: 0 24px 48px rgba(0,0,0,0.15);
+}
+.cp-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  padding: 0 40px;
+}
+.cp-stat-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border-right: 1px solid rgba(255,255,255,0.1);
+}
+.cp-stat-item:last-child {
+  border-right: none;
+}
+.cp-stat-icon {
+  color: #F7931E;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cp-stat-text {
+  display: flex;
+  flex-direction: column;
+}
+.cp-stat-val {
+  font-size: 24px;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.1;
+  margin-bottom: 2px;
+}
+.cp-stat-label {
+  font-size: 11px;
+  color: #fff;
+  font-weight: 500;
+}
+.cp-stat-desc {
+  font-size: 11px;
+  color: rgba(255,255,255,0.7);
+}
+
+/* GENERAL SECTION */
+.cp-section {
+  padding: 80px 0;
+}
+.cp-bg-light {
+  background: #f4f6f9; /* Soft cool grey instead of white */
+}
+.cp-first-section {
+  padding-top: 160px; /* 80px original + 80px to clear the banner overlap */
+}
+.cp-section-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+.cp-tag {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  color: var(--accent);
+  display: block;
+  margin-bottom: 16px;
+}
+.cp-section-title {
+  font-family: var(--serif);
+  font-size: 36px;
+  font-weight: 400;
+  color: #111;
+}
+
+/* WHY HIRE GRID */
+.cp-why-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+.cp-why-card {
+  text-align: center;
+}
+.cp-why-icon {
+  width: 64px;
+  height: 64px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #143369;
+  margin: 0 auto 24px;
+}
+.cp-why-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 12px;
+}
+.cp-why-desc {
+  font-size: 13px;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* TIMELINE */
+.cp-timeline {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.cp-timeline-line {
+  position: absolute;
+  top: 16px;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: #e5e7eb;
+  z-index: 1;
+}
+.cp-timeline-step {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+.cp-timeline-num {
+  width: 32px;
+  height: 32px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  margin: 0 auto 32px;
+}
+.cp-step-card {
+  background: #fff;
+  border: 1px solid #f0f0f0;
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  text-align: left;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+}
+.cp-step-icon {
+  color: #111;
+  border: 1px solid #f0f0f0;
+  border-radius: 8px;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.cp-step-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 8px;
+}
+.cp-step-desc {
+  font-size: 12px;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* RESOURCES */
+.cp-resources-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.cp-resource-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 24px;
+  border: 1px solid #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 220px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s;
+}
+.cp-resource-card:hover {
+  border-color: #e5e7eb;
+}
+.cp-resource-tag {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  background: var(--accent-soft);
+  padding: 4px 8px;
+  border-radius: 4px;
+  display: inline-block;
+  margin-bottom: 16px;
+}
+.cp-resource-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #111;
+  line-height: 1.4;
+  margin-bottom: 24px;
+}
+.cp-resource-link {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+}
+.cp-resource-icon {
+  position: absolute;
+  bottom: -8px;
+  right: -8px;
+  color: #e5e7eb;
+  opacity: 0.5;
+  transform: scale(1.5);
+}
+
+.country-missing {
+  padding: 200px 0 120px;
+  text-align: center;
+}
+.country-missing .cp-tag { margin-bottom: 12px; display: block; }
+.country-missing h1 { margin-bottom: 28px; }
+
+@media (max-width: 1024px) {
+  .cp-stats-grid { grid-template-columns: repeat(3, 1fr); padding: 0 20px; }
+  .cp-why-grid, .cp-resources-grid { grid-template-columns: repeat(2, 1fr); }
+  .cp-timeline { grid-template-columns: 1fr; }
+  .cp-timeline-line { display: none; }
+}
+@media (max-width: 768px) {
+  .cp-stats-grid { grid-template-columns: 1fr; }
+  .cp-why-grid, .cp-resources-grid { grid-template-columns: 1fr; }
+  .cp-stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 16px; }
+  .cp-stat-item:last-child { border-bottom: none; padding-bottom: 0; }
+}
+</style>

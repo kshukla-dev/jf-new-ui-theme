@@ -1,0 +1,140 @@
+<script setup lang="ts">
+import { RouterLink } from 'vue-router'
+
+const groups = [
+  {
+    title: 'Services',
+    links: [
+      { label: 'Employer of Record', to: '/employer-of-record' },
+      { label: 'Payroll', to: '/payroll' },
+      { label: 'Compliance', to: '/compliance' },
+      { label: 'Immigration', to: '/immigration' },
+      { label: 'Contractor management', to: '/contractor' },
+    ],
+  },
+  {
+    title: 'Company',
+    links: [
+      { label: 'About us', to: '/about-us' },
+      { label: 'Our advantages', to: '/advantages' },
+      { label: 'Client testimonials', to: '/testimonials' },
+      { label: 'Careers', to: '/career' },
+      { label: 'Contact us', to: '/contact' },
+    ],
+  },
+  {
+    title: 'Resources',
+    links: [
+      { label: 'Blog', to: '/blog' },
+      { label: 'Case studies', to: '/case-studies' },
+      { label: 'Global hiring guide', to: '/global-hiring-guide' },
+      { label: 'Events', to: '/events' },
+      { label: 'Cost calculator', to: '/cost-calculator' },
+      { label: 'FAQs', to: '/faq' },
+    ],
+  },
+  {
+    title: 'Countries - EOR',
+    links: [
+      { label: 'The Netherlands', to: '/netherlands' },
+      { label: 'Germany', to: '/germany' },
+      { label: 'United Kingdom', to: '/united-kingdom' },
+      { label: 'France', to: '/france' },
+      { label: 'Italy', to: '/italy' },
+      { label: 'Spain', to: '/spain' },
+      { label: 'Belgium', to: '/belgium' },
+      { label: 'Poland', to: '/poland' },
+      { label: 'Czech Republic', to: '/czech-republic' },
+      { label: 'India', to: '/india' },
+      { label: 'UAE', to: '/uae' },
+      { label: 'China', to: '/china' },
+      { label: 'Hong Kong', to: '/hong-kong' },
+    ],
+  },
+  {
+    title: 'Countries - Contractor',
+    links: [
+      { label: 'The Netherlands', to: '/netherlands-contractor' },
+      { label: 'Germany', to: '/germany-contractor' },
+      { label: 'United Kingdom', to: '/united-kingdom-contractor' },
+      { label: 'France', to: '/france-contractor' },
+      { label: 'Italy', to: '/italy-contractor' },
+      { label: 'Spain', to: '/spain-contractor' },
+      { label: 'Belgium', to: '/belgium-contractor' },
+      { label: 'Poland', to: '/poland-contractor' },
+      { label: 'Czech Republic', to: '/czech-republic-contractor' },
+      { label: 'India', to: '/india-contractor' },
+      { label: 'UAE', to: '/uae-contractor' },
+    ],
+  },
+  {
+    title: 'Legal',
+    links: [
+      { label: 'Privacy policy', to: '/privacy-policy' },
+      { label: 'Unsubscribe', to: '/unsubscribe' },
+    ],
+  },
+]
+</script>
+
+<template>
+  <header class="container sm-hero">
+    <h1 class="section-title">Everything on <em>one page</em></h1>
+    <p>Browse all pages across Jackson &amp; Frank.</p>
+  </header>
+
+  <section class="section container">
+    <div class="sm-grid">
+      <div v-for="g in groups" :key="g.title" class="sm-group">
+        <h2>{{ g.title }}</h2>
+        <ul>
+          <li v-for="l in g.links" :key="l.to">
+            <RouterLink :to="l.to">{{ l.label }}</RouterLink>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</template>
+
+<style scoped>
+@import '@/styles/service-page.css';
+
+.sm-hero {
+  padding: 140px 32px 40px;
+  text-align: center;
+  max-width: 760px;
+}
+.sm-hero .tag { margin-bottom: 16px; }
+.sm-hero .section-title { margin-bottom: 16px; }
+.sm-hero p { font-size: 17px; color: var(--ink-soft); }
+
+.sm-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+.sm-group h2 {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 400;
+  margin-bottom: 18px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+.sm-group ul { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.sm-group a {
+  font-size: 14px;
+  color: var(--ink-soft);
+  transition: color 0.2s, padding-left 0.2s;
+}
+.sm-group a:hover { color: var(--accent); padding-left: 4px; }
+
+@media (max-width: 900px) {
+  .sm-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px) {
+  .sm-hero { padding-top: 110px; }
+  .sm-grid { grid-template-columns: 1fr; }
+}
+</style>
