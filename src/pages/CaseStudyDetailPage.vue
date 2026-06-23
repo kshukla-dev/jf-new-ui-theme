@@ -122,7 +122,7 @@ watch(slug, () => window.scrollTo({ top: 0, behavior: 'smooth' }))
 <style scoped>
 @import '@/styles/service-page.css';
 
-.cs-detail { padding-top: 120px; }
+.cs-detail { padding-top: 20px; }
 .cs-breadcrumb {
   display: flex;
   gap: 8px;
@@ -237,5 +237,37 @@ watch(slug, () => window.scrollTo({ top: 0, behavior: 'smooth' }))
 @media (max-width: 900px) {
   .cs-other-grid { grid-template-columns: 1fr; }
   .cs-quote { padding: 32px 28px; font-size: 20px; }
+}
+
+@media (max-width: 768px) {
+  .cs-breadcrumb {
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+  }
+  .cs-detail-header {
+    margin-bottom: 32px;
+  }
+  .cs-detail-header h1 {
+    font-size: 32px;
+    margin-bottom: 16px;
+  }
+  .cs-detail-excerpt {
+    font-size: 16px;
+  }
+  .cs-detail-body {
+    margin: 48px auto 0;
+  }
+  .cs-section {
+    margin-bottom: 32px;
+  }
+  .cs-quote {
+    margin: 40px 0 0;
+    padding: 24px;
+    font-size: 18px;
+    border-radius: var(--radius);
+  }
+  .cs-other-grid {
+    margin-top: 24px;
+  }
 }
 </style>
