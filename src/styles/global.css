@@ -185,7 +185,7 @@ small, .small-text {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  transition: transform 0.2s, background 0.2s, color 0.2s, border-color 0.2s;
+  transition: all 0.3s ease;
   cursor: pointer;
   border: none;
   white-space: nowrap;
@@ -206,7 +206,7 @@ small, .small-text {
 
 .btn-primary:hover {
   background: #e07d10;
-  transform: translateY(-1px);
+  transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(247, 147, 30, 0.45);
 }
 
@@ -219,11 +219,13 @@ small, .small-text {
 .btn-secondary:hover {
   background: var(--ink);
   color: var(--bg);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
 .btn-primary .arrow,
 .btn-secondary .arrow {
-  transition: transform 0.3s;
+  transition: transform 0.3s ease;
 }
 
 .btn-primary:hover .arrow,
@@ -242,7 +244,8 @@ small, .small-text {
 
 .btn-contact:hover {
   background: #e07d10;
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(247, 147, 30, 0.45);
 }
 
 .section {

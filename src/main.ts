@@ -16,9 +16,16 @@ export const createApp = ViteSSG(
   ({ app, router, head, isClient }) => {
     // Custom setup hooks here if needed.
     router.beforeEach((to, from, next) => {
-      const title = (to.meta?.title as string | undefined) ?? 'Hire talent, anywhere'
+      const titleStr = (to.meta?.title as string | undefined) ?? 'Hire talent, anywhere'
+      const title = `Jackson & Frank - ${titleStr}`
       if (head) {
-        head.push({ title })
+        head.push({
+          title,
+          meta: [
+            { name: 'description', content: 'Why should borders limit your business? Hire the best talent worldwide with fast, compliant, and hassle-free global HR solutions.' },
+            { property: 'og:title', content: title }
+          ]
+        })
       }
       next()
     })

@@ -18,7 +18,12 @@ function toggleTheme() {
   }
 }
 const mobileOpen = ref(false)
+const isScrolled = ref(false)
 let closeTimer: ReturnType<typeof setTimeout> | null = null
+
+function handleScroll() {
+  isScrolled.value = window.scrollY > 20
+}
 
 watch(mobileOpen, (val) => {
   if (val) {
@@ -66,6 +71,7 @@ function handleKey(e: KeyboardEvent) {
 onBeforeUnmount(() => {
   document.removeEventListener('mousedown', handleOutside)
   document.removeEventListener('keydown', handleKey)
+  window.removeEventListener('scroll', handleScroll)
 })
 
 const services = ref(navigation.navbar.services.items)
@@ -112,6 +118,8 @@ const previewMap = ref<Record<Exclude<DropdownKey, null>, Preview>>({
 onMounted(async () => {
   document.addEventListener('mousedown', handleOutside)
   document.addEventListener('keydown', handleKey)
+  window.addEventListener('scroll', handleScroll, { passive: true })
+  handleScroll()
   
   // Fetch dynamic service navigation from Sanity
   // const sanityNav = await fetchServiceNavigation()
@@ -133,7 +141,7 @@ const currentPreview = computed(() =>
 <template>
   <div class="nav-wrapper">
     <div class="nav-placeholder"></div>
-    <nav>
+    <nav :class="{ 'scrolled': isScrolled }">
       <div class="container nav-inner">
         <!-- Logo (left) -->
         <RouterLink to="/" class="logo" @click="close">
@@ -346,9 +354,15 @@ nav {
   right: 0;
   width: 100%;
   z-index: 100;
-  backdrop-filter: blur(12px);
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+nav.scrolled {
   background: var(--header-bg);
+  backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 .nav-inner {
   display: grid;
@@ -607,8 +621,8 @@ nav {
   top: 0;
   bottom: 0;
   right: 0;
-  width: 85%;
-  max-width: 400px;
+  width: 100%;
+  max-width: 100%;
   background: var(--bg);
   z-index: 200;
   padding: 80px 32px 32px;
@@ -641,9 +655,12 @@ nav {
 .mobile-section a {
   font-size: 16px;
   color: var(--ink);
-  padding: 10px 0;
+  padding: 12px 0;
   border-bottom: 1px solid var(--border);
   text-decoration: none;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
 }
 .mobile-cta {
   align-self: flex-start;

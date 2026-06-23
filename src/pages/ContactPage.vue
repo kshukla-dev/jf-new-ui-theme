@@ -18,6 +18,7 @@ const form = reactive({
 
 const status = ref<'idle' | 'sending' | 'success' | 'error'>('idle')
 const errorMessage = ref('')
+const showValidation = ref(false)
 
 // Pre-select reason from ?reason= query
 onMounted(() => {
@@ -35,11 +36,13 @@ async function handleSubmit(e: Event) {
 
   if (!form.firstName || !form.lastName || !form.email || !form.message || !form.reason) {
     status.value = 'error'
+    showValidation.value = true
     errorMessage.value = 'Please fill in all required fields.'
     return
   }
   if (!form.consent) {
     status.value = 'error'
+    showValidation.value = true
     errorMessage.value = 'Please agree to the terms to continue.'
     return
   }
@@ -64,6 +67,7 @@ async function handleSubmit(e: Event) {
     })
 
     status.value = 'success'
+    showValidation.value = false
   }, 1200)
 }
 
@@ -137,7 +141,7 @@ function slide(direction: 'next' | 'prev') {
         <!-- Right Floating Form -->
         <div class="hero-right-form">
           <div class="floating-contact-form-card">
-            <form @submit="handleSubmit">
+            <form @submit="handleSubmit" :class="{ 'was-validated': showValidation }">
               <h2>Send us a message</h2>
 
               <!-- Success State -->
@@ -195,8 +199,9 @@ function slide(direction: 'next' | 'prev') {
                 <p v-if="status === 'error'" class="error-msg-banner">{{ errorMessage }}</p>
 
                 <button type="submit" class="submit-btn" :disabled="status === 'sending'">
+                  <span v-if="status === 'sending'" class="spinner"></span>
                   <span>{{ status === 'sending' ? 'Sending...' : 'Send Message' }}</span>
-                  <span class="arrow">→</span>
+                  <span v-if="status !== 'sending'" class="arrow">→</span>
                 </button>
 
                 <div class="form-footer-lock">
@@ -702,9 +707,24 @@ function slide(direction: 'next' | 'prev') {
 
 .form-field input:focus,
 .form-field select:focus,
-.form-field textarea:focus {
+.form-field textarea:focus,
+.form-field input:focus-visible,
+.form-field select:focus-visible,
+.form-field textarea:focus-visible {
   border-color: var(--accent);
   box-shadow: 0 0 0 3px rgba(20, 51, 105, 0.1);
+  outline: none;
+}
+
+form.was-validated .form-field input:invalid,
+form.was-validated .form-field select:invalid,
+form.was-validated .form-field textarea:invalid {
+  border-color: #b54234;
+  background-color: #fffaf9;
+}
+
+form.was-validated .custom-checkbox input:invalid + .checkmark {
+  border-color: #b54234;
 }
 
 .form-field textarea {
@@ -823,8 +843,27 @@ function slide(direction: 'next' | 'prev') {
   transition: background-color 0.2s, transform 0.2s;
 }
 
-.submit-btn:hover {
+.submit-btn:hover:not(:disabled) {
   background-color: #0e254e;
+}
+
+.submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
 }
 
 .submit-btn .arrow {
