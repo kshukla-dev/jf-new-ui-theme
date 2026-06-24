@@ -1,12 +1,14 @@
 <script setup lang="ts">
-import { onMounted } from 'vue'
+import { onMounted, onUnmounted, watch, nextTick } from 'vue'
 import { useHead } from '@unhead/vue'
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
+import Lenis from 'lenis'
 import Navbar from '@/components/layout/Navbar.vue'
 import Footer from '@/components/layout/Footer.vue'
 import ScrollToTop from '@/components/ui/ScrollToTop.vue'
 
 const router = useRouter()
+const route = useRoute()
 
 // Global metadata and SEO
 useHead({
@@ -38,17 +40,51 @@ useHead({
   ]
 })
 
+// Smooth Scrolling with Lenis
+let lenis: Lenis | null = null
+
+const initLenis = () => {
+  lenis = new Lenis({
+    autoRaf: true,
+  })
+}
+
 // Global fade-in on scroll
-onMounted(() => {
+const initObserver = () => {
   const observer = new IntersectionObserver(
-    (entries) => {
+    (entries, obs) => {
       entries.forEach((e) => {
-        if (e.isIntersecting) e.target.classList.add('visible')
+        if (e.isIntersecting) {
+          e.target.classList.add('visible')
+          obs.unobserve(e.target)
+        }
       })
     },
     { threshold: 0.1 }
   )
-  document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el))
+  document.querySelectorAll('.fade-in:not(.visible)').forEach((el) => observer.observe(el))
+}
+
+onMounted(() => {
+  initLenis()
+  initObserver()
+})
+
+onUnmounted(() => {
+  if (lenis) {
+    lenis.destroy()
+  }
+})
+
+watch(() => route.path, async () => {
+  await nextTick()
+  initObserver()
+  // Reset scroll to top instantly on route change
+  if (lenis) {
+    lenis.scrollTo(0, { immediate: true })
+  } else {
+    window.scrollTo(0, 0)
+  }
 })
 </script>
 
