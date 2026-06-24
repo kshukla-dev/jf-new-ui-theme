@@ -1452,6 +1452,19 @@ const getCountryDetails = (name: string) => {
   color: var(--accent);
 }
 
+@media (max-width: 1440px) {
+  .ghg-hero {
+    background-size: 80% auto;
+    background-position: right -5% center;
+  }
+}
+@media (max-width: 1280px) {
+  .ghg-hero {
+    background-size: 90% auto;
+    background-position: right -15% center;
+  }
+}
+
 @media (max-width: 1200px) {
   .cs-grid {
     grid-template-columns: repeat(3, 1fr);

@@ -316,6 +316,26 @@ const filteredFaqs = computed(() => {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
 }
 
+@media (max-width: 1440px) {
+  .advantages-hero {
+    background-size: 65% auto;
+  }
+}
+
+@media (max-width: 1280px) {
+  .advantages-hero {
+    background-size: 75% auto;
+    background-position: right -5% center;
+  }
+}
+
+@media (max-width: 1024px) {
+  .advantages-hero {
+    background-size: 85% auto;
+    background-position: right -15% center;
+  }
+}
+
 @media (max-width: 960px) {
   .advantages-hero {
     padding: 72px 24px 72px;

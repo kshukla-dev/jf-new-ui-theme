@@ -475,8 +475,8 @@ const resources = [
 .cp-timeline-line {
   position: absolute;
   top: 16px;
-  left: 10%;
-  right: 10%;
+  left: 16.5%;
+  right: 16.5%;
   height: 1px;
   background: #e5e7eb;
   z-index: 1;

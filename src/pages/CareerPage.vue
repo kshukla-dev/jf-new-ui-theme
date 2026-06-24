@@ -283,6 +283,26 @@ function getRoleTheme(dept: string) {
   color: #ffffff;
 }
 
+@media (max-width: 1440px) {
+  .careers-hero {
+    background-size: 65% auto;
+  }
+}
+
+@media (max-width: 1280px) {
+  .careers-hero {
+    background-size: 75% auto;
+    background-position: right -5% center;
+  }
+}
+
+@media (max-width: 1024px) {
+  .careers-hero {
+    background-size: 85% auto;
+    background-position: right -15% center;
+  }
+}
+
 @media (max-width: 960px) {
   .careers-hero {
     padding: 52px 24px 72px;

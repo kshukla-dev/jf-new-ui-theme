@@ -444,6 +444,27 @@ onUnmounted(() => {
   font-size: 12px;
 }
 
+@media (max-width: 1440px) {
+  .about-premium-hero {
+    background-size: 60% auto;
+    background-position: right -2% center;
+  }
+}
+
+@media (max-width: 1280px) {
+  .about-premium-hero {
+    background-size: 70% auto;
+    background-position: right -5% center;
+  }
+}
+
+@media (max-width: 1024px) {
+  .about-premium-hero {
+    background-size: 80% auto;
+    background-position: right -10% center;
+  }
+}
+
 @media (max-width: 960px) {
   .about-premium-hero {
     background-size: 70% auto;

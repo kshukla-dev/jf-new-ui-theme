@@ -508,10 +508,11 @@ async function submitNewsletter(e: Event) {
 /* Hero Floating Cards */
 .hero-floating-cards {
     position: absolute;
-    right: 30px;
-    top: -60px;
+    right: -20px;
+    top: 0;
     bottom: 0;
-    width: 0;
+    width: 55%;
+    max-width: 700px;
     pointer-events: none;
     z-index: 2;
 }
@@ -572,9 +573,9 @@ async function submitNewsletter(e: Event) {
   font-size: 9px;
   color: var(--ink-muted);
 }
-.card-1 { top: 25%; right: 25%; }
-.card-2 { top: 55%; left: 10%; }
-.card-3 { bottom: 10%; right: 15%; }
+.card-1 { top: 20%; right: 0%; }
+.card-2 { top: 48%; left: 15%; }
+.card-3 { bottom: 12%; right: 15%; }
 
 
 /* ============= TOOLBAR ============= */
@@ -1048,6 +1049,41 @@ async function submitNewsletter(e: Event) {
 }
 
 /* ============= RESPONSIVE ============= */
+@media (max-width: 1440px) {
+  .hero-floating-cards {
+    width: 45%;
+  }
+  .float-card {
+    max-width: 200px;
+  }
+  .card-1 { top: 20%; right: 10%; }
+  .card-2 { top: 50%; left: 5%; }
+  .card-3 { bottom: 10%; right: 20%; }
+}
+@media (max-width: 1280px) {
+  .blog-hero {
+    padding: 160px 0 80px;
+  }
+  .blog-hero-content {
+    max-width: 500px;
+  }
+  .hero-floating-cards {
+    width: 40%;
+  }
+  .float-card {
+    max-width: 180px;
+  }
+  .float-card-img-wrap {
+    width: 36px;
+    height: 36px;
+  }
+  .float-card-title {
+    font-size: 9px;
+  }
+  .card-1 { top: 20%; right: 5%; }
+  .card-2 { top: 50%; left: 0%; }
+  .card-3 { bottom: 10%; right: 10%; }
+}
 @media (max-width: 1024px) {
   .hero-floating-cards { display: none; }
   .blog-main-layout {
