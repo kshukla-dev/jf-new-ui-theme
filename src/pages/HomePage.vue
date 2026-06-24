@@ -636,8 +636,7 @@ const globalDestinations = [
         </RouterLink>
       </div>
 
-      <div class="resources-footer">
-     </div>
+
     </div>
   </section>
 
