@@ -108,7 +108,7 @@ defineProps<{
 
 .cta-banner h2 {
   color: var(--ink, #061639);
-  font-family: var(--gh-serif, 'DM Serif Display', serif);
+  font-family: var(--serif);
   font-size: 44px;
   margin-bottom: 16px;
   letter-spacing: -0.03em;
@@ -138,7 +138,7 @@ defineProps<{
 }
 
 .cta-eyebrow-text {
-  font-family: var(--gh-sans, 'DM Sans', sans-serif);
+  font-family: var(--sans);
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.18em;
@@ -192,7 +192,7 @@ defineProps<{
 }
 
 .cta-card-new h3 {
-  font-family: var(--gh-serif, 'DM Serif Display', serif);
+  font-family: var(--serif);
   font-size: 28px;
   color: #061639;
   font-weight: 500;
@@ -201,7 +201,7 @@ defineProps<{
 }
 
 .cta-card-subtitle {
-  font-family: var(--gh-sans, 'DM Sans', sans-serif);
+  font-family: var(--sans);
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
@@ -217,7 +217,7 @@ defineProps<{
 }
 
 .cta-card-new p {
-  font-family: var(--gh-sans, 'DM Sans', sans-serif);
+  font-family: var(--sans);
   font-size: 13.5px;
   color: #666;
   line-height: 1.5;
