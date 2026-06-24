@@ -587,6 +587,39 @@
 }
 
 /* ============= RESPONSIVE ============= */
+@media (max-width: 1440px) {
+  .eor-hero-title {
+    font-size: 48px;
+  }
+  .eor-hero-content {
+    max-width: 760px;
+    padding: 40px 20px 40px;
+  }
+  .what-is-eor {
+    margin-top: -220px;
+  }
+}
+
+@media (max-width: 1280px) {
+  .eor-hero-title {
+    font-size: 44px;
+    line-height: 1.15;
+  }
+  .eor-hero-desc {
+    font-size: 17px;
+    max-width: 520px;
+  }
+  .eor-hero-content {
+    max-width: 700px;
+    padding: 30px 20px 30px;
+  }
+  .what-is-eor {
+    gap: 40px;
+    padding: 60px 48px;
+    margin-top: -180px;
+  }
+}
+
 @media (max-width: 1024px) {
   .what-is-eor {
     grid-template-columns: 1fr;

@@ -1118,6 +1118,23 @@ const globalDestinations = [
   opacity: 0.75;
 }
 
+@media (max-width: 1440px) {
+  .home-hero {
+    background-size: 65% auto;
+  }
+}
+@media (max-width: 1280px) {
+  .home-hero {
+    background-size: 75% auto;
+    background-position: right -5% center;
+  }
+}
+@media (max-width: 1024px) {
+  .home-hero {
+    background-size: 85% auto;
+    background-position: right -10% center;
+  }
+}
 @media (max-width: 960px) {
   .home-hero {
     padding: 72px 24px 72px;
