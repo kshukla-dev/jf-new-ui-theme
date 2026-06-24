@@ -1377,7 +1377,6 @@ const globalDestinations = [
   margin-bottom: 20px;
 }
 .sa-title {
-  font-family: var(--sans);
   font-size: clamp(36px, 4vw, 54px);
   line-height: 1.1;
   letter-spacing: -0.01em;
