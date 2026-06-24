@@ -208,6 +208,12 @@
   border-radius: calc(var(--radius-lg) * 1.2);
   overflow: hidden;
   min-height: 650px;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease;
+}
+
+.service-hero-visual:hover {
+  transform: scale(1.015);
+  box-shadow: 0 30px 60px rgba(15, 23, 42, 0.12);
 }
 
 .service-hero-visual.hero-visual-bg {
@@ -354,6 +360,13 @@
   border-radius: var(--radius);
   padding: 36px 32px;
   position: relative;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+}
+
+.how-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+  border-color: var(--accent-sky);
 }
 
 .how-card-num {
@@ -417,6 +430,13 @@
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 32px;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+}
+
+.included-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+  border-color: var(--accent-sky);
 }
 
 .included-card-mark {
@@ -463,6 +483,13 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+}
+
+.comparison-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+  border-color: var(--accent-sky);
 }
 
 .comparison-card.is-featured {
@@ -577,7 +604,12 @@
   font-weight: 400;
   line-height: 1.3;
   color: var(--ink);
-  transition: color 0.2s;
+  transition: color 0.2s, transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.faq-item:hover .faq-q {
+  color: var(--accent);
+  transform: translateX(6px);
 }
 
 .faq-item.open .faq-q {
