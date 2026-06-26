@@ -169,6 +169,13 @@ const globalDestinations = [
   { id: 'in', name: 'India', flag: '🇮🇳', icon: 'https://hatscripts.github.io/circle-flags/flags/in.svg', image: 'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&q=80&w=400', desc: 'Hire top tech talent in India fully compliantly.', price: '$299' },
   { id: 'ae', name: 'UAE', flag: '🇦🇪', icon: 'https://hatscripts.github.io/circle-flags/flags/ae.svg', image: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&q=80&w=400', desc: 'Set up your remote team in the UAE.', price: '$599' }
 ]
+
+const latestBlogs = (blogs.posts || []).slice(0, 3)
+const formatBlogDate = (dateStr: string) => {
+  if (!dateStr) return ''
+  const d = new Date(dateStr)
+  return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
+}
 </script>
 
 <template>
@@ -182,7 +189,7 @@ const globalDestinations = [
           Why should borders limit your business? Hire the best talent worldwide with fast, compliant, and hassle-free global HR solutions.
         </p>
         <div class="hero-pill-row">
-          <a href="/eor" class="hero-pill">EOR</a>
+          <a href="/employer-of-record" class="hero-pill">EOR</a>
           <a href="/compliance" class="hero-pill">Compliance</a>
           <a href="/payroll" class="hero-pill">Payroll</a>
         </div>
@@ -287,7 +294,7 @@ const globalDestinations = [
         <div class="ge-content">
           
           <h2 class="ge-title">Expand your business globally, <span class="ge-highlight">with confidence</span></h2>
-          <p class="ge-subtitle">We help you hire, pay, and manage talent in 160+ countries with local expertise and fully compliant solutions.</p>
+          <p class="ge-subtitle">We provide EOR and contractor services across multiple countries with local expertise and compliance support.</p>
           <div class="ge-cta">
             <RouterLink to="/contact" class="btn-primary ge-btn">Explore all countries <span class="arrow">→</span></RouterLink>
             <a href="/global-hiring-guide" class="ge-btn-outline">How it works <span class="play-icon">▶</span></a>
@@ -375,7 +382,7 @@ const globalDestinations = [
               <h4><span class="flag"><img :src="dest.icon" alt="" /></span> {{ dest.name }}</h4>
               <p>{{ dest.desc }}</p>
               <div class="ge-card-footer">
-                <button class="ge-card-arrow">→</button>
+                <RouterLink :to="'/' + dest.name.toLowerCase().replace(/\s+/g, '-')" class="ge-card-arrow">→</RouterLink>
               </div>
             </div>
           </div>
@@ -392,7 +399,7 @@ const globalDestinations = [
               <h4><span class="flag"><img :src="dest.icon" alt="" /></span> {{ dest.name }}</h4>
               <p>{{ dest.desc }}</p>
               <div class="ge-card-footer">
-                <button class="ge-card-arrow">→</button>
+                <RouterLink :to="'/' + dest.name.toLowerCase().replace(/\s+/g, '-')" class="ge-card-arrow">→</RouterLink>
               </div>
             </div>
           </div>
@@ -409,8 +416,8 @@ const globalDestinations = [
           Why choose <br/> <span class="sa-highlight">Jackson &amp; Frank?</span>
         </h2>
         <p class="sa-body">
-          Global expansion doesn't have to be complex. We combine local expertise with proven technology to help you hire, pay, and manage talent anywhere in the world-compliantly and effortlessly.
-        </p>
+        We provide a complete and safe path to global expansion. Work in any country without setting up a local office, with full compliance for employment, payroll, tax, and immigration.
+         </p>
         <div class="sa-cta-row">
           <RouterLink to="/advantages" class="btn-primary">
             More about us 
@@ -470,8 +477,8 @@ const globalDestinations = [
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
         </div>
         <div class="sa-feat-content">
-          <h4>Compliance Built-In</h4>
-          <p>We ensure full compliance with local laws, so you can grow confidently and risk-free.</p>
+          <h4>Expert compliance and legal support</h4>
+          <p>We guide you through all international laws and help you avoid legal issues and compliance risks.</p>
         </div>
       </div>
       <div class="sa-feat-card">
@@ -479,8 +486,8 @@ const globalDestinations = [
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21V19C17 16.7909 15.2091 15 13 15H5C2.79086 15 1 16.7909 1 19V21"/><path d="M9 11C11.2091 11 13 9.20914 13 7C13 4.79086 11.2091 3 9 3C6.79086 3 5 4.79086 5 7C5 9.20914 6.79086 11 9 11Z"/></svg>
         </div>
         <div class="sa-feat-content">
-          <h4>Local Experts, Global Reach</h4>
-          <p>Our on-the-ground experts provide in-depth knowledge and practical solutions.</p>
+          <h4>Tailored global expansion consulting</h4>
+          <p>We create custom strategies for your global growth with country-specific guidance.</p>
         </div>
       </div>
       <div class="sa-feat-card">
@@ -488,8 +495,8 @@ const globalDestinations = [
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6C4.89543 2 4 2.89543 4 4V20C4 21.1046 4.89543 22 6 22H18C19.1046 22 20 21.1046 20 20V8L14 2Z"/><path d="M14 2V8H20"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
         </div>
         <div class="sa-feat-content">
-          <h4>Payroll Excellence</h4>
-          <p>Accurate, on-time payroll processing across countries-every time.</p>
+          <h4>End-to-end EOR and administrative support</h4>
+          <p>We manage everything contracts, payroll, benefits, and immigration. You focus on your business.</p>
         </div>
       </div>
       <div class="sa-feat-card">
@@ -497,8 +504,8 @@ const globalDestinations = [
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 2L11 13"/><path d="M22 2L15 22L11 13L2 9L22 2Z"/></svg>
         </div>
         <div class="sa-feat-content">
-          <h4>Immigration Simplified</h4>
-          <p>From visas to work permits, we handle the process so your team can move forward.</p>
+          <h4>Fast setup and compliance assurance</h4>
+          <p>Start hiring in 48-72 hours with full compliance assurance and expert support.</p>
         </div>
       </div>
     </div>
@@ -513,11 +520,11 @@ const globalDestinations = [
           
           <h2 class="section-title">Latest insights &amp; resources</h2>
           <p class="structure-body" style="margin-top: 12px; max-width: 600px;">
-            Expert guides, compliance updates, and knowledge to help you hire, pay, and manage talent anywhere in the world.
+            Stay updated with the latest insights and news from our team
           </p>
         </div>
         <div class="rh-right">
-          <RouterLink to="/resources" class="btn-secondary">View all resources <span class="arrow">→</span></RouterLink>
+          <RouterLink to="/blog" class="btn-secondary">View all resources <span class="arrow">→</span></RouterLink>
         </div>
       </div>
 
@@ -525,8 +532,9 @@ const globalDestinations = [
         <div class="featured-report-card">
           <div class="frc-bg"></div>
           <div class="frc-content">
-        
-            <h3><span class="highlight">China to Europe</span> 2026:<br/>Scaling Beyond Borders</h3>
+            <RouterLink to="/resources/events/china-europe-2026">
+                <h3><span class="highlight">China to Europe</span> 2026:<br/>Scaling Beyond Borders</h3>
+            </RouterLink>
             <p>A comprehensive guide to managing compliance, payroll, and cultural shifts when expanding into the European market.</p>
           </div>
           <div class="frc-dots">
@@ -543,36 +551,14 @@ const globalDestinations = [
             <RouterLink to="/blog" class="lac-view-all">View all <span class="arrow">→</span></RouterLink>
           </div>
           <div class="lac-list">
-            <RouterLink to="/blog/france" class="article-item">
-              <img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=150&h=150" alt="France" class="article-thumb" />
+            <RouterLink v-for="article in latestBlogs" :key="article.slug" :to="'/blog/' + article.slug" class="article-item">
+              <img :src="article.image_url" :alt="article.title" class="article-thumb" />
               <div class="article-info">
-                <span class="article-tag">COMPLIANCE</span>
-                <h5>France Payroll Guide 2026</h5>
+                <span class="article-tag" style="text-transform: uppercase;">{{ article.category }}</span>
+                <h5>{{ article.title }}</h5>
                 <span class="article-meta">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                  14 min read &middot; Feb 15
-                </span>
-              </div>
-            </RouterLink>
-            <RouterLink to="/blog/germany" class="article-item">
-              <img src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=150&h=150" alt="Germany" class="article-thumb" />
-              <div class="article-info">
-                <span class="article-tag">HIRING GUIDE</span>
-                <h5>Germany Hiring Guide for 2026</h5>
-                <span class="article-meta">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                  11 min read &middot; Feb 12
-                </span>
-              </div>
-            </RouterLink>
-            <RouterLink to="/blog/uk" class="article-item">
-              <img src="https://images.unsplash.com/photo-1505761671935-60b3a7427bad?auto=format&fit=crop&w=150&h=150" alt="UK" class="article-thumb" />
-              <div class="article-info">
-                <span class="article-tag">EOR GUIDE</span>
-                <h5>How to Hire in the UK Without a Legal Entity</h5>
-                <span class="article-meta">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                  8 min read &middot; Feb 09
+                  {{ article.estimated_reading_time }} min read &middot; {{ formatBlogDate(article.publish_date) }}
                 </span>
               </div>
             </RouterLink>
@@ -581,7 +567,7 @@ const globalDestinations = [
       </div>
 
       <div class="resources-bottom-grid">
-        <RouterLink to="/guides" class="resource-category-card rcc-blue">
+        <RouterLink to="/global-hiring-guide" class="resource-category-card rcc-blue">
           <div class="rcc-bg" style="background-image: url('https://images.unsplash.com/photo-1589519160732-57fc498494f8?auto=format&fit=crop&w=400&q=80')"></div>
           <div class="rcc-bg-fade"></div>
           <div class="rcc-content-wrap">
@@ -1197,14 +1183,18 @@ const globalDestinations = [
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.78) 100%);
-  transition: background 0.3s;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.9) 100%);
+  backdrop-filter: blur(9px);
+  -webkit-backdrop-filter: blur(9px);
+  transition: background 0.3s, backdrop-filter 0.3s;
 }
 .foundation-card:hover {
   transform: translateY(-4px);
 }
 .foundation-card:hover::after {
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.85) 100%);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.95) 100%);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 .foundation-card-body {
   max-width: 280px;
@@ -1214,8 +1204,9 @@ const globalDestinations = [
   font-size: 10px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.9);
   margin-bottom: 10px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.8);
 }
 .foundation-card h3 {
   font-family: var(--serif);
@@ -1223,12 +1214,14 @@ const globalDestinations = [
   line-height: 1.15;
   font-weight: 400;
   margin-bottom: 10px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.6);
 }
 .foundation-card p {
   font-family: var(--sans);
   font-size: 14px;
   line-height: 1.55;
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 1px 3px rgba(0,0,0,0.8);
 }
 .card-btn {
   align-self: flex-start;
@@ -2812,18 +2805,17 @@ const globalDestinations = [
 .lac-list {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 24px;
 }
 
 .article-item {
   display: flex;
-  gap: 16px;
+  gap: 20px;
   align-items: center;
   text-decoration: none;
-  padding: 12px;
+  padding: 16px;
   border-radius: 12px;
   transition: background 0.2s;
-  margin: -12px;
   border-bottom: 1px solid #1a1a1a29;
 }
 .article-item:hover {

@@ -1,48 +1,30 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
 
-const solutions = [
-  { name: 'Employer of Record (EOR)', href: '/employer-of-record' },
-  { name: 'Global Payroll', href: '/payroll' },
-  { name: 'Immigration Services', href: '/immigration' },
-  { name: 'Compliance Management', href: '/compliance' },
-  { name: 'Contractor Management', href: '/contractor' },
-  { name: 'Entity Setup', href: '/entity-setup' },
+const company = [
+  { name: 'About us', href: '/about-us' },
+  { name: 'Services', href: '/employer-of-record' },
+  { name: 'Career', href: '/career' },
 ]
 
 const services = [
-  { name: 'Onboarding', href: '/onboarding' },
-  { name: 'Payroll Processing', href: '/payroll-processing' },
-  { name: 'Benefits Administration', href: '/benefits' },
-  { name: 'Tax Compliance', href: '/tax' },
-  { name: 'Offboarding', href: '/offboarding' },
-  { name: 'Work Visa & Permits', href: '/immigration' },
+  { name: 'Employer of record', href: '/employer-of-record' },
+  { name: 'Immigration', href: '/immigration' },
+  { name: 'Payroll', href: '/payroll' },
+  { name: 'Compliance', href: '/compliance' },
+  { name: 'Contractor', href: '/contractor' },
+]
+
+const insights = [
+  { name: 'Blog', href: '/blog' },
+  { name: 'Success stories', href: '/case-studies' },
+  { name: 'Global hiring guide', href: '/global-hiring-guide' },
+  { name: 'Press release', href: '/resources/events/china-europe-2026' },
 ]
 
 const resources = [
-  { name: 'Blog', href: '/blog' },
-  { name: 'Global Hiring Guide', href: '/global-hiring-guide' },
-  { name: 'Country Guides', href: '/country-guides' },
-  { name: 'Case Studies', href: '/case-studies' },
-  { name: 'Webinars', href: '/webinars' },
-  { name: 'Help Center', href: '/help' },
-]
-
-const company = [
-  { name: 'About Us', href: '/about-us' },
-  { name: 'Our Story', href: '/our-story' },
-  { name: 'Careers', href: '/career' },
-  { name: 'Leadership', href: '/leadership' },
-  { name: 'Partners', href: '/partners' },
-  { name: 'Contact Us', href: '/contact' },
-]
-
-const legal = [
-  { name: 'Privacy Policy', href: '/privacy-policy' },
-  { name: 'Terms of Service', href: '/terms' },
-  { name: 'Data Security', href: '/security' },
-  { name: 'Cookie Policy', href: '/cookies' },
-  { name: 'Sitemap', href: '/sitemaps' },
+  { name: 'FAQs', href: '/faq' },
+  { name: 'Press release — China to Europe 2026', href: '/resources/events/china-europe-2026' },
 ]
 
 const year = new Date().getFullYear()
@@ -59,7 +41,7 @@ const year = new Date().getFullYear()
             <img src="/logo-dark.svg" alt="Jackson & Frank" class="footer-logo-img" />
           </RouterLink>
           <p class="footer-desc">
-            We help businesses hire, pay, and manage global talent effortlessly across 160+ countries without setting up local entities.
+            Jackson & Frank simplifies global workforce management with compliant, scalable solutions across 160+ countries.
           </p>
           <ul class="footer-checks">
             <li>
@@ -98,38 +80,34 @@ const year = new Date().getFullYear()
       <!-- LINKS SECTION -->
       <div class="footer-links-grid">
         <div class="fl-col">
-          <h4>Solutions</h4>
-          <RouterLink v-for="link in solutions" :key="link.name" :to="link.href">{{ link.name }}</RouterLink>
+          <h4>Company</h4>
+          <RouterLink v-for="link in company" :key="link.name" :to="link.href">{{ link.name }}</RouterLink>
         </div>
         <div class="fl-col">
           <h4>Services</h4>
           <RouterLink v-for="link in services" :key="link.name" :to="link.href">{{ link.name }}</RouterLink>
         </div>
         <div class="fl-col">
+          <h4>Insights</h4>
+          <RouterLink v-for="link in insights" :key="link.name" :to="link.href">{{ link.name }}</RouterLink>
+        </div>
+        <div class="fl-col">
           <h4>Resources</h4>
           <RouterLink v-for="link in resources" :key="link.name" :to="link.href">{{ link.name }}</RouterLink>
         </div>
-        <div class="fl-col">
-          <h4>Company</h4>
-          <RouterLink v-for="link in company" :key="link.name" :to="link.href">{{ link.name }}</RouterLink>
-        </div>
-        <div class="fl-col">
-          <h4>Legal</h4>
-          <RouterLink v-for="link in legal" :key="link.name" :to="link.href">{{ link.name }}</RouterLink>
-        </div>
         <div class="fl-col contact-col">
           <h4>Contact Us</h4>
-          <a href="mailto:hello@jacksonandfrank.com" class="contact-link">
+          <a href="mailto:info@jacksonandfrank.com" class="contact-link">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-            hello@jacksonandfrank.com
+            info@jacksonandfrank.com
           </a>
-          <a href="tel:+442038716380" class="contact-link">
+          <a href="tel:+31267440024" class="contact-link">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-            +44 20 3871 6380
+            +31 26 74 40 024
           </a>
           <div class="contact-link location">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-            <span>1 Canada Square, Canary Wharf,<br/>London E14 5AA, UK</span>
+            <span>Jackson & Frank, Nieuwe Stationsstraat 10,<br/>6811 KS Arnhem, The Netherlands</span>
           </div>
         </div>
       </div>
@@ -357,7 +335,7 @@ const year = new Date().getFullYear()
 ============================== */
 .footer-links-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr) 1.5fr;
+  grid-template-columns: repeat(4, 1fr) 1.5fr;
   gap: 24px;
 }
 .fl-col {
