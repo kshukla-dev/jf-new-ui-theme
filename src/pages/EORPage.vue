@@ -45,22 +45,19 @@ function toggleFaq(i: number) {
 }
 
 const topCountries = [
-  { code: 'us', name: 'United States' },
-  { code: 'gb', name: 'United Kingdom' },
-  { code: 'de', name: 'Germany' },
-  { code: 'nl', name: 'Netherlands' },
+  { code: 'be', name: 'Belgium' },
+  { code: 'cn', name: 'China' },
+  { code: 'cz', name: 'Czech Republic' },
   { code: 'fr', name: 'France' },
-  { code: 'au', name: 'Australia' },
-  { code: 'sg', name: 'Singapore' },
+  { code: 'de', name: 'Germany' },
+  { code: 'hk', name: 'Hong Kong' },
   { code: 'in', name: 'India' },
-  { code: 'ae', name: 'UAE' },
-  { code: 'ca', name: 'Canada' },
-  { code: 'es', name: 'Spain' },
   { code: 'it', name: 'Italy' },
+  { code: 'nl', name: 'Netherlands' },
   { code: 'pl', name: 'Poland' },
-  { code: 'br', name: 'Brazil' },
-  { code: 'jp', name: 'Japan' },
-  { code: 'mx', name: 'Mexico' },
+  { code: 'es', name: 'Spain' },
+  { code: 'ae', name: 'United Arab Emirates' },
+  { code: 'gb', name: 'United Kingdom' },
 ]
 </script>
 
@@ -72,12 +69,31 @@ const topCountries = [
       <div class="eor-premium-hero-inner">
         <div class="service-hero-copy">
           <h1>
-            Employer of Record<br /><em>(EOR) Services</em>
+            Hire <em>employees globally</em> without entities
           </h1>
-          <p class="service-hero-lede">Simplify global expansion. We handle the complexity of hiring, payroll, and compliance so you can focus on growth.</p>
+          <p class="service-hero-lede">Quickly expand your global workforce across 160+ countries without establishing a local entity. We become your local HR partner.</p>
+          
+          <ul class="eor-hero-checklist">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="check-icon"><circle cx="12" cy="12" r="10"></circle><path d="M9 12l2 2 4-4"></path></svg>
+              Hire in days no local company required
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="check-icon"><circle cx="12" cy="12" r="10"></circle><path d="M9 12l2 2 4-4"></path></svg>
+              International payroll, taxes, and benefits handled for you
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="check-icon"><circle cx="12" cy="12" r="10"></circle><path d="M9 12l2 2 4-4"></path></svg>
+              Employment compliance monitored in each country
+            </li>
+          </ul>
+
           <div class="cta-row">
-            <a href="/contact" class="btn-primary">Get started today <span class="arrow">→</span></a>
-            <a href="#what-is-eor" class="btn-secondary">Learn how it works</a>
+            <a href="/contact" class="btn-primary">Hire globally without entity setup <span class="arrow">→</span></a>
+            <a href="/contact" class="btn-secondary" style="background: white; color: var(--dark); border-color: white;">
+              Talk to an EOR expert
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="margin-left: 6px;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+            </a>
           </div>
         </div>
       </div>
@@ -137,9 +153,8 @@ const topCountries = [
     <!-- DETAILED PROCESS STEPS -->
     <section class="eor-section eor-container eor-process-panel" id="what-is-eor">
       <div class="eor-process-header">
-        <span class="eor-eyebrow">How our Employer of Record works</span>
-        <h2>Three focused steps from agreement to payroll</h2>
-        <p class="eor-process-sub">You define the roles, we employ and run international payroll compliantly.</p>
+        <h2>How our Employer of Record works</h2>
+        <p class="eor-process-sub">Three focused steps from agreement to payroll: you define the roles, we employ and run international payroll compliantly.</p>
       </div>
       <div class="eor-process-steps">
         <div class="eor-process-step">
@@ -148,9 +163,9 @@ const topCountries = [
             <h3>Agree scope</h3>
             <p>We align on countries, roles, and commercials so Employer of Record coverage matches your global hiring plan.</p>
             <ul class="eps-bullets">
-              <li>Countries and headcount</li>
-              <li>Commercials and SLAs</li>
-              <li>Compliance touchpoints</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="#F7931E" stroke-width="2" class="eps-check-icon"><circle cx="12" cy="12" r="10"></circle><path d="M9 12l2 2 4-4"></path></svg> Countries and headcount</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="#F7931E" stroke-width="2" class="eps-check-icon"><circle cx="12" cy="12" r="10"></circle><path d="M9 12l2 2 4-4"></path></svg> Commercials and SLAs</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="#F7931E" stroke-width="2" class="eps-check-icon"><circle cx="12" cy="12" r="10"></circle><path d="M9 12l2 2 4-4"></path></svg> Compliance touchpoints</li>
             </ul>
           </div>
         </div>
@@ -160,9 +175,9 @@ const topCountries = [
             <h3>Onboard employees</h3>
             <p>Local contracts, payroll setup, and registrations ready for day one in each market.</p>
             <ul class="eps-bullets">
-              <li>Compliant employment agreements</li>
-              <li>Payroll and benefits setup</li>
-              <li>Tax and social registrations</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="#F7931E" stroke-width="2" class="eps-check-icon"><circle cx="12" cy="12" r="10"></circle><path d="M9 12l2 2 4-4"></path></svg> Compliant employment agreements</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="#F7931E" stroke-width="2" class="eps-check-icon"><circle cx="12" cy="12" r="10"></circle><path d="M9 12l2 2 4-4"></path></svg> Payroll and benefits setup</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="#F7931E" stroke-width="2" class="eps-check-icon"><circle cx="12" cy="12" r="10"></circle><path d="M9 12l2 2 4-4"></path></svg> Tax and social registrations</li>
             </ul>
           </div>
         </div>
@@ -172,9 +187,9 @@ const topCountries = [
             <h3>Run payroll & HR</h3>
             <p>Monthly payroll, filings, changes, and HR lifecycle support while you manage performance.</p>
             <ul class="eps-bullets">
-              <li>Payroll and contributions</li>
-              <li>Ongoing employment compliance</li>
-              <li>Leavers, moves, and adjustments</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="#F7931E" stroke-width="2" class="eps-check-icon"><circle cx="12" cy="12" r="10"></circle><path d="M9 12l2 2 4-4"></path></svg> Payroll and contributions</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="#F7931E" stroke-width="2" class="eps-check-icon"><circle cx="12" cy="12" r="10"></circle><path d="M9 12l2 2 4-4"></path></svg> Ongoing employment compliance</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="#F7931E" stroke-width="2" class="eps-check-icon"><circle cx="12" cy="12" r="10"></circle><path d="M9 12l2 2 4-4"></path></svg> Leavers, moves, and adjustments</li>
             </ul>
           </div>
         </div>
@@ -184,17 +199,37 @@ const topCountries = [
       <h2 class="how-it-works-title">How it Works: Your Global Hiring Journey</h2>
       <div class="how-steps-grid">
         
+        <!-- Step 1 -->
         <div class="how-step">
           <div class="how-icon-row">
             <div class="how-icon">
-              <!-- Globe with Magnifying Glass -->
+              <!-- Document icon -->
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-navy">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <path d="M9 15L11 17L15 13"></path>
+              </svg>
+            </div>
+            <div class="how-arrow">
+              <svg width="60" height="12" viewBox="0 0 60 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 6L56 6" stroke="#c5c6cf" stroke-width="1"/>
+                <path d="M52 2L58 6L52 10" stroke="#c5c6cf" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+          </div>
+          <h3>Locally compliant contracts</h3>
+          <p>Employment terms that match local law and your policy so new hires start on solid ground without legal guesswork.</p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="how-step">
+          <div class="how-icon-row">
+            <div class="how-icon">
+              <!-- Globe icon -->
               <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-navy">
                 <circle cx="12" cy="12" r="10"></circle>
                 <line x1="2" y1="12" x2="22" y2="12"></line>
                 <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-                <!-- Magnifying glass overlaying bottom right -->
-                <circle cx="16" cy="16" r="5" fill="white" stroke="currentColor" stroke-width="1.5"></circle>
-                <line x1="19.5" y1="19.5" x2="24" y2="24" stroke="#143369" stroke-width="2"></line>
               </svg>
             </div>
             <div class="how-arrow">
@@ -204,20 +239,18 @@ const topCountries = [
               </svg>
             </div>
           </div>
-          <h3>Talent Discovery</h3>
-          <p>Find your ideal candidate. We assist in compliant offer letters and contracts.</p>
+          <h3>Global payroll and tax filing</h3>
+          <p>Accurate pay runs, withholding, and statutory submissions where we operate fewer payroll surprises across borders.</p>
         </div>
 
+        <!-- Step 3 -->
         <div class="how-step">
           <div class="how-icon-row">
             <div class="how-icon">
-              <!-- Handshake / Paper -->
+              <!-- Shield icon -->
               <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-navy">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                <polyline points="14 2 14 8 20 8"></polyline>
-                <!-- Handshake overlay -->
-                <path d="M8 14l4-4 4 4" stroke="#143369" stroke-width="2"></path>
-                <path d="M12 10v10" stroke="#143369" stroke-width="2"></path>
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                <path d="M9 12l2 2 4-4"></path>
               </svg>
             </div>
             <div class="how-arrow">
@@ -227,23 +260,20 @@ const topCountries = [
               </svg>
             </div>
           </div>
-          <h3>Seamless Onboarding</h3>
-          <p>We handle all paperwork, visa sponsorship, and local registration quickly and compliantly.</p>
+          <h3>Compliance monitoring</h3>
+          <p>We track regulatory and process changes that affect your people, so employment compliance does not depend on ad-hoc updates.</p>
         </div>
 
+        <!-- Step 4 -->
         <div class="how-step">
           <div class="how-icon-row">
             <div class="how-icon">
-              <!-- Calculator & Money Bag -->
+              <!-- Person/gear icon -->
               <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-navy">
-                <rect x="4" y="2" width="12" height="20" rx="2" ry="2"></rect>
-                <line x1="8" y1="6" x2="12" y2="6"></line>
-                <line x1="8" y1="10" x2="8.01" y2="10"></line>
-                <line x1="12" y1="10" x2="12.01" y2="10"></line>
-                <!-- Money bag -->
-                <path d="M16 12s-4 2-4 6c0 3 2.5 4 6 4s6-1 6-4c0-4-4-6-4-6" fill="white" stroke="#143369" stroke-width="1.5"></path>
-                <path d="M18 12v-2a2 2 0 0 0-4 0" stroke="#143369" stroke-width="1.5"></path>
-                <text x="18" y="19" font-size="6" fill="#143369" stroke="none" text-anchor="middle">$</text>
+                <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="8.5" cy="7" r="4"></circle>
+                <circle cx="18" cy="11" r="2"></circle>
+                <path d="M18 7v2 M18 13v2 M15 10h2 M21 10h2"></path>
               </svg>
             </div>
             <div class="how-arrow">
@@ -253,27 +283,49 @@ const topCountries = [
               </svg>
             </div>
           </div>
-          <h3>Payroll & Benefits</h3>
-          <p>We manage monthly payroll, tax filings, and comprehensive benefits packages in local currency.</p>
+          <h3>HR lifecycle management</h3>
+          <p>Onboarding, changes, time off, and exits handled with consistent process your managers stay focused on the work.</p>
         </div>
 
+        <!-- Step 5 -->
         <div class="how-step">
           <div class="how-icon-row">
             <div class="how-icon">
-              <!-- User & Gears -->
+              <!-- 4 squares icon -->
               <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-navy">
-                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                <circle cx="12" cy="7" r="4"></circle>
-                <!-- Gears -->
-                <circle cx="20" cy="8" r="2" stroke="#143369" stroke-width="1.5" fill="white"></circle>
-                <path d="M20 4v2 M20 10v2 M16 8h2 M22 8h2" stroke="#143369" stroke-width="1.5"></path>
-                <circle cx="16" cy="12" r="2" stroke="#143369" stroke-width="1.5" fill="white"></circle>
+                <rect x="3" y="3" width="7" height="7"></rect>
+                <rect x="14" y="3" width="7" height="7"></rect>
+                <rect x="14" y="14" width="7" height="7"></rect>
+                <rect x="3" y="14" width="7" height="7"></rect>
+              </svg>
+            </div>
+            <div class="how-arrow">
+              <svg width="60" height="12" viewBox="0 0 60 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 6L56 6" stroke="#c5c6cf" stroke-width="1"/>
+                <path d="M52 2L58 6L52 10" stroke="#c5c6cf" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+          </div>
+          <h3>Reporting you can use</h3>
+          <p>Headcount, cost, and payroll visibility in one place better forecasts and fewer spreadsheet versions.</p>
+        </div>
+
+        <!-- Step 6 -->
+        <div class="how-step">
+          <div class="how-icon-row">
+            <div class="how-icon">
+              <!-- Swap arrows icon -->
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-navy">
+                <polyline points="16 3 21 3 21 8"></polyline>
+                <line x1="4" y1="20" x2="21" y2="3"></line>
+                <polyline points="8 21 3 21 3 16"></polyline>
+                <line x1="20" y1="4" x2="3" y2="21"></line>
               </svg>
             </div>
             <!-- Last item has no arrow -->
           </div>
-          <h3>Ongoing Support</h3>
-          <p>Dedicated account management, HR support, and risk mitigation for your global team.</p>
+          <h3>Contractor to employee moves</h3>
+          <p>When roles should be employment instead of contractor engagements, we help you convert cleanly and reduce misclassification risk.</p>
         </div>
 
       </div>
@@ -282,7 +334,8 @@ const topCountries = [
     <!-- KEY BENEFITS -->
     <section class="eor-section eor-container">
       <div class="benefits-wrapper">
-        <h2 class="benefits-title">Key Benefits of Our EOR Service</h2>
+        <h2 class="benefits-title" style="text-align: left; margin-bottom: 16px !important;">Who needs an Employer of Record?</h2>
+        <p style="text-align: left; font-size: 18px; color: var(--gh-on-surface-variant); margin-bottom: 48px;">If global hiring, speed, or compliance load is the blocker, EOR is usually the lever.</p>
         <div class="benefits-grid">
           
           <div class="benefit-card">
@@ -295,52 +348,52 @@ const topCountries = [
                 <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path>
               </svg>
             </div>
-            <h3>Speed to Market</h3>
-            <p>Hire and onboard international talent in days, not months, with our established global infrastructure.</p>
+            <h3>Startups hiring globally</h3>
+            <p>No entity, no in-house global payroll team still need real employees in-market.</p>
+            <p style="color: #143369; font-weight: 600; margin-top: 16px;">Employer of Record gets you compliant hires in days, not months.</p>
           </div>
 
           <div class="benefit-card">
             <div class="benefit-icon">
-              <!-- Shield SVG -->
+              <!-- Trending Up SVG -->
               <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#143369" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                <path d="m9 12 2 2 4-4"></path>
+                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                <polyline points="17 6 23 6 23 12"></polyline>
               </svg>
             </div>
-            <h3>Compliance Management</h3>
-            <p>Mitigate risk with our deep understanding of local labor laws, tax regulations, and employment standards across 160+ countries.</p>
+            <h3>Scale-ups entering new markets</h3>
+            <p>Entity setup slows revenue and hiring; you need employment compliance from day one.</p>
+            <p style="color: #143369; font-weight: 600; margin-top: 16px;">Land the team first, decide on subsidiaries later without skipping payroll or contracts.</p>
+          </div>
+
+
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <!-- Layers SVG -->
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#143369" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                <polyline points="2 12 12 17 22 12"></polyline>
+                <polyline points="2 17 12 22 22 17"></polyline>
+              </svg>
+            </div>
+            <h3>Contractor-heavy companies</h3>
+            <p>Roles look like employment; contractor models create compliance and audit exposure.</p>
+            <p style="color: #143369; font-weight: 600; margin-top: 16px;">Convert to Employer of Record employment where it fits clear employer obligations.</p>
           </div>
 
           <div class="benefit-card">
             <div class="benefit-icon">
-              <!-- Coins SVG -->
+              <!-- Users SVG -->
               <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#143369" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
-                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
-                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
-                <path d="M21 8.5c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
               </svg>
             </div>
-            <h3>Cost-Effective</h3>
-            <p>Eliminate the high costs and administrative burden of setting up and maintaining legal entities in multiple countries.</p>
-          </div>
-
-          <div class="benefit-card">
-            <div class="benefit-icon">
-              <!-- Scalability SVG -->
-              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#143369" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="15 3 21 3 21 9"></polyline>
-                <polyline points="9 21 3 21 3 15"></polyline>
-                <line x1="21" y1="3" x2="14" y2="10"></line>
-                <line x1="3" y1="21" x2="10" y2="14"></line>
-                <polyline points="21 15 21 21 15 21"></polyline>
-                <polyline points="3 9 3 3 9 3"></polyline>
-                <line x1="21" y1="21" x2="14" y2="14"></line>
-                <line x1="3" y1="3" x2="10" y2="10"></line>
-              </svg>
-            </div>
-            <h3>Scalability & Flexibility</h3>
-            <p>Easily scale your global workforce up or down based on your business needs, with no long-term commitments.</p>
+            <h3>HR teams managing a global workforce</h3>
+            <p>Too many vendors, spreadsheets, and country rules for a lean HR function.</p>
+            <p style="color: #143369; font-weight: 600; margin-top: 16px;">Consolidate global hiring, payroll, and lifecycle support behind one EOR programme.</p>
           </div>
 
         </div>
@@ -398,25 +451,37 @@ const topCountries = [
     <!-- WHO IS EOR FOR -->
     <section class="eor-section eor-container">
       <div class="eor-audience-header">
-        <span class="eor-eyebrow">Built for every stage</span>
-        <h2>Who is EOR designed for?</h2>
+        <h2>Employer of Record vs PEO, and payroll outsourcing</h2>
+        <p style="margin-top: 12px; color: var(--gh-on-surface-variant); font-size: 18px; max-width: 600px; margin-inline: auto;">Same talent goal, different legal setups. Use this to see when Employer of Record fits global hiring without a local company.</p>
       </div>
       <div class="eor-audience-grid">
-        <div class="eor-audience-card">
+        
+        <!-- Card 1 -->
+        <div class="eor-audience-card" style="border: 2px solid #143369; position: relative; padding-top: 40px;">
+          <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #143369; color: white; padding: 4px 16px; border-radius: 16px; font-size: 12px; font-weight: bold;">Recommended</div>
           <div class="eac-icon">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/>
-              <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/>
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <path d="M14 2v6h6"></path>
+              <rect x="8" y="12" width="8" height="6"></rect>
             </svg>
           </div>
-          <h3>Startups entering new markets</h3>
-          <p>Test international markets without the commitment of a legal entity. Hire your first overseas employee in days and validate before you invest.</p>
+          <h3>Employer of Record (EOR)</h3>
+          <p>We are the legal employer. Built for hire without entity and full employment compliance.</p>
           <ul class="eac-list">
-            <li>No entity setup required</li>
-            <li>Hire in any country from day 1</li>
-            <li>Cancel anytime, no penalties</li>
+            <li>Legal employer on record</li>
+            <li>No local entity required</li>
+            <li>International payroll and HR</li>
+            <li>Employment compliance in scope</li>
+            <li>You direct day-to-day work</li>
           </ul>
+          <div style="margin-top: auto; padding-top: 24px; border-top: 1px solid #e5e7eb;">
+            <p style="font-size: 11px; text-transform: uppercase; color: var(--gh-tertiary-accent); font-weight: bold; margin-bottom: 8px;">BEST FOR</p>
+            <p style="font-size: 14px; margin: 0;">Global hiring, new markets, remote teams</p>
+          </div>
         </div>
+
+        <!-- Card 2 -->
         <div class="eor-audience-card">
           <div class="eac-icon">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -426,30 +491,47 @@ const topCountries = [
               <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
             </svg>
           </div>
-          <h3>Growing companies scaling globally</h3>
-          <p>Add headcount across borders without setting up subsidiaries in each country. Our EOR structure supports rapid, compliant global expansion.</p>
+          <h3>PEO</h3>
+          <p>Co-employment when you already have an entity in-country.</p>
           <ul class="eac-list">
-            <li>One partner across 160+ countries</li>
-            <li>Consistent HR processes globally</li>
-            <li>Scale up or down as needed</li>
+            <li>Requires your local entity</li>
+            <li>Shared employer responsibilities</li>
+            <li>You remain in the chain of employment</li>
+            <li>Strong fit for established subsidiaries</li>
+            <li>Less suited if you have no entity</li>
           </ul>
+          <div style="margin-top: auto; padding-top: 24px; border-top: 1px solid #e5e7eb;">
+            <p style="font-size: 11px; text-transform: uppercase; color: var(--gh-tertiary-accent); font-weight: bold; margin-bottom: 8px;">BEST FOR</p>
+            <p style="font-size: 14px; margin: 0;">Companies with an existing local legal entity</p>
+          </div>
         </div>
+
+        <!-- Card 3 -->
         <div class="eor-audience-card">
           <div class="eac-icon">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="3" width="18" height="18" rx="2"/>
-              <path d="M3 9h18"/>
-              <path d="M9 21V9"/>
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10 9 9 9 8 9"></polyline>
             </svg>
           </div>
-          <h3>Enterprises with distributed teams</h3>
-          <p>Centralize compliance across multiple jurisdictions. Replace fragmented local setups with one globally consistent EOR programme.</p>
+          <h3>Payroll outsourcing</h3>
+          <p>Run payroll only you stay the legal employer.</p>
           <ul class="eac-list">
-            <li>Centralized payroll &amp; reporting</li>
-            <li>Standardized benefits globally</li>
-            <li>Single point of accountability</li>
+            <li>You are still the employer</li>
+            <li>Entity typically required</li>
+            <li>No full employment shield</li>
+            <li>You own compliance decisions</li>
+            <li>Ideal with strong in-house HR/legal</li>
           </ul>
+          <div style="margin-top: auto; padding-top: 24px; border-top: 1px solid #e5e7eb;">
+            <p style="font-size: 11px; text-transform: uppercase; color: var(--gh-tertiary-accent); font-weight: bold; margin-bottom: 8px;">BEST FOR</p>
+            <p style="font-size: 14px; margin: 0;">Teams that only need calculation and pay services</p>
+          </div>
         </div>
+
       </div>
     </section>
 
@@ -457,15 +539,17 @@ const topCountries = [
     <section class="eor-section eor-countries-section">
       <div class="eor-container">
         <div class="eor-countries-header">
-          <span class="eor-eyebrow">Global coverage</span>
-          <h2>Hire in <em>160+ Countries</em></h2>
-          <p class="eor-countries-sub">From Amsterdam to Singapore, New York to Mumbai - if the talent is there, we'll get them hired compliantly.</p>
+          <h2>Where we employ through Employer of Record</h2>
+          <p class="eor-countries-sub">We support Employer of Record and global hiring in 160+ countries. Below are markets where our own entities and specialists are especially active.</p>
         </div>
         <div class="eor-countries-grid">
-          <div class="ecg-item" v-for="country in topCountries" :key="country.code">
-            <img :src="`https://hatscripts.github.io/circle-flags/flags/${country.code}.svg`" :alt="country.name" class="ecg-flag" />
+          <a :href="`/${country.name.toLowerCase().replace(/\s+/g, '-')}`" class="ecg-item" v-for="country in topCountries" :key="country.code">
+            <div class="ecg-flag-wrapper">
+              <img :src="`https://hatscripts.github.io/circle-flags/flags/${country.code}.svg`" :alt="country.name" class="ecg-flag" />
+              <div class="ecg-view-btn">View</div>
+            </div>
             <span>{{ country.name }}</span>
-          </div>
+          </a>
         </div>
         <div class="eor-countries-cta">
           <a href="/contact" class="gh-btn-gold">Explore all countries →</a>
@@ -527,6 +611,28 @@ const topCountries = [
   min-height: 700px;
   overflow: hidden;
   margin-bottom: 40px;
+}
+
+.eor-hero-checklist {
+  list-style: none;
+  padding: 0;
+  margin: 32px 0 48px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.eor-hero-checklist li {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #ffffff;
+}
+.eor-hero-checklist .check-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
 }
 
 .eor-premium-hero::before {
@@ -688,4 +794,15 @@ const topCountries = [
   }
 }
 
+.eps-bullets li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+.eps-check-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
 </style>
