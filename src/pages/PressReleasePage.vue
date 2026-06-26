@@ -173,7 +173,7 @@ onMounted(() => {
               <svg v-if="s.icon === 'globe'" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
               <svg v-else-if="s.icon === 'group'" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
               <svg v-else-if="s.icon === 'chart'" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
-              <svg v-else-if="s.icon === 'shield'" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M9 12l2 2 4-4"></path></svg>
+              <svg v-else-if="s.icon === 'shield'" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M9 12l2 2 4-4"></path></svg>
             </div>
             <div class="pr-stat-text-wrap">
               <strong>{{ s.value }}</strong>
@@ -405,13 +405,13 @@ onMounted(() => {
   font-family: var(--serif);
   font-size: clamp(38px, 4.5vw, 54px);
   line-height: 1.15;
-  font-weight: 400;
+  
   color: #ffffff;
   margin-bottom: 24px;
 }
 .pr-hero-title .gold-text {
   color: var(--accent-warm, #F7931E);
-  font-weight: 500;
+  
   font-family: var(--serif);
 }
 .pr-hero-desc {
@@ -522,7 +522,7 @@ onMounted(() => {
   font-family: var(--serif);
   font-size: clamp(32px, 3.5vw, 42px);
   color: #111;
-  font-weight: 400;
+  
   margin-bottom: 24px;
 }
 .pr-bg-text p {
@@ -603,7 +603,7 @@ onMounted(() => {
   font-family: var(--serif);
   font-size: clamp(32px, 3.5vw, 42px);
   color: #111;
-  font-weight: 400;
+  
   margin-bottom: 16px;
 }
 .journey-subtitle {
@@ -670,7 +670,7 @@ onMounted(() => {
   font-family: var(--serif);
   font-size: 20px;
   color: #111;
-  font-weight: 500;
+  
   margin-bottom: 12px;
 }
 .journey-card-desc {
@@ -725,7 +725,7 @@ onMounted(() => {
   font-family: var(--serif);
   font-size: clamp(32px, 3.5vw, 42px);
   color: #111;
-  font-weight: 400;
+  
   margin-bottom: 64px;
 }
 .expect-grid {
@@ -799,7 +799,7 @@ onMounted(() => {
   font-family: var(--serif);
   font-size: clamp(32px, 3.5vw, 42px);
   color: #111;
-  font-weight: 400;
+  
   margin-bottom: 16px;
 }
 .speakers-main-title .gold-text {
@@ -998,7 +998,7 @@ onMounted(() => {
 }
 .speaking-title {
   font-size: 12px;
-  font-weight: 700;
+  
   color: var(--accent, #09407B);
   margin-top: 2px;
 }
@@ -1197,7 +1197,7 @@ onMounted(() => {
   font-family: var(--serif);
   font-size: clamp(32px, 4.5vw, 48px);
   line-height: 1.2;
-  font-weight: 400;
+  
   margin-bottom: 24px;
 }
 .register-cta-content p {

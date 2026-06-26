@@ -242,7 +242,7 @@ function slide(direction: 'next' | 'prev') {
             <!-- Column 3, Row 1 -->
             <div class="feature-item col-3 row-1">
               <div class="feature-icon-wrap">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 11 2 2 4-4"></path></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 11 2 2 4-4"></path></svg>
               </div>
               <h5>Compliance You Can Trust</h5>
               <p>Stay compliant with local laws, tax regulations, and labor requirements.</p>
@@ -668,7 +668,7 @@ function slide(direction: 'next' | 'prev') {
 .floating-contact-form-card h2 {
   font-family: var(--serif);
   font-size: 28px;
-  font-weight: 400;
+  
   color: var(--ink);
   margin-bottom: 28px;
   letter-spacing: -0.01em;
@@ -1019,7 +1019,7 @@ form.was-validated .custom-checkbox input:invalid + .checkmark {
   font-family: var(--serif);
   font-size: clamp(28px, 3.2vw, 36px);
   line-height: 1.15;
-  font-weight: 400;
+  
   margin-bottom: 20px;
   letter-spacing: -0.015em;
   color: var(--ink);

@@ -302,7 +302,7 @@ const topCountries = [
           <div class="benefit-card">
             <div class="benefit-icon">
               <!-- Shield SVG -->
-              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#143369" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#143369" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
                 <path d="m9 12 2 2 4-4"></path>
               </svg>

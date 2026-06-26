@@ -176,11 +176,10 @@ const globalDestinations = [
     <div class="home-hero-inner">
       <div class="service-hero-copy">
         <h1>
-          Hire anywhere.<br />
-          <em>We handle the rest.</em>
+          Hire talent,  <em>anywhere </em>
         </h1>
         <p class="service-hero-lede">
-          Jackson &amp; Frank makes global hiring effortless. From onboarding to payroll and compliance - we take care of everything.
+          Why should borders limit your business? Hire the best talent worldwide with fast, compliant, and hassle-free global HR solutions.
         </p>
         <div class="hero-pill-row">
           <a href="/eor" class="hero-pill">EOR</a>
@@ -197,7 +196,7 @@ const globalDestinations = [
             target="_blank"
             rel="noopener"
           >
-            Book a demo
+            Watch demo <span class="arrow">→</span>
           </a>
         </div>
 
@@ -207,7 +206,7 @@ const globalDestinations = [
             Hire in 160+ countries
           </div>
           <div class="hf-item">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22S8 18 8 12V5L12 3L16 5V12C16 18 12 22 12 22Z"/><path d="M9 12L11 14L15 10"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
             Compliant with local laws
           </div>
           <div class="hf-item">
@@ -452,7 +451,7 @@ const globalDestinations = [
             <div class="sa-stat-divider"></div>
             <div class="sa-stat">
               <div class="sa-stat-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22S8 18 8 12V5L12 3L16 5V12C16 18 12 22 12 22Z"/><path d="M9 12L11 14L15 10"/></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
               </div>
               <div>
                 <strong>98%</strong>
@@ -468,7 +467,7 @@ const globalDestinations = [
     <div class="sa-features-grid">
       <div class="sa-feat-card">
         <div class="sa-feat-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22S8 18 8 12V5L12 3L16 5V12C16 18 12 22 12 22Z"/><path d="M9 12L11 14L15 10"/></svg>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
         </div>
         <div class="sa-feat-content">
           <h4>Compliance Built-In</h4>
@@ -614,7 +613,7 @@ const globalDestinations = [
           <div class="rcc-content-wrap">
             <div class="rcc-icon">
               <!-- Shield icon -->
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
             </div>
             <h4>Compliance Updates</h4>
             <p>Stay updated with global compliance changes and regulatory insights.</p>
@@ -678,38 +677,7 @@ const globalDestinations = [
   </section>
   -->
 
-  <!-- ============= DARK CTA BLOCK ============= -->
-  <section class="cta-section">
-    <div class="container">
-      <div class="cta-block">
-        <div>
-          <span class="cta-tag">Meet the founders</span>
-          <h2>
-            Your global team deserves a better <em>HR partner</em>
-          </h2>
-          <p>
-            Behind every successful global expansion is a partner that turns complexity into
-            clarity. Jackson &amp; Frank was built by two leaders who handle employment, payroll,
-            and compliance in 160+ countries - so you can focus on growth.
-          </p>
-          <RouterLink to="/contact" class="btn-primary">
-            Talk to our team <span class="arrow">→</span>
-          </RouterLink>
-        </div>
-        <div class="cta-founders">
-          <figure v-for="f in founders" :key="f.name" class="cta-founder">
-            <div class="cta-founder-photo">
-              <img :src="f.image" :alt="`${f.name}, ${f.role}`" />
-            </div>
-            <figcaption>
-              <strong>{{ f.name }}</strong>
-              <span>{{ f.role }}</span>
-            </figcaption>
-          </figure>
-        </div>
-      </div>
-    </div>
-  </section>
+
 
   <!-- ============= TESTIMONIALS ============= -->
   <section class="testimonials-section">
@@ -754,7 +722,7 @@ const globalDestinations = [
               
               <div class="cc-metric-badge" :class="t.metricTheme">
                 <span v-if="t.metricIcon === 'shield'">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                 </span>
                 <span v-else-if="t.metricIcon === 'chart'">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 6l-9.5 9.5-5-5L1 18"/><polyline points="17 6 23 6 23 12"/></svg>
@@ -798,82 +766,7 @@ const globalDestinations = [
     </div>
   </section>
 
-  <!-- ============= FROM THE BLOG ============= -->
-  <section class="section container">
-    <div class="resources-section">
-      <div class="resources-header">
-        <div class="rh-left">
-          <span class="theme-tag">RESOURCES</span>
-          <h2 class="section-title">Latest insights &amp; resources</h2>
-          <p class="structure-body" style="margin-top: 12px; max-width: 600px;">
-            Stay informed with expert guides, compliance updates, and practical insights to help you hire, pay, and manage talent anywhere in the world.
-          </p>
-        </div>
-        <div class="rh-right">
-          <RouterLink to="/blog" class="btn-secondary" style="background: var(--ink); color: white; border: none;">View all resources <span class="arrow">→</span></RouterLink>
-        </div>
-      </div>
 
-      <div class="resources-top-grid">
-        <div class="featured-report-card" v-if="featuredBlog">
-          <div class="frc-bg" :style="{ backgroundImage: `url('${featuredBlog.image_url}')` }"></div>
-          <div class="frc-overlay"></div>
-          
-          <div class="frc-content">
-            <h3><span class="highlight">{{ featuredBlog.title }}</span></h3>
-            <p>{{ featuredBlog.excerpt }}</p>
-            
-            <div class="frc-meta-inline" style="display: flex; gap: 16px; margin-bottom: 32px; color: rgba(255,255,255,0.8); font-size: 13px;">
-              <span style="display: flex; align-items: center; gap: 6px;">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
-                58 Pages
-              </span>
-              <span style="display: flex; align-items: center; gap: 6px;">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                {{ featuredBlog.estimated_reading_time }} min read
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <div class="latest-articles-card">
-          <div class="lac-header">
-            <h4>Latest articles</h4>
-            <RouterLink to="/blog" class="lac-view-all">View all articles <span class="arrow">→</span></RouterLink>
-          </div>
-          <div class="lac-list">
-            <RouterLink 
-              v-for="post in sideBlogs" 
-              :key="post.id"
-              :to="`/blog/${post.slug}`" 
-              class="article-item"
-            >
-              <img :src="post.image_url" :alt="post.title" class="article-thumb" />
-              <div class="article-info">
-                <span class="article-tag">{{ post.category }}</span>
-                <h5>{{ post.title }}</h5>
-                <span class="article-meta">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                  {{ post.estimated_reading_time }} min read &middot; {{ formatDate(post.publish_date) }}
-                </span>
-              </div>
-            </RouterLink>
-          </div>
-        </div>
-      </div>
-
-      <div class="more-resources-banner" style="margin-top: 32px;">
-        <div class="mrb-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
-        </div>
-        <div class="mrb-content">
-          <h4>More resources, all in one place</h4>
-          <p>Explore all guides, updates, and tools in our Resource Center.</p>
-        </div>
-        <RouterLink to="/resources" class="mrb-link">Visit Resource Center <span class="arrow">→</span></RouterLink>
-      </div>
-    </div>
-  </section>
 
 
   <!-- ============= FAQ SECTION ============= -->
@@ -901,7 +794,7 @@ const globalDestinations = [
           <div class="faq-icon">
             <svg v-if="faq.category === 'About EOR'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
             <svg v-else-if="faq.category === 'Hiring & Onboarding'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            <svg v-else-if="faq.category === 'Payroll & Compliance'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+            <svg v-else-if="faq.category === 'Payroll & Compliance'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
             <svg v-else-if="faq.category === 'Support & Others'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
           </div>
           <h3>{{ faq.question }}</h3>
@@ -959,7 +852,7 @@ const globalDestinations = [
   padding: 20px 0 96px;
   display: block;
   background-color: #0E0F3B;
-  background-image: linear-gradient(90deg, #0e0f3b 0%, rgb(14 15 59 / 0%) 40%, rgb(14 15 59 / 0%) 70%, transparent 100%), url(/services/service-page/about2.png);
+  background-image: linear-gradient(90deg, #0e0f3b 0%, rgb(14 15 59 / 52%) 40%, rgb(14 15 59 / 0%) 70%, transparent 100%), url(/services/service-page/about2.png);
   background-size: 60% auto;
   background-position: right 0% center;
   background-repeat: no-repeat;
@@ -1380,7 +1273,7 @@ const globalDestinations = [
   font-size: clamp(36px, 4vw, 54px);
   line-height: 1.1;
   letter-spacing: -0.01em;
-  font-weight: 700;
+  
   color: var(--ink);
   margin-bottom: 24px;
 }
@@ -1676,7 +1569,7 @@ const globalDestinations = [
   font-family: var(--serif);
   font-size: clamp(32px, 3.5vw, 44px);
   line-height: 1.1;
-  font-weight: 400;
+  
   margin-bottom: 20px;
 }
 .cta-block h2 em {
@@ -3586,7 +3479,6 @@ const globalDestinations = [
 }
 .ge-title {
   font-size: 48px;
-  font-weight: 600;
   line-height: 1.1;
   margin-bottom: 24px;
   font-family: var(--serif);

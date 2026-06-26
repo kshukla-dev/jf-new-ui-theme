@@ -62,7 +62,7 @@ function asArray(c?: string | string[]): string[] {
 .legal-section h2 {
   font-family: var(--serif);
   font-size: 28px;
-  font-weight: 400;
+  
   margin-bottom: 16px;
   color: var(--ink);
 }
@@ -101,7 +101,7 @@ function asArray(c?: string | string[]): string[] {
 .legal-contact h2 {
   font-family: var(--serif);
   font-size: 24px;
-  font-weight: 400;
+  
   margin-bottom: 12px;
 }
 .legal-contact p { font-size: 15px; color: var(--ink-soft); line-height: 1.7; }

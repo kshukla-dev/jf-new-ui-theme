@@ -117,7 +117,7 @@ const groups = [
 .sm-group h2 {
   font-family: var(--serif);
   font-size: 22px;
-  font-weight: 400;
+  
   margin-bottom: 18px;
   padding-bottom: 12px;
   border-bottom: 1px solid var(--border);

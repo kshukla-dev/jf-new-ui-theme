@@ -464,7 +464,6 @@ async function submitNewsletter(e: Event) {
   font-size: clamp(36px, 4vw, 56px);
   line-height: 1.15;
   color: #ffffff;
-  font-weight: 500;
 }
 .blog-hero-subtitle {
   font-size: 16px;
@@ -565,7 +564,6 @@ async function submitNewsletter(e: Event) {
 .float-card-title {
   font-family: var(--sans);
   font-size: 10px;
-  font-weight: 700;
   line-height: 1.3;
   margin-bottom: 2px;
 }
@@ -685,7 +683,7 @@ async function submitNewsletter(e: Event) {
 .section-heading h2 {
   font-family: var(--sans);
   font-size: 20px;
-  font-weight: 700;
+  
   color: var(--ink);
 }
 .mt-40 { margin-top: 48px; }
@@ -724,7 +722,7 @@ async function submitNewsletter(e: Event) {
 .featured-title {
   font-family: var(--serif);
   font-size: 32px;
-  font-weight: 500;
+  
   color: var(--ink);
   line-height: 1.2;
   margin-bottom: 16px;
@@ -827,7 +825,7 @@ async function submitNewsletter(e: Event) {
 .blog-card-title {
   font-family: var(--serif);
   font-size: 20px;
-  font-weight: 600;
+  
   line-height: 1.3;
   color: var(--ink);
   margin-bottom: 12px;

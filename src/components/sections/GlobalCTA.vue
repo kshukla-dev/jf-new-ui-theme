@@ -203,7 +203,7 @@ defineProps<{
 .cta-card-subtitle {
   font-family: var(--sans);
   font-size: 11px;
-  font-weight: 700;
+  
   text-transform: uppercase;
   color: #143369;
   letter-spacing: 0.08em;

@@ -372,7 +372,7 @@ const testiAvatars = ["/testimonials/priya.jpg", "/testimonials/James.jpg", "/te
   font-family: var(--serif);
   font-size: clamp(36px, 4vw, 56px);
   line-height: 1.1;
-  font-weight: 400;
+  
   margin-bottom: 24px;
   color: #fff;
 }
@@ -542,7 +542,7 @@ const testiAvatars = ["/testimonials/priya.jpg", "/testimonials/James.jpg", "/te
 .featured-content-col h2 {
   font-family: var(--serif);
   font-size: 36px;
-  font-weight: 400;
+  
   line-height: 1.2;
   margin-bottom: 16px;
   color: var(--ink);
@@ -900,7 +900,7 @@ const testiAvatars = ["/testimonials/priya.jpg", "/testimonials/James.jpg", "/te
 .impact-left h2 {
   font-family: var(--serif);
   font-size: 36px;
-  font-weight: 400;
+  
   color: var(--ink);
   line-height: 1.1;
   margin-bottom: 12px;
@@ -958,7 +958,7 @@ const testiAvatars = ["/testimonials/priya.jpg", "/testimonials/James.jpg", "/te
   font-family: var(--serif);
   font-size: 32px;
   color: var(--ink);
-  font-weight: 400;
+  
 }
 .view-all-link {
   font-size: 14px;

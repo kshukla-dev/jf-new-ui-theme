@@ -438,7 +438,6 @@ const year = new Date().getFullYear()
 }
 .trust-title {
   font-size: 12px;
-  font-weight: 600;
   color: rgba(255, 255, 255, 0.5);
   letter-spacing: 0.5px;
   text-transform: uppercase;

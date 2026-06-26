@@ -126,7 +126,7 @@
 .eor-process-header h2 {
   font-family: var(--serif);
   font-size: 46px;
-  font-weight: 400;
+  
   color: var(--gh-primary);
   margin-bottom: 14px;
   letter-spacing: -0.03em;
@@ -279,7 +279,7 @@
 .eor-compare-header h2 {
   font-family: var(--serif);
   font-size: 44px;
-  font-weight: 400;
+  
   color: var(--gh-primary);
   margin-bottom: 12px;
 }
@@ -374,7 +374,7 @@
 .eor-audience-header h2 {
   font-family: var(--serif);
   font-size: 44px;
-  font-weight: 400;
+  
   color: var(--gh-primary);
 }
 
@@ -470,7 +470,7 @@
 .eor-countries-header h2 {
   font-family: var(--serif);
   font-size: 44px;
-  font-weight: 400;
+  
   color: var(--gh-primary);
   margin-bottom: 12px;
 }

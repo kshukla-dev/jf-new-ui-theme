@@ -175,7 +175,7 @@ function fmt(n: number, symbol: string) {
 .cc-form h2 {
   font-family: var(--serif);
   font-size: 28px;
-  font-weight: 400;
+  
   margin-bottom: 6px;
 }
 .cc-form-sub {

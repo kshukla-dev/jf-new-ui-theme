@@ -265,7 +265,7 @@ const getCountryDetails = (name: string) => {
           <div class="ps-icon-wrap">
             <div class="ps-icon">
               <!-- Shield SVG -->
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M9 12l2 2 4-4"></path></svg>
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M9 12l2 2 4-4"></path></svg>
             </div>
           </div>
           <span class="ps-num">03</span>
@@ -352,7 +352,7 @@ const getCountryDetails = (name: string) => {
 
             <div class="map-stat-item">
               <div class="map-stat-icon-wrap">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M9 12l2 2 4-4"></path></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M9 12l2 2 4-4"></path></svg>
               </div>
               <div class="map-stat-info">
                 <span class="map-stat-number">98%</span>
@@ -569,7 +569,7 @@ const getCountryDetails = (name: string) => {
   font-family: var(--serif);
   font-size: clamp(40px, 5vw, 64px);
   line-height: 1.1;
-  font-weight: 400;
+  
   color: #ffffff;
   margin-bottom: 24px;
 }
@@ -707,7 +707,7 @@ const getCountryDetails = (name: string) => {
 .borderless-header h2 {
   font-family: var(--serif);
   font-size: 36px;
-  font-weight: 400;
+  
   color: #111;
   letter-spacing: -0.02em;
 }
@@ -797,7 +797,7 @@ const getCountryDetails = (name: string) => {
 .process-title {
   font-family: var(--serif);
   font-size: 36px;
-  font-weight: 400;
+  
   color: #111;
   margin-bottom: 64px;
 }
@@ -894,7 +894,7 @@ const getCountryDetails = (name: string) => {
 .entities-main-title {
   font-family: var(--serif);
   font-size: 40px;
-  font-weight: 500;
+  
   line-height: 1.2;
   color: #111;
 }
@@ -902,7 +902,7 @@ const getCountryDetails = (name: string) => {
   color: var(--accent);
   font-family: var(--serif);
   font-style: italic;
-  font-weight: 400;
+  
 }
 .entities-subtitle {
   font-size: 14px;
@@ -1033,7 +1033,7 @@ const getCountryDetails = (name: string) => {
 }
 .fe-card-title {
   font-size: 18px;
-  font-weight: 700;
+  
   color: #111;
 }
 .fe-see-all {
@@ -1283,7 +1283,7 @@ const getCountryDetails = (name: string) => {
 }
 .cs-title {
   font-size: 11px;
-  font-weight: 800;
+  
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: #64748b;
@@ -1442,7 +1442,7 @@ const getCountryDetails = (name: string) => {
 }
 .cs-request-title {
   font-size: 13px;
-  font-weight: 700;
+  
   color: #64748b;
   margin-bottom: 6px;
 }

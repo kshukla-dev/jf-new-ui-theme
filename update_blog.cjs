@@ -188,9 +188,9 @@ const new_template = `  <!-- ============= CLEAN HERO ============= -->
 `;
 
 if (template_start !== -1 && template_end !== -1) {
-    content = content.substring(0, template_start) + new_template + content.substring(template_end);
+  content = content.substring(0, template_start) + new_template + content.substring(template_end);
 } else {
-    console.log("Template markers not found!");
+  console.log("Template markers not found!");
 }
 
 // 3. Replace CSS related to the old hero and blog grid
@@ -220,7 +220,6 @@ const new_css = `/* ============= CLEAN HERO ============= */
   font-size: clamp(40px, 5vw, 64px);
   line-height: 1.1;
   color: var(--ink);
-  font-weight: 500;
   letter-spacing: -0.02em;
 }
 .blog-hero-subtitle {
@@ -389,7 +388,6 @@ const new_css = `/* ============= CLEAN HERO ============= */
 .blog-card-title {
   font-family: var(--sans);
   font-size: 20px;
-  font-weight: 600;
   line-height: 1.3;
   margin-bottom: 8px;
   color: var(--ink);
@@ -430,9 +428,9 @@ const new_css = `/* ============= CLEAN HERO ============= */
 `;
 
 if (css_start !== -1 && css_end !== -1) {
-    content = content.substring(0, css_start) + new_css + content.substring(css_end);
+  content = content.substring(0, css_start) + new_css + content.substring(css_end);
 } else {
-    console.log("CSS markers not found!");
+  console.log("CSS markers not found!");
 }
 
 fs.writeFileSync(path, content, 'utf8');

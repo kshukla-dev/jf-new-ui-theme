@@ -496,7 +496,7 @@ function getRoleTheme(dept: string) {
 .position-title {
   font-family: var(--serif);
   font-size: 22px;
-  font-weight: 500;
+  
   color: var(--ink);
   margin-bottom: 12px;
   line-height: 1.3;

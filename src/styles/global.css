@@ -96,7 +96,6 @@ button {
 h1 {
   font-family: var(--serif);
   font-size: clamp(40px, 5vw, 64px);
-  font-weight: 400;
   line-height: 1.1;
   text-wrap: balance;
 }
@@ -104,7 +103,6 @@ h1 {
 h2 {
   font-family: var(--serif);
   font-size: clamp(32px, 4vw, 42px);
-  font-weight: 400;
   line-height: 1.2;
   text-wrap: balance;
 }
@@ -124,7 +122,8 @@ p {
   text-wrap: pretty;
 }
 
-small, .small-text {
+small,
+.small-text {
   font-family: var(--sans);
   font-size: 14px;
   font-weight: 400;
@@ -157,7 +156,6 @@ small, .small-text {
   font-size: clamp(36px, 4.5vw, 56px);
   line-height: 1.05;
   letter-spacing: -0.01em;
-  font-weight: 400;
 }
 
 .section-title em {
@@ -249,7 +247,8 @@ small, .small-text {
 }
 
 .section {
-  padding-bottom: 100px;
+  padding-top: 80px;
+  padding-bottom: 80px;
 }
 
 /* === Fade-in animation === */

@@ -579,7 +579,6 @@ watch(slug, (s) => {
 }
 .toc-title {
   font-size: 12px;
-  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--ink-muted);
@@ -642,7 +641,7 @@ watch(slug, (s) => {
 .blog-detail-body :deep(h2),
 .blog-detail-body :deep(h3) {
   font-family: var(--serif);
-  font-weight: 400;
+  
   letter-spacing: -0.015em;
   margin-top: 56px;
   margin-bottom: 20px;
@@ -885,7 +884,6 @@ watch(slug, (s) => {
 }
 .widget-title {
   font-size: 12px;
-  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--ink-muted);
