@@ -45,9 +45,9 @@ const trustAvatars = [
           <RouterLink to="/contact?reason=compliance_questions" class="btn-primary">
             {{ compliance.definition.primaryButtonText }} <span class="arrow">→</span>
           </RouterLink>
-          <RouterLink to="/contact?reason=consultation" class="btn-secondary">
+          <a href="https://calendly.com/jacksonandfrank/discover-us" target="_blank" rel="noopener noreferrer" class="btn-secondary">
             {{ compliance.definition.secondaryButtonText }}
-          </RouterLink>
+          </a>
         </div>
         <div class="trust-row">
           <div class="avatars">
@@ -70,7 +70,6 @@ const trustAvatars = [
   <section class="section container">
     <div class="definition-block">
       <div>
-        <span class="tag">What is compliance services</span>
         <h2 class="section-title">{{ compliance.mainDescription.title }}</h2>
       </div>
       <div class="definition-text">
@@ -120,7 +119,13 @@ const trustAvatars = [
       </div>
       <div class="coverage-grid">
         <div v-for="cat in compliance.coverage.categories" :key="cat.category" class="coverage-card">
-          <span class="coverage-mark" aria-hidden>◆</span>
+          <span class="coverage-mark" aria-hidden>
+            <svg v-if="cat.category.includes('Employment')" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+            <svg v-else-if="cat.category.includes('Tax')" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><line x1="8" y1="6" x2="16" y2="6"></line><line x1="16" y1="14" x2="16" y2="14.01"></line><line x1="12" y1="14" x2="12" y2="14.01"></line><line x1="8" y1="14" x2="8" y2="14.01"></line><line x1="16" y1="10" x2="16" y2="10.01"></line><line x1="12" y1="10" x2="12" y2="10.01"></line><line x1="8" y1="10" x2="8" y2="10.01"></line><line x1="16" y1="18" x2="16" y2="18.01"></line><line x1="12" y1="18" x2="12" y2="18.01"></line><line x1="8" y1="18" x2="8" y2="18.01"></line></svg>
+            <svg v-else-if="cat.category.includes('Benefit')" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+            <svg v-else-if="cat.category.includes('Regulat')" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+            <span v-else>◆</span>
+          </span>
           <h3>{{ cat.category }}</h3>
           <ul>
             <li v-for="item in cat.items" :key="item">
@@ -130,7 +135,6 @@ const trustAvatars = [
         </div>
       </div>
       <div class="coverage-guarantee">
-        <span class="tag">Guarantee</span>
         <p>{{ compliance.coverage.guarantee }}</p>
       </div>
     </div>
@@ -139,19 +143,34 @@ const trustAvatars = [
   <!-- ============= PROCESS ============= -->
   <section class="section container">
     <div class="section-head">
-      <span class="tag">How it works</span>
       <h2 class="section-title">{{ compliance.process.title }}</h2>
       <p v-if="compliance.process.description" class="section-lead">
         {{ compliance.process.description }}
       </p>
     </div>
     <div class="how-grid how-grid-4">
-      <div v-for="step in compliance.process.steps" :key="step.number" class="how-card">
-        <span class="how-card-num">0{{ step.number }}</span>
-        <h3>{{ step.title }}</h3>
-        <p>{{ step.description }}</p>
-        <ul>
-          <li v-for="d in step.details" :key="d">{{ d }}</li>
+      <div v-for="step in compliance.process.steps" :key="step.number" class="how-card process-card">
+        <svg class="card-dots" width="48" height="48" viewBox="0 0 48 48" fill="none">
+          <pattern id="dots-pattern" x="0" y="0" width="8" height="8" patternUnits="userSpaceOnUse">
+            <circle cx="2" cy="2" r="1.5" fill="rgba(9, 64, 123, 0.15)"></circle>
+          </pattern>
+          <rect x="0" y="0" width="48" height="48" fill="url(#dots-pattern)"></rect>
+        </svg>
+        <div class="process-icon-wrap">
+          <svg v-if="step.number === 1" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><path d="M16 13H8"></path><path d="M16 17H8"></path><path d="M10 9H8"></path></svg>
+          <svg v-else-if="step.number === 2" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line></svg>
+          <svg v-else-if="step.number === 3" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+          <svg v-else-if="step.number === 4" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
+        </div>
+        <div class="card-content-wrap">
+          <h3>{{ step.title }}</h3>
+          <p>{{ step.description }}</p>
+        </div>
+        <ul class="process-list">
+          <li v-for="d in step.details" :key="d">
+            <svg class="process-check" width="16" height="16" viewBox="0 0 24 24" fill="var(--accent)" stroke="white" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>
+            {{ d }}
+          </li>
         </ul>
       </div>
     </div>
@@ -191,7 +210,13 @@ const trustAvatars = [
       </div>
       <div class="eor-bridge-grid">
         <div v-for="(b, i) in compliance.eorBridge.benefits" :key="i" class="eor-bridge-card">
-          <span class="eor-bridge-mark">{{ String(i + 1).padStart(2, '0') }}</span>
+          <div class="eor-bridge-mark">
+            <svg v-if="b.icon === 'Shield'" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            <svg v-else-if="b.icon === 'CheckCircle2'" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path><path d="M9 12l2 2 4-4"></path></svg>
+            <svg v-else-if="b.icon === 'Users'" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            <svg v-else-if="b.icon === 'Eye'" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+            <svg v-else width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle></svg>
+          </div>
           <h3>{{ b.title }}</h3>
           <p>{{ b.description }}</p>
         </div>
@@ -483,7 +508,7 @@ const trustAvatars = [
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 28px;
 }
-.service.how-card {
+.service-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -508,7 +533,7 @@ const trustAvatars = [
   background: var(--accent);
   color: var(--bg);
   font-family: var(--serif);
-  font-style: italic;
+  font-style: normal;
   font-size: 20px;
   margin-bottom: 22px;
 }
@@ -524,6 +549,7 @@ const trustAvatars = [
   color: var(--ink-soft);
   line-height: 1.75;
   margin-bottom: 20px;
+  flex-grow: 1;
 }
 .service-card ul {
   list-style: none;
@@ -696,6 +722,61 @@ const trustAvatars = [
   line-height: 1.4;
 }
 
+/* ============= PROCESS CARDS ============= */
+.process-card {
+  padding: 40px 32px 36px;
+  border-bottom: 4px solid var(--accent);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.card-dots {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  z-index: 0;
+}
+.process-icon-wrap {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(9, 64, 123, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 1;
+}
+.card-content-wrap {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+.process-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+.process-card .process-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--ink-soft);
+  padding: 0;
+}
+.process-card .process-list li::before {
+  content: none;
+}
+.process-check {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
 /* Risks */
 .risks-grid {
   display: grid;
@@ -722,14 +803,14 @@ const trustAvatars = [
   position: absolute;
   top: -14px;
   left: 32px;
-  background: var(--accent);
+  background: #e63946;
   color: #ffffff;
   font-size: 13px;
   letter-spacing: 0.02em;
   padding: 6px 16px;
   border-radius: 999px;
   font-weight: 500;
-  box-shadow: 0 4px 12px rgba(9, 64, 123, 0.2);
+  box-shadow: 0 4px 12px rgba(230, 57, 70, 0.25);
 }
 .risk-icon-wrapper {
   display: flex;
@@ -737,14 +818,14 @@ const trustAvatars = [
   justify-content: center;
   width: 56px;
   height: 56px;
-  background: rgba(9, 64, 123, 0.08);
+  background: rgba(230, 57, 70, 0.08);
   border-radius: 12px;
   margin-bottom: 24px;
 }
 .risk-icon {
   width: 28px;
   height: 28px;
-  color: var(--accent);
+  color: #e63946;
 }
 .risk-card h3 {
   font-family: var(--serif);
@@ -767,7 +848,7 @@ const trustAvatars = [
 .risk-footer-text {
   font-size: 13px;
   font-weight: 600;
-  color: var(--accent);
+  color: #e63946;
   letter-spacing: 0.05em;
 }
 

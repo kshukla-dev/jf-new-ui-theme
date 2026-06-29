@@ -37,9 +37,9 @@ const trustAvatars = [
         <RouterLink to="/contact?reason=payroll_services" class="btn-primary">
           {{ payroll.definition.primaryButtonText }} <span class="arrow">→</span>
         </RouterLink>
-        <RouterLink to="/contact?reason=consultation" class="btn-secondary">
+        <a href="https://calendly.com/jacksonandfrank/discover-us" target="_blank" rel="noopener noreferrer" class="btn-secondary">
           {{ payroll.definition.secondaryButtonText }}
-        </RouterLink>
+        </a>
       </div>
       <div class="trust-row">
         <div class="avatars">
@@ -62,7 +62,6 @@ const trustAvatars = [
   <section class="section container">
     <div class="definition-block">
       <div>
-        <span class="tag">What is payroll services</span>
         <h2 class="section-title">{{ payroll.mainDescription.title }}</h2>
       </div>
       <div class="definition-text">
@@ -105,19 +104,34 @@ const trustAvatars = [
   <!-- ============= PROCESS ============= -->
   <section class="section container">
     <div class="section-head">
-      <span class="tag">How it works</span>
       <h2 class="section-title">{{ payroll.process.title }}</h2>
       <p v-if="payroll.process.description" class="section-lead">
         {{ payroll.process.description }}
       </p>
     </div>
     <div class="how-grid how-grid-4">
-      <div v-for="step in payroll.process.steps" :key="step.number" class="how-card">
-        <span class="how-card-num">0{{ step.number }}</span>
-        <h3>{{ step.title }}</h3>
-        <p>{{ step.description }}</p>
-        <ul>
-          <li v-for="d in step.details" :key="d">{{ d }}</li>
+      <div v-for="step in payroll.process.steps" :key="step.number" class="how-card process-card">
+        <svg class="card-dots" width="48" height="48" viewBox="0 0 48 48" fill="none">
+          <pattern id="dots-pattern" x="0" y="0" width="8" height="8" patternUnits="userSpaceOnUse">
+            <circle cx="2" cy="2" r="1.5" fill="rgba(9, 64, 123, 0.15)"></circle>
+          </pattern>
+          <rect x="0" y="0" width="48" height="48" fill="url(#dots-pattern)"></rect>
+        </svg>
+        <div class="process-icon-wrap">
+          <svg v-if="step.number === 1" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><path d="M16 13H8"></path><path d="M16 17H8"></path><path d="M10 9H8"></path></svg>
+          <svg v-else-if="step.number === 2" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line></svg>
+          <svg v-else-if="step.number === 3" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+          <svg v-else-if="step.number === 4" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
+        </div>
+        <div class="card-content-wrap">
+          <h3>{{ step.title }}</h3>
+          <p>{{ step.description }}</p>
+        </div>
+        <ul class="process-list">
+          <li v-for="d in step.details" :key="d">
+            <svg class="process-check" width="16" height="16" viewBox="0 0 24 24" fill="var(--accent)" stroke="white" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="8 12 11 15 16 9"></polyline></svg>
+            {{ d }}
+          </li>
         </ul>
       </div>
     </div>
@@ -126,8 +140,7 @@ const trustAvatars = [
   <!-- ============= EOR COMPARISON ============= -->
   <section class="section container">
     <div class="section-head text-center">
-      <span class="tag">{{ payroll.eorComparison.subtitle }}</span>
-      <h2 class="section-title">{{ payroll.eorComparison.title }}</h2>
+       <h2 class="section-title">{{ payroll.eorComparison.title }}</h2>
       <p class="section-lead mx-auto">{{ payroll.eorComparison.description }}</p>
     </div>
     <div class="comparison-grid comparison-grid-2 mx-auto">
@@ -158,13 +171,18 @@ const trustAvatars = [
   <section class="tech-strip">
     <div class="container">
       <div class="section-head">
-        <span class="tag">{{ payroll.technology.subtitle }}</span>
         <h2 class="section-title">{{ payroll.technology.title }}</h2>
         <p class="section-lead">{{ payroll.technology.description }}</p>
       </div>
       <div class="tech-grid">
         <div v-for="(f, i) in payroll.technology.features" :key="i" class="tech-card">
-          <span class="tech-mark">{{ String(i + 1).padStart(2, '0') }}</span>
+          <span class="tech-mark">
+            <svg v-if="f.icon === 'Monitor'" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+            <svg v-else-if="f.icon === 'Zap'" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            <svg v-else-if="f.icon === 'FileBarChart'" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><path d="M12 18v-6"></path><path d="M8 18v-1"></path><path d="M16 18v-3"></path></svg>
+            <svg v-else-if="f.icon === 'DollarSign'" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+            <svg v-else width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v4l3 3"></path></svg>
+          </span>
           <h3>{{ f.title }}</h3>
           <p>{{ f.description }}</p>
         </div>
@@ -172,6 +190,11 @@ const trustAvatars = [
       <div class="tech-benefits">
         <div class="tech-benefits-pills">
           <span v-for="b in payroll.technology.benefits" :key="b" class="tech-pill">
+            <svg v-if="b === 'Cloud-based platform'" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"></path></svg>
+            <svg v-else-if="b === 'Mobile app access'" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+            <svg v-else-if="b === 'API integrations'" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22v-5"></path><path d="M9 8V2"></path><path d="M15 8V2"></path><path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z"></path></svg>
+            <svg v-else-if="b === 'Data security'" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            <svg v-else-if="b === '24/7 support'" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"></path><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path></svg>
             {{ b }}
           </span>
         </div>
@@ -603,6 +626,60 @@ const trustAvatars = [
   font-size: 18px;
 }
 
+/* ============= PROCESS CARDS ============= */
+.process-card {
+  padding: 40px 32px 36px;
+  border-bottom: 4px solid var(--accent);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.card-dots {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  z-index: 0;
+}
+.process-icon-wrap {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(9, 64, 123, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 1;
+}
+.card-content-wrap {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+.process-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+.process-card .process-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--ink-soft);
+  padding: 0;
+}
+.process-card .process-list li::before {
+  content: none;
+}
+.process-check {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
 /* ============= PREMIUM COMPARISON CARDS ============= */
 .section-head.text-center {
   text-align: center;
@@ -727,12 +804,11 @@ const trustAvatars = [
   padding: 28px;
 }
 .tech-mark {
-  display: inline-block;
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   color: var(--accent);
-  margin-bottom: 14px;
+  margin-bottom: 18px;
 }
 .tech-card h3 {
   font-family: var(--serif);
@@ -753,6 +829,9 @@ const trustAvatars = [
   flex-wrap: wrap;
 }
 .tech-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   font-size: 13px;
   padding: 8px 16px;
   border-radius: 999px;

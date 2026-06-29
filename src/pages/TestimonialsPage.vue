@@ -102,9 +102,9 @@ const trustAvatars = [
           <RouterLink to="/contact" class="btn-primary">
             {{ tp.definition.primaryButtonText }} <span class="arrow">→</span>
           </RouterLink>
-          <RouterLink to="/contact?reason=consultation" class="btn-secondary">
-            {{ tp.definition.secondaryButtonText }}
-          </RouterLink>
+          <a href="https://calendly.com/jacksonandfrank/discover-us" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+            {{ testimonials.hero.secondaryButtonText }}
+          </a>
         </div>
         <div class="trust-row">
           <div class="avatars">

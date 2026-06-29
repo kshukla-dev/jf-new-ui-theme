@@ -80,9 +80,9 @@ onUnmounted(() => {
           <RouterLink to="/contact" class="btn-primary">
             {{ about.definition.primaryButtonText }} <span class="arrow">→</span>
           </RouterLink>
-          <RouterLink to="/contact?reason=consultation" class="btn-secondary">
+          <a href="https://calendly.com/jacksonandfrank/discover-us" target="_blank" rel="noopener noreferrer" class="btn-secondary">
             {{ about.definition.secondaryButtonText }}
-          </RouterLink>
+          </a>
         </div>
 
       </div>

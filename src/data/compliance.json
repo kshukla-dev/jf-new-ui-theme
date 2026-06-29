@@ -174,7 +174,7 @@
   },
   "coverage": {
     "title": "Compliance areas we cover",
-    "subtitle": "Comprehensive compliance coverage",
+    "subtitle": "",
     "description": "We provide compliance coverage across all critical areas of employment, tax, and regulatory requirements. Our comprehensive approach ensures nothing is overlooked.",
     "categories": [
       {
@@ -312,7 +312,7 @@
   },
   "risks": {
     "title": "Compliance risks without expert support",
-    "subtitle": "The cost of non-compliance",
+    "subtitle": "",
     "description": "Operating without expert compliance support exposes your business to significant risks, penalties, and legal issues. Understanding these risks helps you make informed decisions about compliance management.",
     "risks": [
       {

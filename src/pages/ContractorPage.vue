@@ -35,9 +35,9 @@ const trustAvatars = [
           <RouterLink to="/contact?reason=contractor_management" class="btn-primary">
             {{ contractor.definition.primaryButtonText }} <span class="arrow">→</span>
           </RouterLink>
-          <RouterLink to="/contact?reason=consultation" class="btn-secondary">
+          <a href="https://calendly.com/jacksonandfrank/discover-us" target="_blank" rel="noopener noreferrer" class="btn-secondary">
             {{ contractor.definition.secondaryButtonText.trim() }}
-          </RouterLink>
+          </a>
         </div>
         <div class="trust-row">
           <div class="avatars">

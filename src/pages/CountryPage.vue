@@ -98,9 +98,9 @@ const resources = [
             >
               {{ isEor ? `Hire in ${config.name}` : 'Manage contractors' }} <span class="arrow">→</span>
             </RouterLink>
-            <RouterLink to="/contact?reason=consultation" class="btn-outline-gold">
+            <a href="https://calendly.com/jacksonandfrank/discover-us" target="_blank" rel="noopener noreferrer" class="btn-outline-gold">
               Book a call
-            </RouterLink>
+            </a>
           </div>
         </div>
       </div>

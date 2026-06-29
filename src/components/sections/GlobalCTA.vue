@@ -61,7 +61,7 @@ defineProps<{
         </div>
       </div>
       <div class="cta-actions-redesigned">
-        <RouterLink to="/contact" class="btn-cta-gold">Book a Call <span class="arrow">→</span></RouterLink>
+        <a href="https://calendly.com/jacksonandfrank/discover-us" target="_blank" rel="noopener noreferrer" class="btn-cta-gold">Book a Call <span class="arrow">→</span></a>
         <RouterLink to="/contact" class="btn-cta-outline">Start Hiring in Days <span class="arrow">→</span></RouterLink>
       </div>
       <div class="cta-lock-footer">

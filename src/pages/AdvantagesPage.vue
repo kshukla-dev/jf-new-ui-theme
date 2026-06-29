@@ -57,9 +57,9 @@ const filteredFaqs = computed(() => {
           <RouterLink to="/contact" class="btn-primary">
             {{ advantages.definition.primaryButtonText }} <span class="arrow">→</span>
           </RouterLink>
-          <RouterLink to="/contact?reason=consultation" class="btn-secondary">
+          <a href="https://calendly.com/jacksonandfrank/discover-us" target="_blank" rel="noopener noreferrer" class="btn-secondary">
             {{ advantages.definition.secondaryButtonText }}
-          </RouterLink>
+          </a>
         </div>
         <div class="trust-row">
           <div class="avatars">
