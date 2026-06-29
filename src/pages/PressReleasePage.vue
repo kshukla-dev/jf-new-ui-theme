@@ -202,7 +202,6 @@ onMounted(() => {
             Industry leaders and local experts sharing real insights and actionable strategies for your expansion journey.
           </p>
         </div>
-        <RouterLink to="/contact" class="btn-primary-gold">View All Speakers <span aria-hidden>→</span></RouterLink>
       </div>
       <!-- Right side: carousel wrapper -->
       <div class="speakers-carousel-wrapper">
