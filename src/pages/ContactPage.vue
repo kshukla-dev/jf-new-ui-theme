@@ -1,9 +1,23 @@
 <script setup lang="ts">
-import { ref, reactive, onMounted } from 'vue'
+import { ref, reactive, onMounted, computed } from 'vue'
 import { useRoute, RouterLink } from 'vue-router'
 import contact from '@/data/contact.json'
+import ghg from '@/data/global-hiring.json'
 
 const route = useRoute()
+
+const availableCountries = computed(() => {
+  return ghg.countries.filter(c => c.status === 'Available')
+})
+
+const comingSoonCountries = computed(() => {
+  return ghg.countries.filter(c => c.status === 'Coming soon')
+})
+
+const openFaq = ref(0)
+function toggleFaq(i: number) {
+  openFaq.value = openFaq.value === i ? -1 : i
+}
 
 const form = reactive({
   firstName: '',
@@ -29,6 +43,52 @@ onMounted(() => {
   }
 })
 
+const getFlag = (name: string) => {
+  const map: Record<string, string> = {
+    'The Netherlands': '🇳🇱', 'India': '🇮🇳', 'Poland': '🇵🇱', 'United Kingdom': '🇬🇧',
+    'Germany': '🇩🇪', 'Italy': '🇮🇹', 'Czech Republic': '🇨🇿', 'France': '🇫🇷',
+    'Belgium': '🇧🇪', 'Spain': '🇪🇸', 'UAE': '🇦🇪', 'Hong Kong': '🇭🇰',
+    'China': '🇨🇳', 'Portugal': '🇵🇹', 'Sweden': '🇸🇪', 'Hungary': '🇭🇺',
+    'Romania': '🇷🇴', 'Mexico': '🇲🇽', 'Singapore': '🇸🇬', 'United States': '🇺🇸',
+    'New York': '🇺🇸', 'Australia': '🇦🇺'
+  }
+  return map[name] || '🌍'
+}
+
+const getCountryImage = (name: string) => {
+  const map: Record<string, string> = {
+    'The Netherlands': '/countries/eor-netherlands.webp',
+    'India': '/countries/eor-india.webp',
+    'Poland': '/countries/eor-poland.webp',
+    'United Kingdom': '/countries/eor-uk.webp',
+    'Germany': '/countries/eor-germany.webp',
+    'Italy': '/countries/eor-Italy.webp',
+    'Czech Republic': '/countries/eor-czech.webp',
+    'France': '/countries/eor-france.webp',
+    'Belgium': '/countries/eor-belgium.webp',
+    'Spain': '/countries/eor-spain.webp',
+    'UAE': '/countries/eor-uae.webp',
+    'Hong Kong': '/countries/eor-hong-kong.webp',
+    'Singapore': '/countries/eor-hong-kong.webp',
+    'China': '/countries/eor-china.webp',
+    'United States': '/countries/eor-spain.webp',
+    'New York': '/countries/eor-spain.webp'
+  }
+  return map[name] || '/countries/eor-spain.webp'
+}
+
+const getPhone = (name: string) => {
+  const map: Record<string, string> = {
+    'United Kingdom': '+44 20 4572 2467',
+    'Poland': '+48 22 208 27 00',
+    'The Netherlands': '+31 20 808 2967',
+    'Singapore': '+65 6950 2185',
+    'United States': '+1 646 993 9004',
+    'New York': '+1 646 993 9004'
+  }
+  return map[name] || ''
+}
+
 async function handleSubmit(e: Event) {
   e.preventDefault()
   status.value = 'idle'
@@ -49,10 +109,19 @@ async function handleSubmit(e: Event) {
 
   status.value = 'sending'
 
-  // Simulate network request
-  setTimeout(() => {
-    // Log form entry to the console instead of using API
-    console.log('Contact Form Submitted:', JSON.parse(JSON.stringify(form)))
+  // Send network request
+  try {
+    const response = await fetch('https://jacksonandfrank.com/api/v1/contact-us', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(form)
+    })
+
+    if (!response.ok) {
+      throw new Error('Network response was not ok')
+    }
 
     // Reset form fields
     Object.assign(form, {
@@ -68,7 +137,11 @@ async function handleSubmit(e: Event) {
 
     status.value = 'success'
     showValidation.value = false
-  }, 1200)
+  } catch (error) {
+    status.value = 'error'
+    errorMessage.value = 'There was an issue sending your message. Please try again later.'
+    console.error('Contact form submission error:', error)
+  }
 }
 
 const carouselTrack = ref<HTMLElement | null>(null)
@@ -166,8 +239,13 @@ function slide(direction: 'next' | 'prev') {
                   <input v-model="form.email" type="email" placeholder="Work email" required aria-label="Work Email" />
                 </div>
 
-                <div class="form-field">
-                  <input v-model="form.company" type="text" placeholder="Company name" aria-label="Company Name" />
+                <div class="form-grid-row">
+                  <div class="form-field">
+                    <input v-model="form.phone" type="tel" placeholder="Phone number" aria-label="Phone Number" />
+                  </div>
+                  <div class="form-field">
+                    <input v-model="form.company" type="text" placeholder="Company name" aria-label="Company Name" />
+                  </div>
                 </div>
 
                 <div class="form-field select-field">
@@ -192,7 +270,7 @@ function slide(direction: 'next' | 'prev') {
                     <span class="checkmark"></span>
                   </label>
                   <span class="consent-text">
-                    I agree to the <RouterLink to="/privacy-policy">Privacy Policy</RouterLink> and <RouterLink to="/terms-of-service">Terms of Service</RouterLink>.
+                    I agree to receive communications from Jackson & Frank. View our <RouterLink to="/privacy-policy">Privacy policy</RouterLink>.
                   </span>
                 </div>
 
@@ -301,9 +379,6 @@ function slide(direction: 'next' | 'prev') {
             <span class="tag-eyebrow">OUR OFFICES</span>
             <h2>A global presence, <span class="highlight-gold">wherever you grow.</span></h2>
           </div>
-          <RouterLink to="/sitemaps" class="view-locations-btn">
-            View all locations <span class="arrow">→</span>
-          </RouterLink>
         </div>
 
         <div class="carousel-track-wrapper">
@@ -313,109 +388,25 @@ function slide(direction: 'next' | 'prev') {
           </button>
 
           <div ref="carouselTrack" class="offices-carousel-track">
-            <!-- London -->
-            <div class="office-location-card">
+            <div v-for="(country, idx) in availableCountries" :key="idx" class="office-location-card">
               <div class="office-img-wrap">
-                <img src="/countries/eor-uk.webp" alt="London skyline" class="office-img" />
+                <img :src="getCountryImage(country.name)" :alt="country.name" class="office-img" />
               </div>
               <div class="card-inner-body">
-                <div class="country-row">
-                  <span class="flag">🇬🇧</span>
-                  <span class="country-name">London</span>
-                  <span class="badge-hq">Head Office</span>
+                <div class="country-row" style="display: flex; align-items: center; gap: 8px;">
+                  <span class="flag" style="display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border: 1.5px solid #E2E8F0; border-radius: 50%; font-size: 13px; font-weight: 600; background: #fff; color: #0E0F3B;">
+                    {{ getFlag(country.name) }}
+                  </span>
+                  <span class="country-name">{{ country.name }}</span>
+                  <span v-if="country.name === 'United Kingdom'" class="badge-hq">Head Office</span>
                 </div>
                 <p class="address">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="loc-icon"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                  25 Wilton Road, London, SW1V 1LW, United Kingdom
+                  {{ country.address }}
                 </p>
-                <a href="tel:+442045722467" class="phone-link">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="loc-icon"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                  +44 20 4572 2467
-                </a>
-              </div>
-            </div>
-
-            <!-- Warsaw -->
-            <div class="office-location-card">
-              <div class="office-img-wrap">
-                <img src="/countries/eor-poland.webp" alt="Warsaw skyline" class="office-img" />
-              </div>
-              <div class="card-inner-body">
-                <div class="country-row">
-                  <span class="flag">🇵🇱</span>
-                  <span class="country-name">Warsaw</span>
-                </div>
-                <p class="address">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="loc-icon"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                  ul. Zlota 59, 00-120 Warsaw, Poland
-                </p>
-                <a href="tel:+48222082700" class="phone-link">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="loc-icon"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                  +48 22 208 27 00
-                </a>
-              </div>
-            </div>
-
-            <!-- Amsterdam -->
-            <div class="office-location-card">
-              <div class="office-img-wrap">
-                <img src="/countries/eor-netherlands.webp" alt="Amsterdam canals" class="office-img" />
-              </div>
-              <div class="card-inner-body">
-                <div class="country-row">
-                  <span class="flag">🇳🇱</span>
-                  <span class="country-name">Amsterdam</span>
-                </div>
-                <p class="address">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="loc-icon"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                  Herengracht 124, 1015 BT Amsterdam, Netherlands
-                </p>
-                <a href="tel:+31208082967" class="phone-link">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="loc-icon"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                  +31 20 808 2967
-                </a>
-              </div>
-            </div>
-
-            <!-- Singapore -->
-            <div class="office-location-card">
-              <div class="office-img-wrap">
-                <img src="/countries/eor-hong-kong.webp" alt="Singapore Skyline" class="office-img" />
-              </div>
-              <div class="card-inner-body">
-                <div class="country-row">
-                  <span class="flag">🇸🇬</span>
-                  <span class="country-name">Singapore</span>
-                </div>
-                <p class="address">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="loc-icon"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                  10 Anson Road, #10-11, Singapore 079903, Singapore
-                </p>
-                <a href="tel:+6569502185" class="phone-link">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="loc-icon"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                  +65 6950 2185
-                </a>
-              </div>
-            </div>
-
-            <!-- New York -->
-            <div class="office-location-card">
-              <div class="office-img-wrap">
-                <img src="/countries/eor-spain.webp" alt="New York skyline" class="office-img" />
-              </div>
-              <div class="card-inner-body">
-                <div class="country-row">
-                  <span class="flag">🇺🇸</span>
-                  <span class="country-name">New York</span>
-                </div>
-                <p class="address">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="loc-icon"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                  375 Park Avenue, 9th Floor, New York, NY 10152, USA
-                </p>
-                <a href="tel:+16469939004" class="phone-link">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="loc-icon"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                  +1 646 993 9004
-                </a>
+                <RouterLink v-if="country.href" :to="country.href" class="learn-more-link">
+                  Learn more about {{ country.name }} <span>→</span>
+                </RouterLink>
               </div>
             </div>
           </div>
@@ -428,7 +419,31 @@ function slide(direction: 'next' | 'prev') {
       </div>
     </section>
 
-
+    <!-- ============= COMING SOON OFFICES ============= -->
+    <section class="coming-soon-section" v-if="comingSoonCountries.length">
+      <div class="container">
+        <h2 class="coming-soon-title">Coming soon</h2>
+        <div class="coming-soon-grid">
+          <div v-for="(country, idx) in comingSoonCountries" :key="idx" class="coming-soon-card">
+            <div class="cs-bg-image" :style="{ backgroundImage: 'url(' + getCountryImage(country.name) + ')' }"></div>
+            <div class="cs-overlay"></div>
+            <div class="cs-card-content">
+              <div class="cs-country-header">
+                <span class="cs-icon-wrap">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                </span>
+                <span class="cs-country-name">{{ country.name }}</span>
+              </div>
+              <p class="cs-desc">Full country guide and local EOR details:<br/>Launching soon. Contact us to plan ahead.</p>
+              <RouterLink to="/#contact" class="cs-contact-link">
+                Contact us to plan ahead <span>→</span>
+              </RouterLink>
+            </div>
+            <div class="cs-badge">Coming soon</div>
+          </div>
+        </div>
+      </div>
+    </section>
     <!-- ============= MAP OVERLAY STRIP ============= -->
     <section class="map-overlay-section">
       <div class="container map-strip-container">
@@ -452,6 +467,31 @@ function slide(direction: 'next' | 'prev') {
         </div>
       </div>
     </section>
+    <!-- ============= FAQ ============= -->
+    <section class="section container faq-section">
+      <div class="faq-block">
+        <div class="faq-head">
+          <h2 class="section-title">{{ contact.faqs.title }}</h2>
+          <p class="section-lead">{{ contact.faqs.subtitle }}</p>
+        </div>
+        <div class="faq-list">
+          <button
+            v-for="(item, i) in contact.faqs.items"
+            :key="i"
+            class="faq-item"
+            :class="{ open: openFaq === i }"
+            @click="toggleFaq(i)"
+            :aria-expanded="openFaq === i"
+          >
+            <span class="faq-q">{{ item.question }}</span>
+            <span class="faq-toggle" aria-hidden>{{ openFaq === i ? '−' : '+' }}</span>
+            <p v-show="openFaq === i" class="faq-a">{{ item.answer }}</p>
+          </button>
+        </div>
+      </div>
+    </section>
+
+
 
   </div>
 </template>
@@ -1553,5 +1593,225 @@ form.was-validated .custom-checkbox input:invalid + .checkmark {
   .feature-item p {
     font-size: 11.5px;
   }
+}
+
+/* COMING SOON SECTION */
+.coming-soon-section {
+  padding: 60px 20px;
+  background-color: #ffffff;
+}
+.coming-soon-title {
+  color: #0E0F3B;
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+.coming-soon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+.coming-soon-card {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  color: #fff;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  min-height: 240px;
+}
+.cs-bg-image {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+  transition: transform 0.4s ease;
+}
+.cs-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(to bottom, rgba(71, 85, 105, 0.95), rgba(51, 65, 85, 0.98));
+  z-index: 1;
+  transition: background 0.4s ease, opacity 0.4s ease;
+}
+.coming-soon-card:hover .cs-bg-image {
+  transform: scale(1.05);
+}
+.coming-soon-card:hover .cs-overlay {
+  background: linear-gradient(to bottom, rgba(15, 23, 42, 0.2), rgba(15, 23, 42, 0.8));
+}
+.cs-card-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.cs-country-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.cs-icon-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(255,255,255,0.4);
+  border-radius: 8px;
+}
+.cs-icon-wrap svg {
+  width: 16px;
+  height: 16px;
+}
+.cs-country-name {
+  font-size: 20px;
+  font-weight: 600;
+}
+.cs-desc {
+  font-size: 14px;
+  color: rgba(255,255,255,0.9);
+  line-height: 1.5;
+  flex-grow: 1;
+}
+.cs-contact-link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 16px;
+}
+.cs-badge {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.2);
+  font-weight: 600;
+  font-size: 14px;
+  z-index: 3;
+  white-space: nowrap;
+  backdrop-filter: blur(4px);
+  opacity: 1;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  pointer-events: none;
+}
+.coming-soon-card:hover .cs-badge {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.9);
+}
+
+.learn-more-link {
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 16px;
+  width: 100%;
+}
+.learn-more-link span {
+  font-size: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+}
+
+/* ============= FAQ ============= */
+.faq-section {
+  padding: 80px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.faq-block {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 80px;
+}
+@media (max-width: 900px) {
+  .faq-block {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+.faq-head .section-title {
+  font-family: var(--serif);
+  font-size: 32px;
+  color: var(--ink);
+  margin-bottom: 16px;
+  line-height: 1.1;
+}
+.faq-head .section-lead {
+  font-size: 16px;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+.faq-list {
+  display: flex;
+  flex-direction: column;
+}
+.faq-item {
+  text-align: left;
+  background: transparent;
+  border: none;
+  border-top: 1px solid var(--border);
+  padding: 24px 0;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: start;
+  gap: 16px;
+  cursor: pointer;
+  font-family: inherit;
+  width: 100%;
+}
+.faq-item:last-child {
+  border-bottom: 1px solid var(--border);
+}
+.faq-q {
+  font-family: var(--serif);
+  font-size: 22px;
+  line-height: 1.3;
+  color: var(--ink);
+  transition: color 0.2s, transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.faq-item:hover .faq-q {
+  color: var(--accent);
+  transform: translateX(6px);
+}
+.faq-item.open .faq-q {
+  color: var(--accent);
+}
+.faq-toggle {
+  font-size: 24px;
+  color: var(--ink-muted);
+  line-height: 1;
+  transition: color 0.2s;
+}
+.faq-item.open .faq-toggle {
+  color: var(--accent);
+}
+.faq-a {
+  grid-column: 1 / -1;
+  margin-top: 14px;
+  font-size: 15px;
+  color: var(--ink-soft);
+  line-height: 1.65;
 }
 </style>
