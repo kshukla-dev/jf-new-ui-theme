@@ -111,7 +111,7 @@ function asArray(c?: string | string[]): string[] {
 }
 .hero-title {
   font-family: var(--serif);
-  font-size: 48px;
+  font-size: clamp(28px, 4vw, 48px);
   font-weight: 700;
   color: #fff;
   margin-bottom: 20px;
@@ -133,7 +133,7 @@ function asArray(c?: string | string[]): string[] {
 }
 
 @media (max-width: 768px) {
-  .hero-title { font-size: 36px; }
+  .hero-title { font-size: clamp(22px, 4vw, 36px); }
   .hero-desc { font-size: 18px; }
 }
 
@@ -169,7 +169,7 @@ function asArray(c?: string | string[]): string[] {
 }
 .privacy-section h2 {
   font-family: var(--serif);
-  font-size: 32px;
+  font-size: clamp(22px, 4vw, 32px);
   color: #111827;
   margin-bottom: 20px;
   line-height: 1.2;

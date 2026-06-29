@@ -786,7 +786,7 @@ async function submitNewsletter(e: Event) {
 }
 .featured-title {
   font-family: var(--serif);
-  font-size: 32px;
+  font-size: clamp(22px, 4vw, 32px);
   
   color: var(--ink);
   line-height: 1.2;

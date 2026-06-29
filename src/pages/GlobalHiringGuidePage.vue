@@ -797,7 +797,7 @@ const getCountryDetails = (name: string) => {
 
 .borderless-header h2 {
   font-family: var(--serif);
-  font-size: 36px;
+  font-size: clamp(22px, 4vw, 36px);
   
   color: #111;
   letter-spacing: -0.02em;
@@ -887,7 +887,7 @@ const getCountryDetails = (name: string) => {
 
 .process-title {
   font-family: var(--serif);
-  font-size: 36px;
+  font-size: clamp(22px, 4vw, 36px);
   
   color: #111;
   margin-bottom: 64px;
@@ -984,7 +984,7 @@ const getCountryDetails = (name: string) => {
 }
 .entities-main-title {
   font-family: var(--serif);
-  font-size: 40px;
+  font-size: clamp(24px, 4vw, 40px);
   
   line-height: 1.2;
   color: #111;
@@ -1708,7 +1708,7 @@ const getCountryDetails = (name: string) => {
   .borderless-image { height: 240px; margin-top: -16px; }
   
   .entities-main-title {
-    font-size: 32px;
+    font-size: clamp(22px, 4vw, 32px);
   }
   .map-stats-card {
     padding: 12px;
@@ -1807,7 +1807,7 @@ const getCountryDetails = (name: string) => {
 }
 .hiw-title {
   font-family: var(--serif);
-  font-size: 42px;
+  font-size: clamp(25px, 4vw, 42px);
   color: var(--ink);
   margin-bottom: 12px;
 }
@@ -1854,7 +1854,7 @@ const getCountryDetails = (name: string) => {
 }
 .hiw-card-number {
   font-family: var(--sans);
-  font-size: 56px;
+  font-size: clamp(33px, 4vw, 56px);
   font-weight: 800;
   color: var(--border);
   line-height: 0.8;

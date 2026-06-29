@@ -184,7 +184,7 @@ async function submit(e: Event) {
 }
 .lead-modal h3 {
   font-family: var(--serif);
-  font-size: 30px;
+  font-size: clamp(22px, 4vw, 30px);
   font-weight: 400;
   line-height: 1.1;
   margin-bottom: 8px;

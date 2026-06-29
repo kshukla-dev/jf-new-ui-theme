@@ -283,7 +283,7 @@ const resources = [
 }
 .cp-hero-title {
   font-family: var(--serif);
-  font-size: 48px;
+  font-size: clamp(28px, 4vw, 48px);
   
   line-height: 1.1;
   color: #ffffff;
@@ -424,7 +424,7 @@ const resources = [
 }
 .cp-section-title {
   font-family: var(--serif);
-  font-size: 36px;
+  font-size: clamp(22px, 4vw, 36px);
   
   color: #111;
 }
@@ -608,7 +608,7 @@ const resources = [
     background-position: center center;
     padding: 100px 0 120px;
   }
-  .cp-hero-title { font-size: 36px; }
+  .cp-hero-title { font-size: clamp(22px, 4vw, 36px); }
   .cp-hero-actions { flex-direction: column; align-items: stretch; }
   .btn-primary-solid, .btn-outline-gold { width: 100%; text-align: center; justify-content: center; }
 

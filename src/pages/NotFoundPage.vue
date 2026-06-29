@@ -51,7 +51,7 @@ useHead({
 }
 
 .error-title {
-  font-size: 32px;
+  font-size: clamp(22px, 4vw, 32px);
   font-family: var(--serif);
   color: var(--ink);
   margin-bottom: 16px;

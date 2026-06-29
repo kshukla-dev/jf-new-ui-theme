@@ -321,7 +321,7 @@ onUnmounted(() => {
   <section class="section container offices-premium-section">
     <div class="offices-header-wrap">
       <div class="offices-header-left">
-        <h2 class="section-title" style="margin-top: 12px; margin-bottom: 16px; font-size: 48px; color: #0E0F3B;">Our offices</h2>
+        <h2 class="section-title" style="margin-top: 12px; margin-bottom: 16px; font-size: clamp(28px, 4vw, 48px); color: #0E0F3B;">Our offices</h2>
         <p class="section-lead" style="max-width: 400px; color: #64748b; font-size: 15px; margin: 0;">Our global network spans multiple continents, bringing you local expertise wherever you need it.</p>
       </div>
     </div>
@@ -939,7 +939,7 @@ onUnmounted(() => {
   display: inline-block;
   font-family: var(--serif);
   font-style: italic;
-  font-size: 30px;
+  font-size: clamp(22px, 4vw, 30px);
   color: var(--accent);
   margin-bottom: 12px;
 }

@@ -374,7 +374,7 @@ nav.scrolled {
 }
 .logo {
   font-family: 'DM Serif Display', var(--serif);
-  font-size: 32px;
+  font-size: clamp(22px, 4vw, 32px);
   font-weight: 500;
   letter-spacing: -0.01em;
   color: var(--ink);

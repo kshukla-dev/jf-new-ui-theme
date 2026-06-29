@@ -454,7 +454,7 @@ const testiAvatars = ["/testimonials/priya.jpg", "/testimonials/James.jpg", "/te
 }
 
 .stat-value {
-  font-size: 32px;
+  font-size: clamp(22px, 4vw, 32px);
   font-weight: 600;
   margin-bottom: 8px;
   color: #fff;
@@ -507,7 +507,7 @@ const testiAvatars = ["/testimonials/priya.jpg", "/testimonials/James.jpg", "/te
 }
 
 .logo-letter {
-  font-size: 36px;
+  font-size: clamp(22px, 4vw, 36px);
   font-weight: 800;
   color: #7b2cbf; /* Avenza purple */
   line-height: 1;
@@ -540,7 +540,7 @@ const testiAvatars = ["/testimonials/priya.jpg", "/testimonials/James.jpg", "/te
 
 .featured-content-col h2 {
   font-family: var(--serif);
-  font-size: 36px;
+  font-size: clamp(22px, 4vw, 36px);
   
   line-height: 1.2;
   margin-bottom: 16px;
@@ -718,7 +718,7 @@ const testiAvatars = ["/testimonials/priya.jpg", "/testimonials/James.jpg", "/te
 }
 .why-heading {
   font-family: var(--serif);
-  font-size: 36px;
+  font-size: clamp(22px, 4vw, 36px);
   font-weight: 400;
   color: var(--ink);
   line-height: 1.3;
@@ -780,7 +780,7 @@ const testiAvatars = ["/testimonials/priya.jpg", "/testimonials/James.jpg", "/te
 
 .cs-item-text h3 {
   font-family: var(--serif);
-  font-size: 32px;
+  font-size: clamp(22px, 4vw, 32px);
   font-weight: 400;
   color: var(--ink);
   line-height: 1.2;
@@ -898,7 +898,7 @@ const testiAvatars = ["/testimonials/priya.jpg", "/testimonials/James.jpg", "/te
 
 .impact-left h2 {
   font-family: var(--serif);
-  font-size: 36px;
+  font-size: clamp(22px, 4vw, 36px);
   
   color: var(--ink);
   line-height: 1.1;
@@ -929,7 +929,7 @@ const testiAvatars = ["/testimonials/priya.jpg", "/testimonials/James.jpg", "/te
 }
 
 .impact-stat strong {
-  font-size: 32px;
+  font-size: clamp(22px, 4vw, 32px);
   font-weight: 600;
   color: var(--ink);
   margin-bottom: 8px;
@@ -955,7 +955,7 @@ const testiAvatars = ["/testimonials/priya.jpg", "/testimonials/James.jpg", "/te
 }
 .testi-header h2 {
   font-family: var(--serif);
-  font-size: 32px;
+  font-size: clamp(22px, 4vw, 32px);
   color: var(--ink);
   
 }
@@ -1004,7 +1004,7 @@ const testiAvatars = ["/testimonials/priya.jpg", "/testimonials/James.jpg", "/te
 }
 .quote-mark {
   font-family: var(--serif);
-  font-size: 60px;
+  font-size: clamp(36px, 4vw, 60px);
   color: var(--accent);
   line-height: 0.6;
   margin-bottom: 16px;

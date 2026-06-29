@@ -888,7 +888,7 @@ const trustAvatars = [
   display: inline-block;
   font-family: var(--serif);
   font-style: italic;
-  font-size: 36px;
+  font-size: clamp(22px, 4vw, 36px);
   color: var(--accent);
   margin-bottom: 16px;
 }

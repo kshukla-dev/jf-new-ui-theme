@@ -303,7 +303,7 @@ function fmt(n: number, symbol: string) {
 .cc-result-card strong {
   display: block;
   font-family: var(--serif);
-  font-size: 34px;
+  font-size: clamp(22px, 4vw, 34px);
   font-weight: 400;
 }
 .cc-result-card-dark strong { color: var(--accent-warm); }

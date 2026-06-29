@@ -93,7 +93,7 @@ function fmtDate(iso: string) {
   border-radius: 14px;
   padding: 16px 0;
 }
-.ev-day { font-family: var(--serif); font-size: 34px; line-height: 1; }
+.ev-day { font-family: var(--serif); font-size: clamp(22px, 4vw, 34px); line-height: 1; }
 .ev-month { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; margin-top: 4px; color: var(--accent-warm); }
 .ev-type {
   font-size: 11px;

@@ -388,7 +388,7 @@ watch(slug, () => {
 }
 .cs-hero-title {
   font-family: var(--sans);
-  font-size: 36px;
+  font-size: clamp(22px, 4vw, 36px);
   font-weight: 800;
   color: #fff;
   line-height: 1.15;
@@ -397,7 +397,7 @@ watch(slug, () => {
   max-width: 800px;
 }
 @media (min-width: 1024px) {
-  .cs-hero-title { font-size: 48px; }
+  .cs-hero-title { font-size: clamp(28px, 4vw, 48px); }
 }
 .cs-hero-excerpt {
   font-size: 18px;
@@ -589,7 +589,7 @@ watch(slug, () => {
 }
 .cs-result-metric {
   font-family: var(--sans);
-  font-size: 42px;
+  font-size: clamp(25px, 4vw, 42px);
   font-weight: 800;
   color: var(--accent);
   line-height: 1;
@@ -753,7 +753,7 @@ watch(slug, () => {
 }
 .cs-section-title-large {
   font-family: var(--sans);
-  font-size: 42px;
+  font-size: clamp(25px, 4vw, 42px);
   font-weight: 800;
   color: var(--ink);
   margin-bottom: 16px;
@@ -916,7 +916,7 @@ watch(slug, () => {
   width: 80px;
   background: #1e3a8a;
   color: #fff;
-  font-size: 32px;
+  font-size: clamp(22px, 4vw, 32px);
   font-weight: 800;
   display: flex;
   align-items: center;
@@ -996,7 +996,7 @@ watch(slug, () => {
   .cs-stacked-header { width: 100%; border-right: none; border-bottom: 1px solid var(--border); padding: 16px 20px; }
   .cs-stacked-graphic { display: none; }
   .cs-challenge-section, .cs-solution-section { padding: 24px; border-radius: 16px; }
-  .cs-section-title-large { font-size: 32px; }
+  .cs-section-title-large { font-size: clamp(22px, 4vw, 32px); }
   .cs-text-large { font-size: 16px; }
   .cs-stats-card { padding: 24px; }
   .cs-challenge-bottom-bar { flex-direction: column; align-items: flex-start; padding: 20px; gap: 12px; }
@@ -1011,7 +1011,7 @@ watch(slug, () => {
     margin-bottom: 32px;
   }
   .cs-detail-header h1 {
-    font-size: 32px;
+    font-size: clamp(22px, 4vw, 32px);
     margin-bottom: 16px;
   }
   .cs-detail-excerpt {

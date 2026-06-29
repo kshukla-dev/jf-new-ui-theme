@@ -1498,7 +1498,7 @@ form.was-validated .custom-checkbox input:invalid + .checkmark {
 
 .countries-count {
   font-family: var(--serif);
-  font-size: 72px;
+  font-size: clamp(43px, 4vw, 72px);
   line-height: 1;
   font-weight: 400;
   color: var(--accent);
@@ -1602,7 +1602,7 @@ form.was-validated .custom-checkbox input:invalid + .checkmark {
 }
 .coming-soon-title {
   color: #0E0F3B;
-  font-size: 32px;
+  font-size: clamp(22px, 4vw, 32px);
   font-weight: 700;
   margin-bottom: 24px;
 }
@@ -1753,7 +1753,7 @@ form.was-validated .custom-checkbox input:invalid + .checkmark {
 }
 .faq-head .section-title {
   font-family: var(--serif);
-  font-size: 32px;
+  font-size: clamp(22px, 4vw, 32px);
   color: var(--ink);
   margin-bottom: 16px;
   line-height: 1.1;

@@ -1223,7 +1223,7 @@ onMounted(() => {
 }
 .s-stat-info h3 {
   font-family: var(--serif);
-  font-size: 32px;
+  font-size: clamp(22px, 4vw, 32px);
   color: #111;
   font-weight: 500;
   line-height: 1.1;
@@ -1466,7 +1466,7 @@ onMounted(() => {
   margin-bottom: 30px;
 }
 .pr-section-num {
-  font-size: 42px;
+  font-size: clamp(25px, 4vw, 42px);
   font-weight: 700;
   color: #e2e8f0;
   line-height: 1;

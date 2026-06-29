@@ -648,7 +648,7 @@ watch(slug, (s) => {
   line-height: 1.25;
   color: var(--ink);
 }
-.blog-detail-body :deep(h2) { font-size: 32px; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+.blog-detail-body :deep(h2) { font-size: clamp(22px, 4vw, 32px); border-bottom: 1px solid var(--border); padding-bottom: 12px; }
 .blog-detail-body :deep(h3) { font-size: 24px; margin-top: 40px; }
 .blog-detail-body :deep(p) {
   margin: 20px 0;

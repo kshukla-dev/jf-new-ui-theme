@@ -2005,7 +2005,7 @@ const formatBlogDate = (dateStr: string) => {
 }
 .blog-featured h3 {
   font-family: var(--serif);
-  font-size: 32px;
+  font-size: clamp(22px, 4vw, 32px);
   line-height: 1.15;
   font-weight: 400;
   letter-spacing: -0.01em;
@@ -2183,7 +2183,7 @@ const formatBlogDate = (dateStr: string) => {
 }
 .begin-card h3 {
   font-family: var(--serif);
-  font-size: 34px;
+  font-size: clamp(22px, 4vw, 34px);
   line-height: 1.1;
   font-weight: 400;
   max-width: 340px;
@@ -2592,7 +2592,7 @@ const formatBlogDate = (dateStr: string) => {
 
 .frc-content h3 {
   font-family: var(--serif);
-  font-size: 32px;
+  font-size: clamp(22px, 4vw, 32px);
   line-height: 1.2;
   margin-bottom: 16px;
 }
@@ -2723,7 +2723,7 @@ const formatBlogDate = (dateStr: string) => {
 }
 
 .frc-content h3 {
-  font-size: 32px;
+  font-size: clamp(22px, 4vw, 32px);
   line-height: 1.3;
   margin-bottom: 14px;
   font-family: var(--serif);
@@ -3467,7 +3467,7 @@ const formatBlogDate = (dateStr: string) => {
   margin-bottom: 24px;
 }
 .ge-title {
-  font-size: 48px;
+  font-size: clamp(28px, 4vw, 48px);
   line-height: 1.1;
   margin-bottom: 24px;
   font-family: var(--serif);

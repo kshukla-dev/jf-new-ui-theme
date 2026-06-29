@@ -109,7 +109,7 @@ defineProps<{
 .cta-banner h2 {
   color: var(--ink, #061639);
   font-family: var(--serif);
-  font-size: 44px;
+  font-size: clamp(26px, 4vw, 44px);
   margin-bottom: 16px;
   letter-spacing: -0.03em;
 }
@@ -298,7 +298,7 @@ defineProps<{
     padding: 40px 16px 30px;
   }
   .cta-banner h2 {
-    font-size: 32px;
+    font-size: clamp(22px, 4vw, 32px);
   }
   .cta-feature-grid-redesigned {
     grid-template-columns: 1fr 1fr;

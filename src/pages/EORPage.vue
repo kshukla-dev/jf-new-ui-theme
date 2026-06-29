@@ -69,7 +69,7 @@ const topCountries = [
       <div class="eor-premium-hero-inner">
         <div class="service-hero-copy">
           <h1>
-            Hire <em>employees globally</em> without entities
+            Hire <em>employees<br>globally</em><br>without entities
           </h1>
           <p class="service-hero-lede">Quickly expand your global workforce across 80+ countries without establishing a local entity. We become your local HR partner.</p>
           
@@ -675,7 +675,7 @@ const topCountries = [
   padding: 88px 0 96px;
   display: block;
   background-color: #0E0F3B;
-  background-image: linear-gradient(90deg, #0e0f3b 0%, rgb(14 15 59 / 79%) 40%, rgb(14 15 59 / 0%) 70%, transparent 100%), url(/services/service-page/eor-hero2.png);
+  background-image: linear-gradient(90deg, #0E0F3B 0%, #0E0F3B 45%, rgba(14, 15, 59, 0.4) 75%, transparent 100%), url(/services/service-page/eor-hero2.png);
   background-size: cover;
   background-position: center right;
   background-repeat: no-repeat;

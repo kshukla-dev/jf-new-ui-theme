@@ -87,7 +87,7 @@
 }
 
 .eor-stat strong {
-  font-size: 32px;
+  font-size: clamp(22px, 4vw, 32px);
   font-weight: 700;
   color: #ffffff;
   font-family: var(--serif);
@@ -125,7 +125,7 @@
 
 .eor-process-header h2 {
   font-family: var(--serif);
-  font-size: 46px;
+  font-size: clamp(27px, 4vw, 46px);
 
   color: var(--gh-primary);
   margin-bottom: 14px;
@@ -181,7 +181,7 @@
 }
 
 .eps-number {
-  font-size: 52px;
+  font-size: clamp(31px, 4vw, 52px);
   font-weight: 800;
   font-family: var(--serif);
   color: rgba(20, 51, 105, 0.95);
@@ -277,7 +277,7 @@
 
 .eor-compare-header h2 {
   font-family: var(--serif);
-  font-size: 44px;
+  font-size: clamp(26px, 4vw, 44px);
 
   color: var(--gh-primary);
   margin-bottom: 12px;
@@ -372,7 +372,7 @@
 
 .eor-audience-header h2 {
   font-family: var(--serif);
-  font-size: 44px;
+  font-size: clamp(26px, 4vw, 44px);
 
   color: var(--gh-primary);
 }
@@ -468,7 +468,7 @@
 
 .eor-countries-header h2 {
   font-family: var(--serif);
-  font-size: 44px;
+  font-size: clamp(26px, 4vw, 44px);
 
   color: var(--gh-primary);
   margin-bottom: 12px;
@@ -655,7 +655,7 @@
 
 .etm-card strong {
   font-family: var(--serif);
-  font-size: 36px;
+  font-size: clamp(22px, 4vw, 36px);
   font-weight: 700;
   color: var(--gh-tertiary-accent);
   line-height: 1;
@@ -732,7 +732,7 @@
   .eor-compare-header h2,
   .eor-audience-header h2,
   .eor-countries-header h2 {
-    font-size: 32px;
+    font-size: clamp(22px, 4vw, 32px);
     line-height: 1.2;
   }
 }

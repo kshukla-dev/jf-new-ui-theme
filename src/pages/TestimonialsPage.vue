@@ -580,7 +580,7 @@ const trustAvatars = [
   display: inline-block;
   font-family: var(--serif);
   font-style: italic;
-  font-size: 32px;
+  font-size: clamp(22px, 4vw, 32px);
   margin-bottom: 16px;
 }
 .highlight-card h3 {

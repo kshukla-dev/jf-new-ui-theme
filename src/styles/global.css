@@ -67,6 +67,7 @@ a {
 
 img {
   max-width: 100%;
+  height: auto;
   display: block;
 }
 
@@ -95,14 +96,14 @@ button {
 /* === Balanced headings + tidy paragraph wrapping === */
 h1 {
   font-family: var(--serif);
-  font-size: clamp(40px, 5vw, 64px);
+  font-size: clamp(28px, 5vw, 64px);
   line-height: 1.1;
   text-wrap: balance;
 }
 
 h2 {
   font-family: var(--serif);
-  font-size: clamp(32px, 4vw, 42px);
+  font-size: clamp(24px, 4vw, 42px);
   line-height: 1.2;
   text-wrap: balance;
 }
@@ -153,7 +154,7 @@ small,
 /* === Shared serif title with italic accent === */
 .section-title {
   font-family: var(--serif);
-  font-size: clamp(36px, 4.5vw, 56px);
+  font-size: clamp(28px, 4.5vw, 56px);
   line-height: 1.05;
   letter-spacing: -0.01em;
 }
