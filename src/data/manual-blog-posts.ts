@@ -712,7 +712,7 @@ export const MANUAL_BLOG_POSTS: BlogPost[] = [
     estimated_reading_time: 24,
     related_article_ids: "",
     tag_ids: "",
-    category_ids: "",
+    category_ids: "global-hiring,payroll",
     meta_title:
       "Hiring your first European employee: the real cost reality check.",
     meta_description:
@@ -751,7 +751,7 @@ export const MANUAL_BLOG_POSTS: BlogPost[] = [
     estimated_reading_time: 14,
     related_article_ids: "",
     tag_ids: "",
-    category_ids: "",
+    category_ids: "global-hiring,eor,payroll",
     meta_title:
       "Entity vs EOR vs payroll registration in Europe | Decision matrix",
     meta_description:
@@ -789,7 +789,7 @@ export const MANUAL_BLOG_POSTS: BlogPost[] = [
     estimated_reading_time: 8,
     related_article_ids: "",
     tag_ids: "",
-    category_ids: "",
+    category_ids: "compliance,eor",
     meta_title:
       "Work from anywhere PE trap: why the 183 day rule fails",
     meta_description:
@@ -827,7 +827,7 @@ export const MANUAL_BLOG_POSTS: BlogPost[] = [
     estimated_reading_time: 4,
     related_article_ids: "",
     tag_ids: "",
-    category_ids: "",
+    category_ids: "bank-holiday",
     meta_title: "Netherlands public holidays 2026: dates, pay rules & employer guide",
     meta_description:
       "Netherlands public holidays 2026: all 11 official dates, employer pay obligations, CAO rules, and what foreign companies hiring Dutch staff need to know.",
@@ -864,7 +864,7 @@ export const MANUAL_BLOG_POSTS: BlogPost[] = [
     estimated_reading_time: 5,
     related_article_ids: "",
     tag_ids: "",
-    category_ids: "",
+    category_ids: "bank-holiday",
     meta_title: "UK bank holidays 2026: dates, pay rules & employer guide",
     meta_description:
       "UK bank holidays 2026: confirmed dates for England, Wales, Scotland and Northern Ireland, employer pay obligations, statutory leave rules, and a guide for foreign companies hiring UK staff.",
@@ -901,7 +901,7 @@ export const MANUAL_BLOG_POSTS: BlogPost[] = [
     estimated_reading_time: 4,
     related_article_ids: "",
     tag_ids: "",
-    category_ids: "",
+    category_ids: "bank-holiday",
     meta_title: "Germany public holidays 2026: dates, pay rules & employer guide",
     meta_description:
       "Germany public holidays 2026: all 9 national dates, state-by-state regional holidays, employer pay obligations under the ArbZG and EFZG, and a guide for foreign companies hiring German staff.",
@@ -938,7 +938,7 @@ export const MANUAL_BLOG_POSTS: BlogPost[] = [
     estimated_reading_time: 9,
     related_article_ids: "",
     tag_ids: "",
-    category_ids: "",
+    category_ids: "bank-holiday",
     meta_title: "Belgium public holidays 2026: dates, pay rules & employer guide",
     meta_description:
       "Belgium public holidays 2026: all 10 official dates, substitute day rules, employer obligations under the Public Holiday Act 1974, and a compliance guide for foreign companies hiring Belgian staff.",
@@ -975,7 +975,7 @@ export const MANUAL_BLOG_POSTS: BlogPost[] = [
     estimated_reading_time: 5,
     related_article_ids: "",
     tag_ids: "",
-    category_ids: "",
+    category_ids: "bank-holiday",
     meta_title: "Spain public holidays 2026: dates, pay rules & employer guide",
     meta_description:
       "Spain public holidays 2026: all 9 national festivos, regional variations by autonomous community, employer obligations under the Workers' Statute, and a compliance guide for foreign companies.",
@@ -1012,7 +1012,7 @@ export const MANUAL_BLOG_POSTS: BlogPost[] = [
     estimated_reading_time: 5,
     related_article_ids: "",
     tag_ids: "",
-    category_ids: "",
+    category_ids: "bank-holiday",
     meta_title: "Italy Bank Holidays 2026: Complete Guide to Public Holidays & Employment Law",
     meta_description:
       "Comprehensive guide to Italy's 12 national bank holidays in 2026, plus regional patron saint days, employment law obligations, and compliance requirements.",
@@ -1070,7 +1070,7 @@ export const MANUAL_BLOG_POSTS: BlogPost[] = [
     estimated_reading_time: 25,
     related_article_ids: "",
     tag_ids: "",
-    category_ids: "",
+    category_ids: "immigration",
     meta_title: "Work Visa in Europe: Complete Guide 2026",
     meta_description:
       "Complete guide to work visas in Europe for 2026. Learn about visa requirements, application processes, and legal hiring routes for non-EU professionals.",
@@ -1128,7 +1128,7 @@ export const MANUAL_BLOG_POSTS: BlogPost[] = [
     estimated_reading_time: 25,
     related_article_ids: "",
     tag_ids: "",
-    category_ids: "",
+    category_ids: "immigration",
     meta_title: "What Changed for European Work Visas in 2026?",
     meta_description:
       "Important updates on European work visas in 2026, including German Blue Cards, Netherlands HSM salary limits, and Irish permit rules.",

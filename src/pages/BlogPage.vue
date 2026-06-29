@@ -12,6 +12,11 @@ const categories = ref<Category[]>([])
 const loading = ref(true)
 const error = ref<string | null>(null)
 
+const openFaq = ref(0)
+function toggleFaq(i: number) {
+  openFaq.value = openFaq.value === i ? -1 : i
+}
+
 const searchQuery = ref('')
 const manualCategories = [
   { name: 'EOR', count: 11 },
@@ -194,7 +199,7 @@ async function submitNewsletter(e: Event) {
             @click="selectedCategoryName = cat.name"
           >
             {{ cat.name }}
-            <span class="count-badge">{{ cat.count }}</span>
+           <!-- <span class="count-badge">{{ cat.count }}</span> -->
           </button>
         </div>
 
@@ -352,7 +357,7 @@ async function submitNewsletter(e: Event) {
                   </div>
                 </RouterLink>
               </div>
-              <button class="btn-link-small">View all trending &rarr;</button>
+              
             </div>
           </div>
 
@@ -398,6 +403,31 @@ async function submitNewsletter(e: Event) {
           <p>Access guides, checklists, and reports to help you build and manage your global workforce.</p>
         </div>
         <RouterLink to="/resources" class="btn-primary">Browse Resources &rarr;</RouterLink>
+      </div>
+    </section>
+
+    <!-- ============= FAQ SECTION ============= -->
+    <section class="section faq-section">
+      <div class="container">
+        <div class="faq-block">
+          <div class="faq-head">
+            <h2 class="section-title" v-html="blogData.faqs.title"></h2>
+          </div>
+          <div class="faq-list">
+            <button 
+              v-for="(faq, i) in blogData.faqs.items" 
+              :key="i" 
+              class="faq-item"
+              :class="{ open: openFaq === i }"
+              @click="toggleFaq(i)"
+              :aria-expanded="openFaq === i"
+            >
+              <span class="faq-q">{{ faq.question }}</span>
+              <span class="faq-toggle">{{ openFaq === i ? '−' : '+' }}</span>
+              <p v-show="openFaq === i" class="faq-a">{{ faq.answer }}</p>
+            </button>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -659,6 +689,41 @@ async function submitNewsletter(e: Event) {
   padding: 2px 8px;
   min-width: 24px;
 }
+.resources-text p {
+  color: var(--ink-soft);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+/* FAQ Typography Standardizations */
+.faq-q {
+  font-family: var(--sans);
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--ink);
+  transition: color 0.2s;
+}
+.faq-item.open .faq-q {
+  color: var(--accent);
+}
+.faq-toggle {
+  font-size: 24px;
+  color: var(--ink-muted);
+  line-height: 1;
+  transition: color 0.2s;
+}
+.faq-item.open .faq-toggle {
+  color: var(--accent);
+}
+.faq-a {
+  grid-column: 1 / -1;
+  margin-top: 14px;
+  font-size: 15px;
+  color: var(--ink-soft);
+  line-height: 1.65;
+}
+
 .filter-pill.active .count-badge {
   background: rgba(255, 255, 255, 0.2);
   color: #ffffff;
@@ -1167,6 +1232,73 @@ async function submitNewsletter(e: Event) {
   .sidebar-newsletter-form .btn-primary {
     width: 100%;
   }
+}
+
+/* ============= FAQ ============= */
+.faq-section {
+  padding: 80px 0;
+}
+.faq-block {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 80px;
+}
+@media (max-width: 900px) {
+  .faq-block {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+.faq-list {
+  display: flex;
+  flex-direction: column;
+}
+.faq-item {
+  text-align: left;
+  background: transparent;
+  border: none;
+  border-top: 1px solid #e2e8f0;
+  padding: 24px 0;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: start;
+  gap: 16px;
+  cursor: pointer;
+  font-family: inherit;
+  width: 100%;
+}
+.faq-item:last-child {
+  border-bottom: 1px solid #e2e8f0;
+}
+.faq-q {
+  font-family: var(--serif);
+  font-size: 22px;
+  line-height: 1.3;
+  color: var(--ink);
+  transition: color 0.2s, transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.faq-item:hover .faq-q {
+  color: var(--accent);
+  transform: translateX(6px);
+}
+.faq-item.open .faq-q {
+  color: var(--accent);
+}
+.faq-toggle {
+  font-size: 24px;
+  color: var(--ink-muted);
+  line-height: 1;
+  transition: color 0.2s;
+}
+.faq-item.open .faq-toggle {
+  color: var(--accent);
+}
+.faq-a {
+  grid-column: 1 / -1;
+  margin-top: 14px;
+  font-size: 15px;
+  color: var(--ink-soft);
+  line-height: 1.65;
 }
 </style>
 
