@@ -153,7 +153,7 @@ onUnmounted(() => {
       <div class="section-head">
         <h2 class="section-title">We operate by <em>W.O.R.L.D</em></h2>
         <p class="section-lead">
-          The values that make us and our clients successful.
+         At Jackson & Frank, We operate by the values that make us and our clients successful, represented by W.O.R.L.D:
         </p>
       </div>
       <div class="values-grid">

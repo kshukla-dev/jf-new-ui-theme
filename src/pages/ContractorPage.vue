@@ -60,7 +60,6 @@ const trustAvatars = [
   <section class="section container">
     <div class="definition-block">
       <div>
-        <span class="tag">What is contractor management</span>
         <h2 class="section-title">{{ contractor.mainDescription.title }}</h2>
       </div>
       <div class="definition-text">
@@ -83,8 +82,7 @@ const trustAvatars = [
   <!-- ============= BENEFITS ============= -->
   <section class="section container">
     <div class="section-head">
-      <span class="tag">Why contractors</span>
-      <h2 class="section-title">{{ contractor.benefits.title }}</h2>
+     <h2 class="section-title">{{ contractor.benefits.title }}</h2>
       <p class="section-lead">{{ contractor.benefits.subtitle }}</p>
     </div>
     <div class="benefits-grid">
