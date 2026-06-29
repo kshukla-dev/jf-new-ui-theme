@@ -184,7 +184,7 @@ const year = new Date().getFullYear()
 .footer-container {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding-inline: clamp(32px, 8vw, 96px);
 }
 
 /* --- DIVIDERS --- */

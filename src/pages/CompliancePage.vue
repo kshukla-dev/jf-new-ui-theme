@@ -277,7 +277,8 @@ const trustAvatars = [
   min-height: 700px;
   overflow: hidden;
   margin-bottom: 40px;
-}
+
+  padding-inline: clamp(32px, 8vw, 96px);}
 
 .compliance-hero::before {
   content: '';
@@ -295,7 +296,7 @@ const trustAvatars = [
 .compliance-hero-inner {
   max-width: 1240px;
   margin: 0 auto;
-  padding: 0 32px;
+  padding-inline: clamp(32px, 8vw, 96px);
 }
 
 .compliance-hero .service-hero-copy {
@@ -447,7 +448,8 @@ const trustAvatars = [
     background-size: cover;
     background-position: center;
     background-image: linear-gradient(rgba(14, 15, 59, 0.8), rgba(14, 15, 59, 0.95)), url(/services/service-page/compliances.webp);
-  }
+  
+  padding-inline: clamp(32px, 8vw, 96px);}
 }
 
 @media (max-width: 640px) {
@@ -456,7 +458,8 @@ const trustAvatars = [
     padding: 260px 20px 64px;
     background-image: none;
     background-color: #0E0F3B;
-  }
+  
+  padding-inline: clamp(32px, 8vw, 96px);}
   .compliance-hero::before {
     content: '';
     position: absolute;

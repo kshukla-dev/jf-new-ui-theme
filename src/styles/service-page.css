@@ -32,7 +32,9 @@
 
 /* ============= HERO ============= */
 .service-hero {
-  padding: 68px 32px 88px;
+  padding-top: 68px;
+  padding-bottom: 88px;
+  padding-inline: clamp(32px, 8vw, 96px);
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(420px, 0.95fr);
   gap: 64px;
@@ -40,7 +42,9 @@
 }
 
 .immigration-hero {
-  padding: 76px 32px 92px;
+  padding-top: 76px;
+  padding-bottom: 92px;
+  padding-inline: clamp(32px, 8vw, 96px);
 }
 
 .service-hero-copy h1 {

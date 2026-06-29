@@ -609,7 +609,7 @@ const getCountryDetails = (name: string) => {
 .ghg-hero-inner {
   max-width: 1240px;
   margin: 0 auto;
-  padding: 0 32px;
+  padding-inline: clamp(32px, 8vw, 96px);
 }
 
 .ghg-hero-copy {
@@ -782,7 +782,8 @@ const getCountryDetails = (name: string) => {
   align-items: center;
   gap: 20px;
   margin-bottom: 48px;
-}
+
+  padding-inline: clamp(32px, 8vw, 96px);}
 
 .borderless-header-icon {
   width: 64px;
@@ -1699,7 +1700,8 @@ const getCountryDetails = (name: string) => {
   .borderless-feature:last-child { border-bottom: none; padding-bottom: 0; }
   
   .borderless-card { padding: 24px 20px; }
-  .borderless-header { flex-direction: column; text-align: center; gap: 12px; margin-bottom: 32px; }
+  .borderless-header { flex-direction: column; text-align: center; gap: 12px; margin-bottom: 32px; 
+  padding-inline: clamp(32px, 8vw, 96px);}
   .borderless-header h2 { font-size: 28px; }
   .borderless-header-icon { width: 48px; height: 48px; }
   .bf-icon { width: 40px; height: 40px; }

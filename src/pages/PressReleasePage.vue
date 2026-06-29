@@ -439,7 +439,9 @@ onMounted(() => {
    ============================================================ */
 .pr-hero {
   background: #0e0f3b;
-  padding: 60px 0 0;
+  padding-top: 60px;
+  padding-bottom: 0;
+  padding-inline: clamp(32px, 8vw, 96px);
   position: relative;
   overflow: hidden;
   color: #ffffff;

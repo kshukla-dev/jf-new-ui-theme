@@ -443,7 +443,8 @@ async function submitNewsletter(e: Event) {
   padding: 200px 0 80px;
   position: relative;
   overflow: hidden;
-}
+
+  padding-inline: clamp(32px, 8vw, 96px);}
 .blog-hero::before {
   content: '';
   position: absolute;
@@ -1126,7 +1127,8 @@ async function submitNewsletter(e: Event) {
 @media (max-width: 1280px) {
   .blog-hero {
     padding: 160px 0 80px;
-  }
+  
+  padding-inline: clamp(32px, 8vw, 96px);}
   .blog-hero-content {
     max-width: 500px;
   }
@@ -1154,7 +1156,8 @@ async function submitNewsletter(e: Event) {
   }
   .blog-hero {
     padding: 100px 0 60px;
-  }
+  
+  padding-inline: clamp(32px, 8vw, 96px);}
   .resources-banner {
     flex-direction: column;
     text-align: center;
@@ -1171,7 +1174,8 @@ async function submitNewsletter(e: Event) {
     padding: 260px 20px 60px;
     background-image: none;
     background-color: #0E0F3B;
-  }
+  
+  padding-inline: clamp(32px, 8vw, 96px);}
   .blog-hero::before {
     background: url('/services/service-page/map.png');
     background-size: 150% auto;
