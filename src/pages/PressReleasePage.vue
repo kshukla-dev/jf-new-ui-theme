@@ -189,55 +189,7 @@ onMounted(() => {
     </div>
   </section>
 
-  <!-- JOURNEY SECTION -->
-  <section class="journey-section">
-    <div class="container text-center">
-      <span class="journey-tag">{{ ev.journey.tag }}</span>
-      <h2 class="journey-title">{{ ev.journey.title }}</h2>
-      <p class="journey-subtitle">{{ ev.journey.subtitle }}</p>
-      
-      <div class="journey-grid">
-        <div v-for="card in ev.journey.cards" :key="card.step" class="journey-card">
-          <div class="journey-card-header">
-            <div class="journey-icon-wrap">
-              <svg v-if="card.icon === 'target'" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
-              <svg v-else-if="card.icon === 'gear'" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
-              <svg v-else-if="card.icon === 'chart'" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
-            </div>
-            <span class="journey-number">{{ card.step }}</span>
-          </div>
-          <span class="journey-card-cat">{{ card.category }}</span>
-          <h3 class="journey-card-title">{{ card.title }}</h3>
-          <p class="journey-card-desc">{{ card.description }}</p>
-          <RouterLink to="/contact" class="journey-card-link">Learn more <span aria-hidden>→</span></RouterLink>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- EXPECTATIONS -->
-  <section class="expect-section container">
-    <div class="text-center">
-      <span class="expect-tag">{{ ev.expectations.tag }}</span>
-      <h2 class="expect-title">{{ ev.expectations.title }}</h2>
-    </div>
-    
-    <div class="expect-grid">
-      <div v-for="item in ev.expectations.items" :key="item.title" class="expect-item">
-        <div class="expect-icon-circle">
-          <!-- Render icons -->
-          <svg v-if="item.icon === 'person'" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-          <svg v-else-if="item.icon === 'chat'" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-          <svg v-else-if="item.icon === 'network'" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
-          <svg v-else-if="item.icon === 'document'" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-          <svg v-else-if="item.icon === 'people'" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-          <svg v-else-if="item.icon === 'gift'" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 12 20 22 4 22 4 12"></polyline><rect x="2" y="7" width="20" height="5"></rect><line x1="12" y1="22" x2="12" y2="7"></line><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path></svg>
-        </div>
-        <h3>{{ item.title }}</h3>
-        <p>{{ item.description }}</p>
-      </div>
-    </div>
-  </section>
 
   <!-- SPEAKERS -->
   <section id="speakers" class="section container pr-speakers-section">
@@ -345,6 +297,134 @@ onMounted(() => {
     </div>
 
 
+  </section>
+
+  <!-- ARTICLE BODY (Post-Event Press Release) -->
+  <section class="pr-article-body">
+    <div class="pr-article-container">
+      <div class="pr-intro-text">
+        <p>Jackson & Frank hosted its flagship forum, <em>China to Europe 2026: Scaling Beyond Borders</em>, on 18 March 2026 in Shanghai's Jing'an district. The half-day Workforce, Compliance and Leadership Summit brought together nearly one hundred Chinese business leaders alongside a panel of seven European legal, tax, and human resources experts for an in-depth examination of the realities of European market entry.</p>
+      </div>
+
+      <!-- Section 1 -->
+      <div class="pr-section">
+        <div class="pr-section-header">
+          <span class="pr-section-num">01</span>
+          <h2>Setting the Stage</h2>
+        </div>
+        
+        <p>The forum opened with a keynote address by Pawel Michalkiewicz, Managing Partner of Jackson & Frank, who framed the European expansion challenge through a navigation analogy drawn from his time in Dubai. In a city of constantly shifting roads and overnight construction, digital maps routinely fail to keep pace with physical reality. The lesson for companies entering Europe is identical: platforms and automation are essential tools, but local knowledge and human judgement remain indispensable.</p>
+        <p>Michalkiewicz outlined a three-stage framework — Plan, Set Up, Scale — and was direct about where most companies go wrong. Mistakes made at the planning stage typically cost three times as much to correct later. He highlighted five pain points consistently reported by Chinese CEOs: geopolitical and market-access risk, regulatory complexity, supply-chain pressure, the need for genuine localisation, and talent capability. "HR strategy is rarely the headline," he acknowledged, "but it is the system that prevents friction, delays, and risk."</p>
+        
+        <figure class="pr-figure">
+          <img src="/case-study/pawel-speech.avif" alt="Pawel Michalkiewicz presenting" />
+          <figcaption>Pawel Michalkiewicz, Managing Partner, Jackson & Frank, presenting the Plan, Set Up, Scale framework.</figcaption>
+        </figure>
+
+        <a href="https://youtu.be/Vtr1144V1OQ" target="_blank" class="pr-video-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path></svg>
+          Watch Pawel's Presentation
+        </a>
+
+        <blockquote class="pr-blockquote">
+          <p>“Automation is the future, but roads change faster than the app. If you only follow the screen, you can end up in the wrong lane.”</p>
+          <footer>— Pawel Michalkiewicz, Managing Partner, Jackson & Frank</footer>
+        </blockquote>
+      </div>
+
+      <!-- Section 2 -->
+      <div class="pr-section">
+        <div class="pr-section-header">
+          <span class="pr-section-num">02</span>
+          <h2>The Netherlands as Safe Harbour</h2>
+        </div>
+        
+        <p>Xin Shi, Partner and Head of the China Desk at AMICE Advocaten, drew on a decade of experience advising Chinese clients to walk attendees through the practicalities of establishing a Dutch B.V. entity. The Netherlands has become a well-established gateway into the EU for Chinese companies, and Shi explained why: the incorporation process is more flexible and smoother than in most other EU member states, though it demands attention to sequencing. The civil notary is the central institution in the process; shareholder composition, director BSN (Burgerservicenummer) requirements, and documentation must all be in order before the procedure can advance. A typical timeline runs between two and six weeks.</p>
+        <p>Shi walked through the ecosystem of advisers required for a successful setup, covering the respective roles of the notary, tax adviser, and accountant. He also addressed the most common blockers: obtaining a Dutch address, securing the director's residency permit or citizenship documentation, and the downstream consequences these have on IBAN and VAT registration. His closing point was unambiguous: incorporation is the beginning of governance, not the conclusion of it.</p>
+        
+        <figure class="pr-figure">
+          <img src="/case-study/xin-shi-speech.avif" alt="Xin Shi presenting" />
+          <figcaption>Xin Shi, Partner, AMICE Advocaten, on establishing a Dutch B.V. and the key blockers to resolve.</figcaption>
+        </figure>
+
+        <a href="https://youtu.be/NUHh8Juo5XY" target="_blank" class="pr-video-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path></svg>
+          Watch Xin Shi's Presentation
+        </a>
+      </div>
+
+      <!-- Section 3 -->
+      <div class="pr-section">
+        <div class="pr-section-header">
+          <span class="pr-section-num">03</span>
+          <h2>Tax: Structure Must Match Reality</h2>
+        </div>
+        
+        <p>Paul Halprin, attorney at law and founder of Halprin Law, focused his session on the three areas that generate the most costly surprises for Chinese companies in Europe: unintended corporate tax exposure, withholding tax leakage on cross-border payments, and transfer pricing disputes. His central argument was that most tax mistakes are not caused by high rates; they result from a failure to plan before operations begin.</p>
+        <p>Halprin identified four recurring pitfalls. First, local sales teams that effectively close deals in Europe while contracts are nominally signed in China, creating taxable presence. Second, European entities that exist on paper while all decision-making remains at headquarters, making treaty benefits impossible to defend. Third, cash repatriation routes that have not been mapped in advance, resulting in unexpected withholding tax costs. Fourth, intercompany charges that cannot survive scrutiny because the narrative and the numbers are inconsistent. His practical guidance centred on three disciplines: mapping where value is actually created, ensuring that legal structure matches operational reality, and setting clear authority matrices that define who negotiates, approves, and signs. "Tax follows the business," he concluded. "People, contracts, decisions, and cash routes need to align with a structure that is credible and real."</p>
+        
+        <figure class="pr-figure">
+          <img src="/case-study/paul-harpin.avif" alt="Paul Halprin presenting" />
+          <figcaption>Paul Halprin, Founder, Halprin Law, on permanent establishment risk and cross-border tax planning.</figcaption>
+        </figure>
+
+        <a href="https://youtu.be/_ab1dhwDkg4" target="_blank" class="pr-video-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path></svg>
+          Watch Paul Halprin's Presentation
+        </a>
+      </div>
+
+      <!-- Section 4 -->
+      <div class="pr-section">
+        <div class="pr-section-header">
+          <span class="pr-section-num">04</span>
+          <h2>Legal Risk: Investment Screening and Competition Law</h2>
+        </div>
+        
+        <p>Martijn van de Hel, Founding Partner of Maverick Advocaten, examined the two EU regulatory frameworks that Chinese investors most frequently underestimate: the Foreign Direct Investment screening regime and the EU Foreign Subsidies Regulation. He explained the thresholds at which each applies and used the 2026 Kyndryl/Solvinity case as a live illustration. In that transaction, the Dutch Competition Authority cleared the acquisition of a Dutch IT supplier, yet the Investment Screening Bureau opened a separate investigation on grounds of sensitive technology and national security. The case demonstrated that regulatory clearance from one authority provides no guarantee of clearance from another.</p>
+        <p>Van de Hel also addressed an area of growing enforcement focus that receives less attention in boardroom discussions: the application of EU competition law to human resources practices. Agreements between companies on compensation levels, hiring restrictions, or non-compete arrangements can constitute cartel conduct under EU rules, regardless of whether they are formal or informal. The 2025 European Commission decision imposing a combined fine of 329 million euros on Delivery Hero and Glovo for labour market cartel conduct was cited as a landmark signal of enforcement direction. Potential penalties reach ten percent of global annual turnover.</p>
+        
+        <figure class="pr-figure">
+          <img src="/case-study/Foreign.avif" alt="Martijn van de Hel presenting on EU investment screening" />
+          <figcaption>Martijn van de Hel, Maverick Advocaten, on EU FDI screening and the Foreign Subsidies Regulation.</figcaption>
+        </figure>
+      </div>
+
+      <!-- Section 5 -->
+      <div class="pr-section">
+        <div class="pr-section-header">
+          <span class="pr-section-num">05</span>
+          <h2>Panel Discussion: Confronting the Real Challenges</h2>
+        </div>
+        
+        <p>The forum concluded with a structured panel discussion in which all seven speakers addressed the five pain points identified at the outset of the programme. The discussion brought together perspectives spanning legal practice, tax law, human resources, intellectual property, and academic research, with questions submitted by the audience driving the agenda.</p>
+        <p>Professor Kai Yao of Fudan University's School of Management observed that talent strategies for overseas expansion are evolving toward an ecosystem model, with companies placing increasingly high demands on the cross-functional capability of individuals deployed internationally. Jacqueline Chen, Partner at Ferrante IP, emphasised that intellectual property protection must be treated as a parallel workstream to market entry, not a subsequent consideration. Questions from attendees ranged from the mechanics of setting up a collective pension scheme in the Netherlands for a small headcount, to the legal boundaries on end-client authority to terminate employment agreements, to the enforceability of non-compete clauses across EU jurisdictions. The consensus among panellists was consistent: there are no universal answers, but there are replicable methodologies, and the companies that succeed are those that build a structured, country-specific action plan before they need one.</p>
+        
+        <figure class="pr-figure">
+          <img src="/case-study/panel-discussion.avif" alt="Panel discussion on stage" />
+          <figcaption>The full expert panel assembled for the open discussion segment.</figcaption>
+        </figure>
+
+        <p>The event drew sustained engagement from attendees, many of whom remained to continue discussions with speakers after the formal programme closed. Catrina Yang, Executive Director of Jackson & Frank Greater China, observed that the day's consistent theme was the shift from reactive compliance to proactive planning, and that this shift is what separates companies that struggle in Europe from those that scale with confidence.</p>
+        
+        <figure class="pr-figure">
+          <img src="/case-study/networking.avif" alt="Attendees networking at the event" />
+          <figcaption>Delegates networking during the event.</figcaption>
+        </figure>
+        
+        <p>Jackson & Frank will continue its China-to-Europe forum series through 2026, with future events addressing sector-specific expansion challenges and country-level market entry considerations. Chinese enterprises planning European expansion are welcome to contact the Jackson & Frank team directly.</p>
+      </div>
+
+      <!-- About Jackson & Frank -->
+      <div class="pr-about-box">
+        <h3>About Jackson & Frank</h3>
+        <p>Founded in 2022 and a sister company of the Macee Group (established 2013), Jackson & Frank is a global employer of record and HR solutions provider serving clients across more than 160 countries and territories. The company offers end-to-end services in global employment, payroll management, international mobility, compliance, and HR strategy — supporting Chinese enterprises at every stage of their international growth.</p>
+        <div class="pr-contact-info">
+          <p><strong>For further information, please contact:</strong></p>
+          <p><a href="mailto:info@jacksonandfrank.com">info@jacksonandfrank.com</a> | <a href="https://www.jacksonandfrank.cn" target="_blank">www.jacksonandfrank.cn</a></p>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- ============= CTA ============= -->
@@ -1347,5 +1427,168 @@ onMounted(() => {
   .pr-hero-visual {
     display: none;
   }
+}
+
+/* --- ARTICLE BODY --- */
+.pr-speakers-section {
+  padding-bottom: 20px !important;
+}
+.pr-article-body {
+  padding: 40px 20px 60px;
+  background-color: #f8fafc;
+}
+@media (min-width: 768px) {
+  .pr-article-body { padding: 40px 20px 100px; }
+}
+
+.pr-article-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.pr-intro-text {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--ink, #143369);
+  line-height: 1.7;
+  border-left: 4px solid var(--accent-warm, #f7911d);
+  padding-left: 24px;
+  margin-bottom: 60px;
+}
+
+.pr-section {
+  margin-bottom: 80px;
+}
+
+.pr-section-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+.pr-section-num {
+  font-size: 42px;
+  font-weight: 700;
+  color: #e2e8f0;
+  line-height: 1;
+}
+.pr-section h2 {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--ink, #143369);
+  border-bottom: 2px solid var(--accent-warm, #f7911d);
+  padding-bottom: 8px;
+  flex-grow: 1;
+}
+
+.pr-section p {
+  font-size: 17px;
+  color: #334155;
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+
+.pr-figure {
+  margin: 40px 0;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+  background: #fff;
+}
+.pr-figure img {
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+.pr-figure figcaption {
+  font-size: 13px;
+  font-style: italic;
+  color: #64748b;
+  padding: 16px;
+  background: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+}
+
+.pr-video-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--ink, #143369);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 14px 24px;
+  border-radius: 8px;
+  border: 1px solid rgba(247, 145, 29, 0.3);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  margin-bottom: 40px;
+}
+.pr-video-link:hover {
+  background: #dc2626; /* Red for YouTube */
+  border-color: #dc2626;
+  transform: translateY(-2px);
+}
+
+.pr-blockquote {
+  margin: 60px 0;
+  border-left: 4px solid var(--accent-warm, #f7911d);
+  background: rgba(20, 51, 105, 0.04);
+  border-radius: 0 12px 12px 0;
+  padding: 32px;
+}
+.pr-blockquote p {
+  font-size: 20px;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--ink, #143369);
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+.pr-blockquote footer {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #64748b;
+}
+
+.pr-about-box {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 40px;
+  margin-top: 80px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+.pr-about-box h3 {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--ink, #143369);
+  margin-bottom: 16px;
+}
+.pr-about-box p {
+  font-size: 15px;
+  color: #475569;
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+.pr-contact-info {
+  border-top: 1px solid #e2e8f0;
+  padding-top: 24px;
+}
+.pr-contact-info a {
+  color: var(--accent-warm, #f7911d);
+  font-weight: 600;
+  text-decoration: none;
+}
+.pr-contact-info a:hover {
+  text-decoration: underline;
 }
 </style>
