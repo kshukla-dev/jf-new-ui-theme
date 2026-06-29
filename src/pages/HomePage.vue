@@ -160,11 +160,8 @@ const founders = [
 ]
 
 const globalDestinations = [
-  { id: 'us', name: 'United States', flag: '🇺🇸', icon: 'https://hatscripts.github.io/circle-flags/flags/us.svg', image: 'https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?auto=format&fit=crop&q=80&w=400', desc: 'Hire employees or contractors in the US with ease.', price: '$599' },
   { id: 'uk', name: 'United Kingdom', flag: '🇬🇧', icon: 'https://hatscripts.github.io/circle-flags/flags/gb.svg', image: 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&q=80&w=400', desc: 'Expand to the UK with full compliance.', price: '£499' },
   { id: 'de', name: 'Germany', flag: '🇩🇪', icon: 'https://hatscripts.github.io/circle-flags/flags/de.svg', image: 'https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&q=80&w=400', desc: 'Scale your team in Germany seamlessly.', price: '€599' },
-  { id: 'au', name: 'Australia', flag: '🇦🇺', icon: 'https://hatscripts.github.io/circle-flags/flags/au.svg', image: 'https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?auto=format&fit=crop&q=80&w=400', desc: 'Hire in Australia with local expertise.', price: 'A$699' },
-  { id: 'sg', name: 'Singapore', flag: '🇸🇬', icon: 'https://hatscripts.github.io/circle-flags/flags/sg.svg', image: 'https://images.unsplash.com/photo-1525625293386-3f8f99389edd?auto=format&fit=crop&q=80&w=400', desc: 'Grow your business in Singapore with confidence.', price: 'S$599' },
   { id: 'nl', name: 'Netherlands', flag: '🇳🇱', icon: 'https://hatscripts.github.io/circle-flags/flags/nl.svg', image: 'https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&q=80&w=400', desc: 'Expand to the Netherlands with ease.', price: '€499' },
   { id: 'in', name: 'India', flag: '🇮🇳', icon: 'https://hatscripts.github.io/circle-flags/flags/in.svg', image: 'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&q=80&w=400', desc: 'Hire top tech talent in India fully compliantly.', price: '$299' },
   { id: 'ae', name: 'UAE', flag: '🇦🇪', icon: 'https://hatscripts.github.io/circle-flags/flags/ae.svg', image: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&q=80&w=400', desc: 'Set up your remote team in the UAE.', price: '$599' }
