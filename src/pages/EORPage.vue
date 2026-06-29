@@ -56,7 +56,7 @@ const topCountries = [
   { code: 'nl', name: 'Netherlands' },
   { code: 'pl', name: 'Poland' },
   { code: 'es', name: 'Spain' },
-  { code: 'ae', name: 'United Arab Emirates' },
+  { code: 'ae', name: 'United Arab Emirates', href: '/uae' },
   { code: 'gb', name: 'United Kingdom' },
 ]
 </script>
@@ -334,51 +334,39 @@ const topCountries = [
     <!-- KEY BENEFITS -->
     <section class="eor-section eor-container">
       <div class="benefits-wrapper">
-        <h2 class="benefits-title" style="text-align: left; margin-bottom: 16px !important;">Who needs an Employer of Record?</h2>
-        <p style="text-align: left; font-size: 18px; color: var(--gh-on-surface-variant); margin-bottom: 48px;">If global hiring, speed, or compliance load is the blocker, EOR is usually the lever.</p>
+        <h2 class="benefits-title" style="text-align: left; margin-bottom: 16px !important;">Perfect for every scenario</h2>
+        <p style="text-align: left; font-size: 18px; color: var(--gh-on-surface-variant); margin-bottom: 48px;">Whether you're testing new markets or scaling globally, our Employer of Record (EOR) services adapt to your needs with a practical approach to global hiring and international payroll.</p>
         <div class="benefits-grid">
           
           <div class="benefit-card">
             <div class="benefit-icon">
-              <!-- Rocket SVG -->
+              <!-- Target icon -->
               <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#143369" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path>
-                <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path>
-                <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path>
-                <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path>
+                <circle cx="12" cy="12" r="10"></circle>
+                <circle cx="12" cy="12" r="6"></circle>
+                <circle cx="12" cy="12" r="2"></circle>
               </svg>
             </div>
-            <h3>Startups hiring globally</h3>
-            <p>No entity, no in-house global payroll team still need real employees in-market.</p>
-            <p style="color: #143369; font-weight: 600; margin-top: 16px;">Employer of Record gets you compliant hires in days, not months.</p>
-          </div>
-
-          <div class="benefit-card">
-            <div class="benefit-icon">
-              <!-- Trending Up SVG -->
-              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#143369" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
-                <polyline points="17 6 23 6 23 12"></polyline>
-              </svg>
+            <h3>Market testing</h3>
+            <p>Test new markets without committing to a local entity. Ideal for startups and enterprises exploring international opportunities with full employment compliance.</p>
+            <div style="margin-top: 8px;">
+              <strong style="font-size: 11px; color: #143369; text-transform: uppercase; letter-spacing: 0.05em;">Key Benefits</strong>
+              <ul style="margin: 8px 0 0; padding-left: 16px; font-size: 13px; color: var(--gh-on-surface-variant); display: flex; flex-direction: column; gap: 4px;">
+                <li>No legal entity required</li>
+                <li>Fast market entry (48-72 hours)</li>
+                <li>Full compliance coverage</li>
+                <li>Clear exit path when you pivot</li>
+              </ul>
             </div>
-            <h3>Scale-ups entering new markets</h3>
-            <p>Entity setup slows revenue and hiring; you need employment compliance from day one.</p>
-            <p style="color: #143369; font-weight: 600; margin-top: 16px;">Land the team first, decide on subsidiaries later without skipping payroll or contracts.</p>
-          </div>
-
-
-          <div class="benefit-card">
-            <div class="benefit-icon">
-              <!-- Layers SVG -->
-              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#143369" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-                <polyline points="2 12 12 17 22 12"></polyline>
-                <polyline points="2 17 12 22 22 17"></polyline>
-              </svg>
+            <div style="margin-top: 8px;">
+              <strong style="font-size: 11px; color: #143369; text-transform: uppercase; letter-spacing: 0.05em;">How it Works</strong>
+              <ol style="margin: 8px 0 0; padding-left: 16px; font-size: 13px; color: var(--gh-on-surface-variant); display: flex; flex-direction: column; gap: 4px;">
+                <li>Define the target market</li>
+                <li>Align on hiring requirements</li>
+                <li>We handle legal employer setup</li>
+                <li>You start hiring immediately</li>
+              </ol>
             </div>
-            <h3>Contractor-heavy companies</h3>
-            <p>Roles look like employment; contractor models create compliance and audit exposure.</p>
-            <p style="color: #143369; font-weight: 600; margin-top: 16px;">Convert to Employer of Record employment where it fits clear employer obligations.</p>
           </div>
 
           <div class="benefit-card">
@@ -391,9 +379,93 @@ const topCountries = [
                 <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
               </svg>
             </div>
-            <h3>HR teams managing a global workforce</h3>
-            <p>Too many vendors, spreadsheets, and country rules for a lean HR function.</p>
-            <p style="color: #143369; font-weight: 600; margin-top: 16px;">Consolidate global hiring, payroll, and lifecycle support behind one EOR programme.</p>
+            <h3>Remote teams</h3>
+            <p>Hire strong talent globally and run distributed teams under proper employment contracts not guesswork on local rules.</p>
+            <div style="margin-top: 8px;">
+              <strong style="font-size: 11px; color: #143369; text-transform: uppercase; letter-spacing: 0.05em;">Key Benefits</strong>
+              <ul style="margin: 8px 0 0; padding-left: 16px; font-size: 13px; color: var(--gh-on-surface-variant); display: flex; flex-direction: column; gap: 4px;">
+                <li>Access to a global talent pool</li>
+                <li>Local employment compliance</li>
+                <li>Consistent people operations</li>
+                <li>Support for distributed onboarding</li>
+              </ul>
+            </div>
+            <div style="margin-top: 8px;">
+              <strong style="font-size: 11px; color: #143369; text-transform: uppercase; letter-spacing: 0.05em;">How it Works</strong>
+              <ol style="margin: 8px 0 0; padding-left: 16px; font-size: 13px; color: var(--gh-on-surface-variant); display: flex; flex-direction: column; gap: 4px;">
+                <li>Define roles and locations</li>
+                <li>Source and select candidates</li>
+                <li>We employ under local law</li>
+                <li>You manage day-to-day work</li>
+              </ol>
+            </div>
+          </div>
+
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <!-- Trending Up SVG -->
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#143369" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                <polyline points="17 6 23 6 23 12"></polyline>
+              </svg>
+            </div>
+            <h3>Quick expansion</h3>
+            <p>Enter new territories without waiting on entity incorporation. Speed up revenue and hiring with Employer of Record where it fits.</p>
+            <div style="margin-top: 8px;">
+              <strong style="font-size: 11px; color: #143369; text-transform: uppercase; letter-spacing: 0.05em;">Key Benefits</strong>
+              <ul style="margin: 8px 0 0; padding-left: 16px; font-size: 13px; color: var(--gh-on-surface-variant); display: flex; flex-direction: column; gap: 4px;">
+                <li>Faster time to first hire</li>
+                <li>Scalable multi-country support</li>
+                <li>International payroll in scope</li>
+                <li>Growth focused setup</li>
+              </ul>
+            </div>
+            <div style="margin-top: 8px;">
+              <strong style="font-size: 11px; color: #143369; text-transform: uppercase; letter-spacing: 0.05em;">How it Works</strong>
+              <ol style="margin: 8px 0 0; padding-left: 16px; font-size: 13px; color: var(--gh-on-surface-variant); display: flex; flex-direction: column; gap: 4px;">
+                <li>Prioritise expansion markets</li>
+                <li>Stand up EOR coverage</li>
+                <li>Launch hiring in parallel</li>
+                <li>Scale headcount as you win</li>
+              </ol>
+            </div>
+          </div>
+
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <!-- Building SVG -->
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#143369" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect>
+                <line x1="12" y1="18" x2="12" y2="22"></line>
+                <path d="M9 22h6"></path>
+                <line x1="9" y1="6" x2="9" y2="6"></line>
+                <line x1="15" y1="6" x2="15" y2="6"></line>
+                <line x1="9" y1="10" x2="9" y2="10"></line>
+                <line x1="15" y1="10" x2="15" y2="10"></line>
+                <line x1="9" y1="14" x2="9" y2="14"></line>
+                <line x1="15" y1="14" x2="15" y2="14"></line>
+              </svg>
+            </div>
+            <h3>Acquisition support</h3>
+            <p>Integrate acquired teams with continuity on contracts, payroll, and compliance during M&A transitions.</p>
+            <div style="margin-top: 8px;">
+              <strong style="font-size: 11px; color: #143369; text-transform: uppercase; letter-spacing: 0.05em;">Key Benefits</strong>
+              <ul style="margin: 8px 0 0; padding-left: 16px; font-size: 13px; color: var(--gh-on-surface-variant); display: flex; flex-direction: column; gap: 4px;">
+                <li>Structured integration planning</li>
+                <li>Employee experience in focus</li>
+                <li>Compliance continuity</li>
+                <li>Reduced transition risk</li>
+              </ul>
+            </div>
+            <div style="margin-top: 8px;">
+              <strong style="font-size: 11px; color: #143369; text-transform: uppercase; letter-spacing: 0.05em;">How it Works</strong>
+              <ol style="margin: 8px 0 0; padding-left: 16px; font-size: 13px; color: var(--gh-on-surface-variant); display: flex; flex-direction: column; gap: 4px;">
+                <li>Assess the acquired workforce</li>
+                <li>Plan employment transfer steps</li>
+                <li>Migrate contracts and payroll</li>
+                <li>Stabilise ongoing operations</li>
+              </ol>
+            </div>
           </div>
 
         </div>
@@ -543,7 +615,7 @@ const topCountries = [
           <p class="eor-countries-sub">We support Employer of Record and global hiring in 160+ countries. Below are markets where our own entities and specialists are especially active.</p>
         </div>
         <div class="eor-countries-grid">
-          <a :href="`/${country.name.toLowerCase().replace(/\s+/g, '-')}`" class="ecg-item" v-for="country in topCountries" :key="country.code">
+          <a :href="country.href || `/${country.name.toLowerCase().replace(/\s+/g, '-')}`" class="ecg-item" v-for="country in topCountries" :key="country.code">
             <div class="ecg-flag-wrapper">
               <img :src="`https://hatscripts.github.io/circle-flags/flags/${country.code}.svg`" :alt="country.name" class="ecg-flag" />
               <div class="ecg-view-btn">View</div>

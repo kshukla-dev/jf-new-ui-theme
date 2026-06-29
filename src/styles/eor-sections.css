@@ -562,15 +562,7 @@
   text-align: center;
 }
 
-/* Center last two items in how-steps-grid on desktop */
-@media (min-width: 993px) {
-  .how-step:nth-child(5) {
-    grid-column: 2 / 3;
-  }
-  .how-step:nth-child(6) {
-    grid-column: 3 / 4;
-  }
-}
+/* Center last two items in how-steps-grid on desktop (Removed for 3-3 layout) */
 
 /* ===== TESTIMONIAL ===== */
 .eor-testimonial-wrap {
