@@ -183,6 +183,7 @@
 .eor-section {
   padding-top: 80px;
   padding-bottom: 80px;
+  padding-inline: clamp(32px, 8vw, 96px);
 }
 
 .eor-section>h2 {

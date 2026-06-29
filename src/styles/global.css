@@ -148,7 +148,7 @@ small,
 .container {
   max-width: 1240px;
   margin: 0 auto;
-  padding: 0 32px;
+  padding-inline: clamp(32px, 8vw, 96px);
 }
 
 /* === Shared serif title with italic accent === */
@@ -250,6 +250,7 @@ small,
 .section {
   padding-top: 80px;
   padding-bottom: 80px;
+  padding-inline: clamp(32px, 8vw, 96px);
 }
 
 /* === Fade-in animation === */
