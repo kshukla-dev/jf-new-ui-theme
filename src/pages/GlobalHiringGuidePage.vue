@@ -133,13 +133,18 @@ const getCountryDetails = (name: string) => {
   <header class="ghg-hero">
     <div class="ghg-hero-inner container">
       <div class="ghg-hero-copy">
-        <h1 class="hero-title">Hire anywhere,<br /><em>one partner</em></h1>
+        <h1 class="hero-title">Global <br /><em>hiring guide</em></h1>
         <p class="hero-desc">
           Streamline global operations by managing payroll in over 80+ countries under one roof, thereby eliminating the ongoing administrative burdens of local compliance, taxes, benefits, and other complexities.
         </p>
-        <button class="btn-primary-gold">
+        <ul class="hero-checklist">
+          <li><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9 12l2 2 4-4"></path></svg> Global compliance</li>
+          <li><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9 12l2 2 4-4"></path></svg> Local expertise</li>
+          <li><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9 12l2 2 4-4"></path></svg> Fast setup</li>
+        </ul>
+        <a href="https://calendly.com/jacksonandfrank/discover-us" target="_blank" rel="noopener noreferrer" class="btn-primary-gold" style="display: inline-flex;">
           Get the guide <span class="arrow">→</span>
-        </button>      </div>
+        </a>      </div>
     </div>
     
     <div class="container trust-banner-wrap">
@@ -165,16 +170,19 @@ const getCountryDetails = (name: string) => {
 
 
 
-  <!-- Built for Borderless Teams -->
+  <!-- Why choose our global hiring solution? -->
   <section class="container">
     <div class="borderless-teams-wrap">
       <div class="borderless-card">
-        <div class="borderless-header">
-          <div class="borderless-header-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-          </div>
-          <h2>Built for borderless teams</h2>
+        <div class="borderless-header" style="margin-bottom: 24px;">
+          
+          
+          <h2>Why choose our global hiring solution?</h2>
         </div>
+        
+        <p style="font-size: 16px; color: var(--ink-soft); line-height: 1.6; margin-bottom: 48px;">
+          Expand your business globally with confidence. Our platform makes international hiring seamless and compliant.
+        </p>
         
         <div class="borderless-grid">
           <!-- Cross dividers -->
@@ -183,41 +191,41 @@ const getCountryDetails = (name: string) => {
           
           <div class="borderless-feature">
             <div class="bf-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
             </div>
             <div class="bf-text">
-              <h3>Global reach</h3>
-              <p>Hire in 80+ countries without setting up local entities.</p>
+              <h3>Access global talent</h3>
+              <p>Tap into talent pools from over 160+ countries worldwide</p>
             </div>
           </div>
           
           <div class="borderless-feature">
             <div class="bf-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><circle cx="16" cy="16" r="4"></circle><text x="16" y="17.5" font-size="6" font-family="sans-serif" font-weight="bold" text-anchor="middle" fill="currentColor" stroke="none">G</text></svg>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
             </div>
             <div class="bf-text">
-              <h3>Compliance first</h3>
-              <p>Stay compliant with local laws, taxes, and labor regulations.</p>
+              <h3>Full legal compliance</h3>
+              <p>We ensure all hiring is compliant with local employment laws</p>
             </div>
           </div>
           
           <div class="borderless-feature">
             <div class="bf-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
             </div>
             <div class="bf-text">
-              <h3>Faster hiring</h3>
-              <p>Onboard talent quickly with our streamlined process.</p>
+              <h3>Dedicated support</h3>
+              <p>Get dedicated HR support for all your global employees</p>
             </div>
           </div>
           
           <div class="borderless-feature">
             <div class="bf-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><path d="M12 12s-3 1.5-3 4c0 2.5 3 4 3 4s3-1.5 3-4c0-2.5-3-4-3-4z"></path></svg>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
             </div>
             <div class="bf-text">
-              <h3>One partner</h3>
-              <p>Everything you need to manage and scale global teams.</p>
+              <h3>Quick setup</h3>
+              <p>Start hiring in new countries in as little as 48 hours</p>
             </div>
           </div>
         </div>
@@ -304,7 +312,6 @@ const getCountryDetails = (name: string) => {
   <section class="entities-section container">
     <div class="entities-header-row">
       <div class="entities-title-block">
-        <span class="tag-centered">OUR ENTITIES &amp; LOCATIONS</span>
         <h2 class="entities-main-title">A truly global presence.<br><span class="gold-text">Built for borderless teams.</span></h2>
         <p class="entities-subtitle">Our own legal entities in 80+ countries allow you to hire, pay, and support talent compliantly-wherever your business grows.</p>
       </div>
@@ -473,6 +480,71 @@ const getCountryDetails = (name: string) => {
     </div>
   </section>
 
+  <!-- How it works -->
+  <section class="hiw-section container">
+    <div class="hiw-header">
+      <h2 class="hiw-title">How it works</h2>
+      <p class="hiw-subtitle">Get started with global hiring in four simple steps</p>
+    </div>
+
+    <div class="hiw-cards-container">
+      <div class="hiw-card">
+        <div class="hiw-card-top">
+          <div class="hiw-card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><path d="M9 22v-4h6v4"></path><path d="M8 6h.01"></path><path d="M16 6h.01"></path><path d="M12 6h.01"></path><path d="M12 10h.01"></path><path d="M12 14h.01"></path><path d="M16 10h.01"></path><path d="M16 14h.01"></path><path d="M8 10h.01"></path><path d="M8 14h.01"></path></svg>
+          </div>
+          <span class="hiw-card-number">01</span>
+        </div>
+        <h3 class="hiw-card-title">Company or<br>individual</h3>
+        <div class="hiw-divider"></div>
+        <p class="hiw-card-desc">You've found a candidate in a country where you don't have a local entity, or you're a freelancer working for global clients without 'employed' status.</p>
+      </div>
+      
+      <div class="hiw-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></div>
+
+      <div class="hiw-card">
+        <div class="hiw-card-top">
+          <div class="hiw-card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><polyline points="9 15 11 17 15 13"></polyline></svg>
+          </div>
+          <span class="hiw-card-number">02</span>
+        </div>
+        <h3 class="hiw-card-title">Onboarding<br>and admin</h3>
+        <div class="hiw-divider"></div>
+        <p class="hiw-card-desc">We handle onboarding, contracts, local compliance, and all admin work.</p>
+      </div>
+
+      <div class="hiw-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></div>
+
+      <div class="hiw-card">
+        <div class="hiw-card-top">
+          <div class="hiw-card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
+          </div>
+          <span class="hiw-card-number">03</span>
+        </div>
+        <h3 class="hiw-card-title">Proper<br>employment</h3>
+        <div class="hiw-divider"></div>
+        <p class="hiw-card-desc">You (or your new team member) are officially employed through Jackson &amp; Franks EOR service with all the benefits of traditional employment.</p>
+      </div>
+
+      <div class="hiw-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></div>
+
+      <div class="hiw-card">
+        <div class="hiw-card-top">
+          <div class="hiw-card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2l.5-.5a5.4 5.4 0 0 0 1-4.5c.35-1.5 1.77-2.92 3.25-3.32a5.4 5.4 0 0 0-4.5 1L7 16l-2.5.5z"></path><path d="M12 15.5l5.5-5.5a2.12 2.12 0 0 0-3-3l-5.5 5.5"></path><circle cx="15" cy="9" r="1"></circle></svg>
+          </div>
+          <span class="hiw-card-number">04</span>
+        </div>
+        <h3 class="hiw-card-title">Get started<br>&nbsp;</h3>
+        <div class="hiw-divider"></div>
+        <p class="hiw-card-desc">Start building your global team with confidence and full compliance.</p>
+      </div>
+    </div>
+
+  </section>
+
   <!-- FAQ -->
   <section class="section container">
     <div class="faq-block">
@@ -543,6 +615,26 @@ const getCountryDetails = (name: string) => {
 .ghg-hero-copy {
   max-width: 650px;
   animation: fade-slide-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hero-checklist {
+  list-style: none;
+  padding: 0;
+  margin: 32px 0 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.hero-checklist li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 20px;
+  color: #ffffff;
+}
+.hero-checklist li svg {
+  color: #ffffff;
+  flex-shrink: 0;
 }
 
 @keyframes fade-slide-up {
@@ -1694,6 +1786,122 @@ const getCountryDetails = (name: string) => {
   }
   .t-logo {
     flex-shrink: 0;
+  }
+}
+
+/* ============= HOW IT WORKS ============= */
+.hiw-section {
+  padding: 100px 0;
+}
+.hiw-header {
+  margin-bottom: 60px;
+}
+.hiw-tag {
+  color: #3b5bdb;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  display: inline-block;
+}
+.hiw-title {
+  font-family: var(--serif);
+  font-size: 42px;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+.hiw-subtitle {
+  font-size: 18px;
+  color: var(--ink-soft);
+}
+.hiw-cards-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 60px;
+  position: relative;
+}
+.hiw-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 32px 24px;
+  flex: 1;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.04);
+  position: relative;
+  min-height: 380px;
+}
+.hiw-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 40px;
+}
+.hiw-card-icon {
+  width: 56px;
+  height: 56px;
+  background: var(--accent-soft);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+}
+.hiw-card-icon svg {
+  width: 28px;
+  height: 28px;
+}
+.hiw-card-number {
+  font-family: var(--sans);
+  font-size: 56px;
+  font-weight: 800;
+  color: var(--border);
+  line-height: 0.8;
+}
+.hiw-card-title {
+  font-family: var(--sans);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.3;
+  margin-bottom: 16px;
+}
+.hiw-divider {
+  width: 32px;
+  height: 2px;
+  background: var(--accent);
+  margin-bottom: 16px;
+}
+.hiw-card-desc {
+  font-size: 15px;
+  color: var(--ink-soft);
+  line-height: 1.6;
+}
+.hiw-arrow {
+  width: 32px;
+  height: 32px;
+  background: var(--accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  z-index: 10;
+  margin: 0 -8px;
+}
+
+@media (max-width: 1024px) {
+  .hiw-cards-container {
+    flex-direction: column;
+  }
+  .hiw-card {
+    width: 100%;
+    min-height: auto;
+  }
+  .hiw-arrow {
+    transform: rotate(90deg);
+    margin: 16px 0;
   }
 }
 </style>
