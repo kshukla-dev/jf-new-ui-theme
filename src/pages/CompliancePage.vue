@@ -483,13 +483,16 @@ const trustAvatars = [
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 28px;
 }
-.service-card {
+.service.how-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 34px 30px;
-  box-shadow: 0 20px 40px rgba(9, 64, 123, 0.08);
-  transition: transform 0.28s ease, box-shadow 0.28s ease;
+  border-radius: var(--radius);
+  padding: 36px 32px;
+  position: relative;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 .service-card:hover {
   transform: translateY(-3px);
@@ -592,8 +595,9 @@ const trustAvatars = [
 .how-card p {
   font-size: 14px;
   color: var(--ink-soft);
-  line-height: 1.75;
-  margin-bottom: 18px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  flex-grow: 1;
   position: relative;
   z-index: 1;
 }

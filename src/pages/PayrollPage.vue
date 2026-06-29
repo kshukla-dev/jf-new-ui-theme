@@ -578,6 +578,7 @@ const trustAvatars = [
   margin-bottom: 18px;
   position: relative;
   z-index: 1;
+  flex-grow: 1;
 }
 .how-card ul {
   list-style: none;

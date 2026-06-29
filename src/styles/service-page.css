@@ -93,6 +93,8 @@
   max-width: 760px;
 }
 
+
+
 .hero-stat-card {
   background: rgba(255, 255, 255, 0.86);
   border: 1px solid rgba(15, 23, 42, 0.08);
@@ -361,6 +363,9 @@
   padding: 36px 32px;
   position: relative;
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .how-card:hover {
@@ -389,8 +394,11 @@
 .how-card p {
   font-size: 14px;
   color: var(--ink-soft);
-  line-height: 1.6;
-  margin-bottom: 20px;
+  line-height: 1.75;
+  margin-bottom: 18px;
+  position: relative;
+  z-index: 1;
+  flex-grow: 1;
 }
 
 .how-card ul {

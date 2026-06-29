@@ -142,7 +142,13 @@ const trustAvatars = [
       </div>
       <div class="eor-bridge-grid">
         <div v-for="(b, i) in immigration.eorBridge.benefits" :key="i" class="eor-bridge-card">
-          <span class="eor-bridge-mark">{{ String(i + 1).padStart(2, '0') }}</span>
+          <span class="eor-bridge-mark">
+            <svg v-if="b.icon === 'Zap'" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            <svg v-else-if="b.icon === 'Clock'" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            <svg v-else-if="b.icon === 'Shield'" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            <svg v-else-if="b.icon === 'DollarSign'" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+            <svg v-else width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v4l3 3"></path></svg>
+          </span>
           <h3>{{ b.title }}</h3>
           <p>{{ b.description }}</p>
         </div>
@@ -266,6 +272,9 @@ const trustAvatars = [
   position: relative;
   overflow: hidden;
   transition: transform 0.28s ease, box-shadow 0.28s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 .how-card:hover {
   transform: translateY(-3px);
@@ -312,6 +321,7 @@ const trustAvatars = [
   margin-bottom: 18px;
   position: relative;
   z-index: 1;
+  flex-grow: 1;
 }
 .how-card ul {
   list-style: none;
