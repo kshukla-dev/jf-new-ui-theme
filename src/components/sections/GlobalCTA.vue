@@ -77,7 +77,7 @@ defineProps<{
 .eor-container {
   max-width: 1440px;
   margin: 0 auto;
-  padding: 0 5%;
+  padding-inline: clamp(32px, 8vw, 96px);
 }
 
 .eor-container2 {

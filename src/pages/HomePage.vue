@@ -860,7 +860,7 @@ const formatBlogDate = (dateStr: string) => {
 .home-hero-inner {
   max-width: 1240px;
   margin: 0 auto;
-  padding: 0 32px;
+  padding-inline: clamp(32px, 8vw, 96px);
 }
 
 .home-hero .service-hero-copy {
@@ -1091,7 +1091,7 @@ const formatBlogDate = (dateStr: string) => {
   gap: 40px;
   max-width: 1240px;
   margin: 0 auto;
-  padding: 0 32px;
+  padding-inline: clamp(32px, 8vw, 96px);
 }
 .brand-label {
   font-size: 11px;

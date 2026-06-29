@@ -344,7 +344,7 @@ const testiAvatars = ["/testimonials/priya.jpg", "/testimonials/James.jpg", "/te
   align-items: center;
   max-width: 1240px;
   margin: 0 auto;
-  padding: 0 32px;
+  padding-inline: clamp(32px, 8vw, 96px);
 }
 
 .cs-hero-content {
