@@ -321,18 +321,8 @@ onUnmounted(() => {
   <section class="section container offices-premium-section">
     <div class="offices-header-wrap">
       <div class="offices-header-left">
-        <span class="tag" style="color: #0E59F2; font-weight: 700; font-size: 11px; letter-spacing: 1px; text-transform: uppercase;">OUR GLOBAL PRESENCE</span>
         <h2 class="section-title" style="margin-top: 12px; margin-bottom: 16px; font-size: 48px; color: #0E0F3B;">Our offices</h2>
         <p class="section-lead" style="max-width: 400px; color: #64748b; font-size: 15px; margin: 0;">Our global network spans multiple continents, bringing you local expertise wherever you need it.</p>
-      </div>
-      <div class="offices-header-badge">
-        <div class="badge-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0E59F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-        </div>
-        <div class="badge-text">
-          <strong style="color: #0E0F3B; font-size: 14px; display: block;">60+ Offices</strong>
-          <span style="color: #64748b; font-size: 12px;">in 40+ Countries</span>
-        </div>
       </div>
     </div>
 
@@ -366,24 +356,7 @@ onUnmounted(() => {
     </div>
 
     <!-- STATS BAR -->
-    <div class="offices-stats-bar">
-      <div class="stat-item">
-        <div class="stat-icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0E59F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></div>
-        <div class="stat-text"><strong>40+</strong><span>Countries</span></div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0E59F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div>
-        <div class="stat-text"><strong>60+</strong><span>Offices</span></div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0E59F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div>
-        <div class="stat-text"><strong>5000+</strong><span>Local Experts</span></div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0E59F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg></div>
-        <div class="stat-text"><strong>24/7</strong><span>Global Support</span></div>
-      </div>
-    </div>
+
 
     <!-- ALL OFFICES -->
     <div class="all-offices-carousel-wrap">
@@ -690,10 +663,14 @@ onUnmounted(() => {
 .stat-item:last-child {
   border-right: none;
 }
+.stat-text {
+  text-align: left;
+}
 .stat-icon-wrap {
   width: 48px;
   height: 48px;
-  background: #f1f5f9;
+  background: #fff;
+  border: 1px solid #e2e8f0;
   border-radius: 12px;
   display: flex;
   align-items: center;
@@ -707,6 +684,8 @@ onUnmounted(() => {
 .stat-text span {
   font-size: 13px;
   color: #64748b;
+  line-height: 1.4;
+  display: block;
 }
 
 .subsection-title {

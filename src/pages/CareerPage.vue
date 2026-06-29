@@ -59,10 +59,16 @@ function getRoleTheme(dept: string) {
   <section class="section container">
     <div class="section-head">
       <h2 class="section-title">Benefits that <em>matter</em></h2>
+      <p class="section-lead" style="max-width: 600px;">We're building a company where talented people can do their best work, grow their careers, and make a real impact on the future of work.</p>
     </div>
     <div class="benefits-grid">
       <div v-for="(b, i) in career.benefits" :key="i" class="benefit-card">
-        <span class="benefit-mark">{{ String(i + 1).padStart(2, '0') }}</span>
+        <div class="benefit-icon-box">
+          <svg v-if="i === 0" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+          <svg v-else-if="i === 1" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+          <svg v-else-if="i === 2" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+          <svg v-else width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+        </div>
         <h3>{{ b.title }}</h3>
         <p>{{ b.description }}</p>
       </div>
@@ -368,20 +374,23 @@ function getRoleTheme(dept: string) {
   border-color: var(--accent);
   box-shadow: 0 20px 40px rgba(9, 64, 123, 0.1);
 }
-.benefit-mark {
-  display: inline-block;
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 32px;
-  color: var(--accent);
-  margin-bottom: 14px;
+.benefit-icon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  background: #2b4168;
+  border-radius: 12px;
+  color: #fff;
+  margin-bottom: 24px;
 }
 .benefit-card h3 {
-  font-family: var(--serif);
-  font-size: 22px;
-  font-weight: 500;
-  margin-bottom: 10px;
-  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #0E0F3B;
 }
 .benefit-card p {
   font-size: 14px;
@@ -396,14 +405,8 @@ function getRoleTheme(dept: string) {
   scroll-margin-top: 80px;
 }
 .positions-list {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-/* === POSITION CARDS (CARD STYLE) === */
-.positions-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 32px;
 }
 .position-card {
