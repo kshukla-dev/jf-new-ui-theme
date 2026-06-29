@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import GlobalCTA from '@/components/sections/GlobalCTA.vue'
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted, computed } from 'vue'
 import { RouterLink } from 'vue-router'
 import about from '@/data/about-us.json'
 
@@ -49,6 +49,132 @@ function prevMilestone() {
 
 function setMilestone(index: number) {
   activeMilestone.value = index
+}
+
+import ghg from '@/data/global-hiring.json'
+
+const allCountries = ghg.countries
+const available = computed(() => allCountries.filter((c: any) => c.status?.toLowerCase() !== 'coming soon'))
+const comingSoon = computed(() => allCountries.filter((c: any) => c.status?.toLowerCase() === 'coming soon'))
+
+const getCountryImage = (name: string) => {
+  const map: Record<string, string> = {
+    'The Netherlands': '/countries/eor-netherlands.webp',
+    'India': '/countries/eor-india.webp',
+    'Poland': '/countries/eor-poland.webp',
+    'United Kingdom': '/countries/eor-uk.webp',
+    'Germany': '/countries/eor-germany.webp',
+    'Italy': '/countries/eor-Italy.webp',
+    'Czech Republic': '/countries/eor-czech.webp',
+    'France': '/countries/eor-france.webp',
+    'Belgium': '/countries/eor-belgium.webp',
+    'Spain': '/countries/eor-spain.webp',
+    'UAE': '/countries/eor-uae.webp',
+    'Hong Kong': '/countries/eor-hong-kong.webp',
+    'China': '/countries/eor-china.webp',
+    'Portugal': '/countries/eor-spain.webp',
+    'Sweden': '/countries/eor-uk.webp',
+    'Hungary': '/countries/eor-czech.webp',
+    'Romania': '/countries/eor-poland.webp',
+    'Mexico': '/countries/eor-spain.webp'
+  }
+  return map[name] || '/countries/eor-spain.webp'
+}
+
+const getFlagUrl = (name: string) => {
+  const map: Record<string, string> = {
+    'The Netherlands': '/countries/flag/Flag_of_the_Netherlands.svg.webp',
+    'India': '/countries/flag/Flag_of_India.svg.webp',
+    'Poland': '/countries/flag/Flag_of_Poland.svg.png',
+    'United Kingdom': '/countries/flag/Flag-United-Kingdom.webp',
+    'Germany': '/countries/flag/Flag_of_Germany_(3-2).svg.png',
+    'Italy': '/countries/flag/Flag_of_Italy.svg.png',
+    'France': '/countries/flag/Flag_of_France.svg.webp'
+  }
+  return map[name] || ''
+}
+
+const getFlag = (name: string) => {
+  const map: Record<string, string> = {
+    'The Netherlands': '🇳🇱',
+    'India': '🇮🇳',
+    'Poland': '🇵🇱',
+    'United Kingdom': '🇬🇧',
+    'Germany': '🇩🇪',
+    'Italy': '🇮🇹',
+    'France': '🇫🇷',
+    'Portugal': '🇵🇹',
+    'Sweden': '🇸🇪',
+    'Hungary': '🇭🇺',
+    'Romania': '🇷🇴',
+    'Mexico': '🇲🇽'
+  }
+  return map[name] || '🌍'
+}
+
+const getShortAddress = (name: string) => {
+  const map: Record<string, string> = {
+    'The Netherlands': 'Amsterdam, Netherlands',
+    'India': 'Nagpur, Mumbai',
+    'Poland': 'Warsaw',
+    'United Kingdom': 'London',
+    'Germany': 'Berlin',
+    'Italy': 'Milan',
+    'France': 'Paris'
+  }
+  return map[name] || name
+}
+
+const mapPins = [
+  { name: 'Canada', top: '24%', left: '22%' },
+  { name: 'USA', top: '35%', left: '20%' },
+  { name: 'Brazil', top: '65%', left: '33%' },
+  { name: 'United Kingdom', top: '26%', left: '46%' },
+  { name: 'The Netherlands', top: '26%', left: '48%' },
+  { name: 'Germany', top: '27%', left: '49.5%' },
+  { name: 'UAE', top: '44%', left: '61%' },
+  { name: 'India', top: '48%', left: '69%' },
+  { name: 'China', top: '36%', left: '74%' },
+  { name: 'Hong Kong', top: '42%', left: '76%' },
+  { name: 'Australia', top: '76%', left: '84%' }
+]
+
+const activeCountryName = ref('The Netherlands')
+const activeCountryData = computed(() => {
+  return available.value.find((c: any) => c.name === activeCountryName.value) || available.value[0]
+})
+
+const getOffices = (name: string) => {
+  if (name === 'The Netherlands') {
+    return [
+      { city: 'Amsterdam', address: 'Nieuwe Stationsstraat 10, 6811 KS' },
+      { city: 'Rotterdam', address: 'Business Center, 3011 WZ' },
+      { city: 'The Hague', address: 'Central District 5, 2511 AB' },
+      { city: 'Utrecht', address: 'Innovation Park, 3584 CH' }
+    ]
+  } else if (name === 'India') {
+    return [
+      { city: 'Nagpur', address: 'Tech Park, 440022' },
+      { city: 'Mumbai', address: 'Bandra Kurla Complex, 400051' }
+    ]
+  } else if (name === 'Germany') {
+    return [
+      { city: 'Berlin', address: 'Kurfürstenstraße 15, 10785' },
+      { city: 'Munich', address: 'Bavaria Towers, 80331' },
+      { city: 'Hamburg', address: 'ABC-Straße 45, 20354' }
+    ]
+  }
+  return [
+    { city: getShortAddress(name).split(',')[0], address: 'Main Office Center' }
+  ]
+}
+
+const scrollOffices = (direction: number) => {
+  const container = document.querySelector('.office-slides')
+  if (container) {
+    const scrollAmount = 260 // approx width of one slide + gap
+    container.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' })
+  }
 }
 
 onMounted(() => {
@@ -191,6 +317,121 @@ onUnmounted(() => {
     </div>
   </section>
 
+  <!-- ============= OFFICES (PREMIUM UI) ============= -->
+  <section class="section container offices-premium-section">
+    <div class="offices-header-wrap">
+      <div class="offices-header-left">
+        <span class="tag" style="color: #0E59F2; font-weight: 700; font-size: 11px; letter-spacing: 1px; text-transform: uppercase;">OUR GLOBAL PRESENCE</span>
+        <h2 class="section-title" style="margin-top: 12px; margin-bottom: 16px; font-size: 48px; color: #0E0F3B;">Our offices</h2>
+        <p class="section-lead" style="max-width: 400px; color: #64748b; font-size: 15px; margin: 0;">Our global network spans multiple continents, bringing you local expertise wherever you need it.</p>
+      </div>
+      <div class="offices-header-badge">
+        <div class="badge-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0E59F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+        </div>
+        <div class="badge-text">
+          <strong style="color: #0E0F3B; font-size: 14px; display: block;">60+ Offices</strong>
+          <span style="color: #64748b; font-size: 12px;">in 40+ Countries</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="map-and-featured">
+      <div class="dotted-map-area">
+        <div class="dotted-map-bg" style="background-image: url('/case-study/allOffice.png');"></div>
+      </div>
+
+      <div class="featured-country-card">
+        <div class="fcc-image" :style="{ backgroundImage: `url(${getCountryImage(activeCountryData?.name || 'The Netherlands')})` }">
+          <div class="fcc-image-content">
+            <img v-if="getFlagUrl(activeCountryData?.name || 'The Netherlands')" :src="getFlagUrl(activeCountryData?.name || 'The Netherlands')" class="fcc-flag" :alt="activeCountryData?.name || 'The Netherlands'" />
+            <span v-else class="fcc-flag-emoji" style="font-size: 24px; margin-right: 8px;">{{ getFlag(activeCountryData?.name || 'The Netherlands') }}</span>
+            <div class="fcc-title-wrap">
+              <h3 style="color: white; font-size: 18px; margin: 0; font-family: var(--sans);">{{ activeCountryData?.name || 'The Netherlands' }}</h3>
+              <span style="color: rgba(255,255,255,0.8); font-size: 11px;">{{ getOffices(activeCountryData?.name || 'The Netherlands').length }} Office{{ getOffices(activeCountryData?.name || 'The Netherlands').length > 1 ? 's' : '' }}</span>
+            </div>
+          </div>
+        </div>
+        <div class="fcc-details">
+          <div v-for="(office, i) in getOffices(activeCountryData?.name || 'The Netherlands')" :key="i" class="fcc-row">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0E59F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            <div class="fcc-text">
+              <strong>{{ office.city }}</strong>
+              <span>{{ office.address }}</span>
+            </div>
+          </div>
+        </div>
+        <RouterLink :to="activeCountryData?.href || '/contact'" class="fcc-view-all">View all offices <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto;"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></RouterLink>
+      </div>
+    </div>
+
+    <!-- STATS BAR -->
+    <div class="offices-stats-bar">
+      <div class="stat-item">
+        <div class="stat-icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0E59F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></div>
+        <div class="stat-text"><strong>40+</strong><span>Countries</span></div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0E59F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div>
+        <div class="stat-text"><strong>60+</strong><span>Offices</span></div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0E59F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div>
+        <div class="stat-text"><strong>5000+</strong><span>Local Experts</span></div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0E59F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg></div>
+        <div class="stat-text"><strong>24/7</strong><span>Global Support</span></div>
+      </div>
+    </div>
+
+    <!-- ALL OFFICES -->
+    <div class="all-offices-carousel-wrap">
+      <h3 class="subsection-title">All offices</h3>
+      <div class="carousel-container">
+        <div class="nav-btn prev" @click="scrollOffices(-1)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg></div>
+        <div class="office-slides">
+          <RouterLink v-for="c in available" :key="c.name" :to="c.href || '/'" class="office-slide">
+            <div class="slide-img" :style="{ backgroundImage: `url(${getCountryImage(c.name)})` }">
+              <img v-if="getFlagUrl(c.name)" :src="getFlagUrl(c.name)" class="slide-flag" />
+              <span v-else class="slide-flag-emoji">{{ getFlag(c.name) }}</span>
+            </div>
+            <div class="slide-content">
+              <h4>{{ c.name }}</h4>
+              <p class="slide-address" :title="c.address">{{ c.address }}</p>
+              <div class="slide-link">View office <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></div>
+            </div>
+          </RouterLink>
+        </div>
+        <div class="nav-btn next" @click="scrollOffices(1)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></div>
+      </div>
+    </div>
+
+    <!-- COMING SOON -->
+    <div class="coming-soon-wrap">
+      <h3 class="subsection-title">Coming soon</h3>
+      <div class="office-grid">
+        <div v-for="c in comingSoon" :key="c.name" class="office-card blur-card" :style="{ backgroundImage: `url(${getCountryImage(c.name)})` }">
+          <div class="office-card-overlay"></div>
+          <div class="coming-soon-label">Coming soon</div>
+          <div class="office-card-content">
+            <div class="office-card-header">
+              <div class="office-icon-wrap">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              </div>
+              <span class="office-country-name">{{ c.name }}</span>
+            </div>
+            <p class="office-card-address" v-html="c.address.replace('Launch', '<br>Launch')"></p>
+            <div class="office-learn-more">
+              Contact us to plan ahead
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ============= TEAM ============= -->
   <section class="section container">
     <div class="section-head">
@@ -243,6 +484,464 @@ onUnmounted(() => {
 
 <style scoped>
 @import '@/styles/service-page.css';
+
+/* Offices Premium UI */
+.offices-premium-section {
+  background: #fdfdfd;
+  padding: 64px 40px;
+  border-radius: 24px;
+  margin-bottom: 64px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.02);
+}
+.offices-header-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 40px;
+}
+.offices-header-badge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #f1f5f9;
+  padding: 12px 24px;
+  border-radius: 999px;
+}
+.badge-icon {
+  width: 32px;
+  height: 32px;
+  background: #dbeafe;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.map-and-featured {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 32px;
+  margin-bottom: 48px;
+}
+.dotted-map-area {
+  position: relative;
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+}
+.dotted-map-bg {
+  width: 100%;
+  padding-bottom: 60%;
+  background-size: cover;
+  background-position: center;
+  opacity: 1;
+}
+.map-pin {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  z-index: 2;
+}
+.pin-marker {
+  position: relative;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pin-dot {
+  width: 10px;
+  height: 10px;
+  background: #0E59F2;
+  border-radius: 50%;
+  position: relative;
+  z-index: 2;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+.map-pin:hover .pin-dot, .map-pin.active .pin-dot {
+  background: #0E0F3B;
+  transform: scale(1.2);
+}
+.pin-pulse {
+  position: absolute;
+  inset: -6px;
+  background: rgba(14, 89, 242, 0.4);
+  border-radius: 50%;
+  z-index: 1;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: all 0.3s ease;
+}
+.map-pin:hover .pin-pulse, .map-pin.active .pin-pulse {
+  opacity: 1;
+  transform: scale(1);
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(2); opacity: 0; }
+}
+.pin-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #0E0F3B;
+  background: #fff;
+  padding: 4px 8px;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.2s ease;
+  pointer-events: none;
+  white-space: nowrap;
+}
+.map-pin:hover .pin-label, .map-pin.active .pin-label {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.featured-country-card {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+}
+.fcc-image {
+  height: 180px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.fcc-image-content {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 20px;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.fcc-flag {
+  width: 36px;
+  height: 24px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+.fcc-details {
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  flex-grow: 1;
+}
+.fcc-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.fcc-text strong {
+  display: block;
+  font-size: 13px;
+  color: #0E0F3B;
+  margin-bottom: 4px;
+}
+.fcc-text span {
+  font-size: 12px;
+  color: #64748b;
+}
+.fcc-view-all {
+  display: flex;
+  align-items: center;
+  padding: 16px 20px;
+  border-top: 1px solid #e2e8f0;
+  color: #0E59F2;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.fcc-view-all:hover {
+  background: #f8fafc;
+}
+
+.offices-stats-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 48px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.02);
+}
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  justify-content: center;
+  border-right: 1px solid #e2e8f0;
+}
+.stat-item:last-child {
+  border-right: none;
+}
+.stat-icon-wrap {
+  width: 48px;
+  height: 48px;
+  background: #f1f5f9;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.stat-text strong {
+  display: block;
+  font-size: 18px;
+  color: #0E0F3B;
+}
+.stat-text span {
+  font-size: 13px;
+  color: #64748b;
+}
+
+.subsection-title {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 700;
+  color: #0E0F3B;
+  margin-bottom: 24px;
+}
+
+.carousel-container {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.nav-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #64748b;
+  cursor: pointer;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+.nav-btn:hover {
+  background: #f1f5f9;
+  color: #0E0F3B;
+}
+
+.office-slides {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding-bottom: 24px;
+  scrollbar-width: none; /* hide scrollbar for Firefox */
+}
+.office-slides::-webkit-scrollbar {
+  display: none; /* hide scrollbar for Chrome/Safari */
+}
+.office-slide {
+  flex: 0 0 240px;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  overflow: hidden;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.office-slide:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.06);
+}
+.slide-img {
+  height: 140px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.slide-flag, .slide-flag-emoji {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  width: 32px;
+  height: 24px;
+  border-radius: 4px;
+  object-fit: cover;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  border: 1px solid rgba(255,255,255,0.8);
+}
+.slide-content {
+  padding: 20px;
+}
+.slide-content h4 {
+  font-size: 15px;
+  font-weight: 700;
+  color: #0E0F3B;
+  margin-bottom: 4px;
+}
+.slide-address {
+  font-size: 11px;
+  color: #64748b;
+  margin-bottom: 20px;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-height: 30px;
+}
+.slide-link {
+  font-size: 13px;
+  color: #0E59F2;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.coming-soon-wrap {
+  margin-top: 40px;
+}
+.office-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+@media (max-width: 1200px) {
+  .office-grid { grid-template-columns: repeat(4, 1fr); }
+}
+@media (max-width: 900px) {
+  .office-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 640px) {
+  .office-grid { grid-template-columns: repeat(2, 1fr); }
+}
+.office-card {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  overflow: hidden;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.office-card:hover {
+  transform: translateY(-4px);
+}
+.office-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(14, 15, 59, 0.4), rgba(14, 15, 59, 0.9));
+  z-index: 1;
+}
+.office-card-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 16px;
+}
+.office-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.office-icon-wrap {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+.office-country-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: white;
+}
+.office-card-address {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.85);
+  margin-top: 12px;
+  margin-bottom: 24px;
+  line-height: 1.4;
+  flex-grow: 1;
+}
+.office-learn-more {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 11px;
+  font-weight: 700;
+  color: white;
+}
+.blur-card .office-card-overlay {
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition: all 0.4s ease;
+}
+.blur-card:hover .office-card-overlay {
+  backdrop-filter: blur(0);
+  -webkit-backdrop-filter: blur(0);
+}
+.coming-soon-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+  z-index: 5;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  background: rgba(14, 15, 59, 0.7);
+  padding: 15px 4px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+.blur-card:hover .coming-soon-label {
+  opacity: 0;
+}
+
+@media (max-width: 1024px) {
+  .map-and-featured {
+    grid-template-columns: 1fr;
+  }
+  .offices-stats-bar {
+    grid-template-columns: 1fr 1fr;
+  }
+  .stat-item {
+    border-right: none;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 16px;
+  }
+}
 
 /* Timeline */
 .timeline {
