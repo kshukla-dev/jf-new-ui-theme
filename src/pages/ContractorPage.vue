@@ -145,7 +145,6 @@ const trustAvatars = [
   <section class="section container">
     <div class="faq-block">
       <div class="faq-head">
-        <span class="tag">FAQs</span>
         <h2 class="section-title">{{ contractor.faqs.title }}</h2>
         <p v-if="contractor.faqs.subtitle" class="section-lead">{{ contractor.faqs.subtitle }}</p>
       </div>

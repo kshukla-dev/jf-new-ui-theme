@@ -245,7 +245,6 @@ onMounted(() => {
       <!-- Top: heading -->
       <div class="speakers-left-info">
         <div class="speakers-head-text">
-          <span class="tag">LEARN FROM LOCAL EXPERTS</span>
           <h2 class="speakers-main-title">Speakers &amp; <span class="gold-text">Experts</span></h2>
           <p class="speakers-desc-text">
             Industry leaders and local experts sharing real insights and actionable strategies for your expansion journey.

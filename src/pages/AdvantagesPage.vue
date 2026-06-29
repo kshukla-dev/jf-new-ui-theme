@@ -91,7 +91,6 @@ const filteredFaqs = computed(() => {
   <!-- Advantages list -->
   <section class="section container">
     <div class="section-head">
-      <span class="tag">What sets us apart</span>
       <h2 class="section-title">{{ advantages.advantages.title }}</h2>
       <p class="section-lead">{{ advantages.advantages.description }}</p>
     </div>
@@ -137,7 +136,6 @@ const filteredFaqs = computed(() => {
   <section class="section container">
     <div class="faq-block">
       <div class="faq-head">
-        <span class="tag">FAQs</span>
         <h2 class="section-title">{{ advantages.faqs.title }}</h2>
       </div>
       <div>

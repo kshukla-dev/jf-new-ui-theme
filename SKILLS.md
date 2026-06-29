@@ -82,7 +82,6 @@ One italic accent word per heading — no more. Keep it meaningful.
 ### Eyebrow + title + lead (standard section header)
 ```html
 <div class="section-head">
-  <span class="tag">Section label</span>
   <h2 class="section-title">Heading with an <em>accent</em></h2>
   <p class="section-lead">Optional supporting sentence.</p>
 </div>

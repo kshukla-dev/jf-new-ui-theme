@@ -95,7 +95,6 @@ const trustAvatars = [
   <!-- ============= SERVICES ============= -->
   <section class="section container">
     <div class="section-head">
-      <span class="tag">What we deliver</span>
       <h2 class="section-title">{{ immigration.services.title }}</h2>
       <p v-if="immigration.services.description" class="section-lead">
         {{ immigration.services.description }}
@@ -116,7 +115,6 @@ const trustAvatars = [
   <!-- ============= PROCESS ============= -->
   <section class="section container">
     <div class="section-head">
-      <span class="tag">How it works</span>
       <h2 class="section-title">{{ immigration.process.title }}</h2>
       <p v-if="immigration.process.description" class="section-lead">
         {{ immigration.process.description }}
@@ -161,7 +159,6 @@ const trustAvatars = [
   <section class="section container">
     <div class="faq-block">
       <div class="faq-head">
-        <span class="tag">FAQs</span>
         <h2 class="section-title">{{ immigration.faqs.title }}</h2>
       </div>
       <div class="faq-list">

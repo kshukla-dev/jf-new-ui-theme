@@ -93,7 +93,6 @@ const trustAvatars = [
   <!-- ============= SERVICES ============= -->
   <section class="section container">
     <div class="section-head">
-      <span class="tag">What we deliver</span>
       <h2 class="section-title">{{ compliance.services.title }}</h2>
       <p v-if="compliance.services.description" class="section-lead">
         {{ compliance.services.description }}
@@ -209,7 +208,6 @@ const trustAvatars = [
   <section class="section container">
     <div class="faq-block">
       <div class="faq-head">
-        <span class="tag">FAQs</span>
         <h2 class="section-title">{{ compliance.faqs.title }}</h2>
       </div>
       <div class="faq-list">

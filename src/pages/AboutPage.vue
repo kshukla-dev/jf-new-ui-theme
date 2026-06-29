@@ -103,7 +103,6 @@ onUnmounted(() => {
   <!-- ============= STORY ============= -->
   <section class="section container">
     <div class="section-head">
-      <span class="tag">Our story</span>
       <h2 class="section-title">From Arnhem to <em>80+ countries</em></h2>
       <p class="section-lead">
         The milestones that shaped Jackson &amp; Frank into a global workforce solutions
@@ -152,7 +151,6 @@ onUnmounted(() => {
   <section class="values-strip">
     <div class="container">
       <div class="section-head">
-        <span class="tag">Our values</span>
         <h2 class="section-title">We operate by <em>W.O.R.L.D</em></h2>
         <p class="section-lead">
           The values that make us and our clients successful.
@@ -196,7 +194,6 @@ onUnmounted(() => {
   <!-- ============= TEAM ============= -->
   <section class="section container">
     <div class="section-head">
-      <span class="tag">Leadership</span>
       <h2 class="section-title">Meet our <em>leadership team</em></h2>
       <p class="section-lead">
         The visionary leaders behind our mission to make global hiring simple and accessible.
@@ -220,7 +217,6 @@ onUnmounted(() => {
   <section class="section container">
     <div class="faq-block">
       <div class="faq-head">
-        <span class="tag">FAQs</span>
         <h2 class="section-title">{{ about.faqs.title }}</h2>
         <p class="section-lead">{{ about.faqs.subtitle }}</p>
       </div>

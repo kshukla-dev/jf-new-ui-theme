@@ -58,7 +58,6 @@ function getRoleTheme(dept: string) {
   <!-- Benefits -->
   <section class="section container">
     <div class="section-head">
-      <span class="tag">Why work here</span>
       <h2 class="section-title">Benefits that <em>matter</em></h2>
     </div>
     <div class="benefits-grid">
@@ -74,7 +73,6 @@ function getRoleTheme(dept: string) {
   <section id="open-positions" class="positions-strip">
     <div class="container">
       <div class="section-head">
-        <span class="tag">Open roles</span>
         <h2 class="section-title">Current <em>openings</em></h2>
         <p class="section-lead">Join a mission-driven team building the infrastructure for the future of work.</p>
       </div>
@@ -127,7 +125,6 @@ function getRoleTheme(dept: string) {
   <section class="section container">
     <div class="faq-block">
       <div class="faq-head">
-        <span class="tag">FAQs</span>
         <h2 class="section-title">{{ career.faqs.title }}</h2>
         <p class="section-lead">{{ career.faqs.subtitle }}</p>
       </div>

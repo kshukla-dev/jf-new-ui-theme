@@ -477,7 +477,6 @@ const getCountryDetails = (name: string) => {
   <section class="section container">
     <div class="faq-block">
       <div class="faq-head">
-        <span class="tag">FAQs</span>
         <h2 class="section-title">{{ ghg.faqs.title }}</h2>
         <p class="section-lead">{{ ghg.faqs.subtitle }}</p>
       </div>

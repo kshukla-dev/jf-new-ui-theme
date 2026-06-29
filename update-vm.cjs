@@ -5,11 +5,9 @@ const oldVm = `  <!-- ============= VISION / MISSION ============= -->
   <section class="section container">
     <div class="vm-grid">
       <div class="vm-card">
-        <span class="tag">Vision</span>
         <p>A world in which international employability has no barriers.</p>
       </div>
       <div class="vm-card vm-card-dark">
-        <span class="tag">Mission</span>
         <p>Enabling international labour mobility for organizations and people.</p>
       </div>
     </div>

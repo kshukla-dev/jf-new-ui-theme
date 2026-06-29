@@ -85,7 +85,6 @@ const trustAvatars = [
   <!-- ============= SERVICES ============= -->
   <section class="section container">
     <div class="section-head">
-      <span class="tag">What we deliver</span>
       <h2 class="section-title">{{ payroll.services.title }}</h2>
       <p v-if="payroll.services.description" class="section-lead">
         {{ payroll.services.description }}
@@ -171,7 +170,6 @@ const trustAvatars = [
         </div>
       </div>
       <div class="tech-benefits">
-        <span class="tag">Also includes</span>
         <div class="tech-benefits-pills">
           <span v-for="b in payroll.technology.benefits" :key="b" class="tech-pill">
             {{ b }}
@@ -185,7 +183,6 @@ const trustAvatars = [
   <section class="section container">
     <div class="faq-block">
       <div class="faq-head">
-        <span class="tag">FAQs</span>
         <h2 class="section-title">{{ payroll.faqs.title }}</h2>
       </div>
       <div class="faq-list">

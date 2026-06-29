@@ -176,7 +176,6 @@ const trustAvatars = [
   <!-- All reviews carousel -->
   <section class="section container review-carousel-section">
     <div class="section-head text-center">
-      <span class="tag">More reviews</span>
       <h2 class="section-title">In our clients' <em>own words</em></h2>
     </div>
     
@@ -245,7 +244,6 @@ const trustAvatars = [
   <section class="section container">
     <div class="faq-block">
       <div class="faq-head">
-        <span class="tag">FAQs</span>
         <h2 class="section-title">{{ tp.faqs.title }}</h2>
         <p class="section-lead">{{ tp.faqs.subtitle }}</p>
       </div>

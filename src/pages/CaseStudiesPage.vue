@@ -284,7 +284,6 @@ const testiAvatars = ["/testimonials/priya.jpg", "/testimonials/James.jpg", "/te
   <section class="section container">
     <div class="faq-block">
       <div class="faq-head">
-        <span class="tag">FAQs</span>
         <h2 class="section-title">{{ caseData.faqs.title }}</h2>
         <p class="section-lead">{{ caseData.faqs.subtitle }}</p>
       </div>

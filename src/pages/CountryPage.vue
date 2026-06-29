@@ -208,7 +208,6 @@ const resources = [
     <section class="section container">
       <div class="faq-block">
         <div class="faq-head">
-          <span class="tag">FAQs</span>
           <h2 class="section-title">{{ data.faqs.title }}</h2>
           <p class="section-lead">{{ data.faqs.subtitle }}</p>
         </div>

@@ -5,7 +5,6 @@ const heroMatch = /<section class="eor-hero">[\s\S]*?<\/section>/;
 const newHero = `<header class="service-hero eor-premium-hero">
       <div class="eor-premium-hero-inner">
         <div class="service-hero-copy">
-          <span class="tag">Service · Employer of Record</span>
           <h1>
             Employer of Record<br /><em>(EOR) Services</em>
           </h1>
