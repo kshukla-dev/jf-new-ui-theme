@@ -236,7 +236,7 @@ function slide(direction: 'next' | 'prev') {
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
               </div>
               <h5>Local Expertise, Global Reach</h5>
-              <p>Our teams in 40+ countries understand local markets, laws, and business culture.</p>
+              <p>Our teams in 80+ countries understand local markets, laws, and business culture.</p>
             </div>
 
             <!-- Column 3, Row 1 -->
@@ -446,7 +446,7 @@ function slide(direction: 'next' | 'prev') {
         <!-- Right side Stats overlay card (sibling to backdrop for clean stacking on mobile) -->
         <div class="stats-overlay-card">
           <span class="operating-label">Operating in</span>
-          <div class="countries-count">40+</div>
+          <div class="countries-count">80+</div>
           <span class="countries-label">countries</span>
           <p class="desc">Supporting companies worldwide with local expertise.</p>
         </div>

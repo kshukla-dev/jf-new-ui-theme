@@ -135,7 +135,7 @@ const getCountryDetails = (name: string) => {
       <div class="ghg-hero-copy">
         <h1 class="hero-title">Hire anywhere,<br /><em>one partner</em></h1>
         <p class="hero-desc">
-          Streamline global operations by managing payroll in over 160+ countries under one roof, thereby eliminating the ongoing administrative burdens of local compliance, taxes, benefits, and other complexities.
+          Streamline global operations by managing payroll in over 80+ countries under one roof, thereby eliminating the ongoing administrative burdens of local compliance, taxes, benefits, and other complexities.
         </p>
         <button class="btn-primary-gold">
           Get the guide <span class="arrow">→</span>
@@ -187,7 +187,7 @@ const getCountryDetails = (name: string) => {
             </div>
             <div class="bf-text">
               <h3>Global reach</h3>
-              <p>Hire in 160+ countries without setting up local entities.</p>
+              <p>Hire in 80+ countries without setting up local entities.</p>
             </div>
           </div>
           
@@ -306,7 +306,7 @@ const getCountryDetails = (name: string) => {
       <div class="entities-title-block">
         <span class="tag-centered">OUR ENTITIES &amp; LOCATIONS</span>
         <h2 class="entities-main-title">A truly global presence.<br><span class="gold-text">Built for borderless teams.</span></h2>
-        <p class="entities-subtitle">Our own legal entities in 40+ countries allow you to hire, pay, and support talent compliantly-wherever your business grows.</p>
+        <p class="entities-subtitle">Our own legal entities in 80+ countries allow you to hire, pay, and support talent compliantly-wherever your business grows.</p>
       </div>
       <RouterLink to="/contact" class="btn-outline-gold">View all locations <span aria-hidden>→</span></RouterLink>
     </div>
@@ -325,7 +325,7 @@ const getCountryDetails = (name: string) => {
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
               </div>
               <div class="map-stat-info">
-                <span class="map-stat-number">40+</span>
+                <span class="map-stat-number">80+</span>
                 <span class="map-stat-label">Countries<br>Our entities</span>
               </div>
             </div>
@@ -345,7 +345,7 @@ const getCountryDetails = (name: string) => {
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
               </div>
               <div class="map-stat-info">
-                <span class="map-stat-number">160+</span>
+                <span class="map-stat-number">80+</span>
                 <span class="map-stat-label">Countries supported<br>for hiring</span>
               </div>
             </div>
@@ -355,7 +355,7 @@ const getCountryDetails = (name: string) => {
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M9 12l2 2 4-4"></path></svg>
               </div>
               <div class="map-stat-info">
-                <span class="map-stat-number">98%</span>
+                <span class="map-stat-number">99.5%</span>
                 <span class="map-stat-label">Client satisfaction<br>rate</span>
               </div>
             </div>

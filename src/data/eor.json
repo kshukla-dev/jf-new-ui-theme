@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "Employer of Record (EOR) | Global Hiring Without an Entity",
-    "description": "Employer of Record services for global hiring: hire without entity setup, run international payroll, and stay on top of employment compliance in 160+ countries.",
+    "description": "Employer of Record services for global hiring: hire without entity setup, run international payroll, and stay on top of employment compliance in 80+ countries.",
     "keywords": [
       "Employer of Record",
       "EOR services",
@@ -43,7 +43,9 @@
       "card": "summary_large_image",
       "title": "Employer of Record (EOR) | Global Hiring Without an Entity",
       "description": "Hire through an Employer of Record: international payroll, local contracts, and employment compliance without opening a local company.",
-      "images": ["/services/service-page/eor.webp"]
+      "images": [
+        "/services/service-page/eor.webp"
+      ]
     },
     "alternates": {
       "canonical": "/employer-of-record"
@@ -52,7 +54,7 @@
   "definition": {
     "title": "Hire employees globally without entities",
     "subtitle": "Hero",
-    "description": "Quickly expand your global workforce across 160+ countries without establishing a local entity. We become your local HR partner.",
+    "description": "Quickly expand your global workforce across 80+ countries without establishing a local entity. We become your local HR partner.",
     "image": "/services/service-page/eor.webp",
     "imageAlt": "Employer of Record - global hiring and compliance",
     "keyFeatures": [
@@ -69,7 +71,7 @@
       "subtitle": "Numbers that reflect our commitment to excellence and client success.",
       "stats": [
         {
-          "value": "160+",
+          "value": "80+",
           "label": "countries",
           "description": "in our network"
         },
@@ -248,21 +250,60 @@
   "countries": {
     "title": "Where we employ through Employer of Record",
     "subtitle": "Local infrastructure",
-    "description": "We support Employer of Record and global hiring in 160+ countries. Below are markets where our own entities and specialists are especially active.",
+    "description": "We support Employer of Record and global hiring in 80+ countries. Below are markets where our own entities and specialists are especially active.",
     "items": [
-      { "name": "Belgium", "flag": "/countries/flag/Flag_of_Belgium.svg.png" },
-      { "name": "China", "flag": "/countries/flag/Flag_of_the_People's_Republic_of_China.svg.webp" },
-      { "name": "Czech Republic", "flag": "/countries/flag/Flag_of_the_Czech_Republic.svg.webp" },
-      { "name": "France", "flag": "/countries/flag/Flag_of_France.svg.webp" },
-      { "name": "Germany", "flag": "/countries/flag/Flag_of_Germany_(3-2).svg.png" },
-      { "name": "Hong Kong", "flag": "/countries/flag/Flag_of_Hong_Kong.svg (1).png" },
-      { "name": "India", "flag": "/countries/flag/Flag_of_India.svg.webp" },
-      { "name": "Italy", "flag": "/countries/flag/Flag_of_Italy.svg.png" },
-      { "name": "Netherlands", "flag": "/countries/flag/Flag_of_the_Netherlands.svg.webp" },
-      { "name": "Poland", "flag": "/countries/flag/Flag_of_Poland.svg.png" },
-      { "name": "Spain", "flag": "/countries/flag/Flag_of_Spain.svg.png" },
-      { "name": "UAE", "flag": "/countries/flag/Flag_of_the_United_Arab_Emirates.svg" },
-      { "name": "United Kingdom", "flag": "/countries/flag/Flag-United-Kingdom.webp" }
+      {
+        "name": "Belgium",
+        "flag": "/countries/flag/Flag_of_Belgium.svg.png"
+      },
+      {
+        "name": "China",
+        "flag": "/countries/flag/Flag_of_the_People's_Republic_of_China.svg.webp"
+      },
+      {
+        "name": "Czech Republic",
+        "flag": "/countries/flag/Flag_of_the_Czech_Republic.svg.webp"
+      },
+      {
+        "name": "France",
+        "flag": "/countries/flag/Flag_of_France.svg.webp"
+      },
+      {
+        "name": "Germany",
+        "flag": "/countries/flag/Flag_of_Germany_(3-2).svg.png"
+      },
+      {
+        "name": "Hong Kong",
+        "flag": "/countries/flag/Flag_of_Hong_Kong.svg (1).png"
+      },
+      {
+        "name": "India",
+        "flag": "/countries/flag/Flag_of_India.svg.webp"
+      },
+      {
+        "name": "Italy",
+        "flag": "/countries/flag/Flag_of_Italy.svg.png"
+      },
+      {
+        "name": "Netherlands",
+        "flag": "/countries/flag/Flag_of_the_Netherlands.svg.webp"
+      },
+      {
+        "name": "Poland",
+        "flag": "/countries/flag/Flag_of_Poland.svg.png"
+      },
+      {
+        "name": "Spain",
+        "flag": "/countries/flag/Flag_of_Spain.svg.png"
+      },
+      {
+        "name": "UAE",
+        "flag": "/countries/flag/Flag_of_the_United_Arab_Emirates.svg"
+      },
+      {
+        "name": "United Kingdom",
+        "flag": "/countries/flag/Flag-United-Kingdom.webp"
+      }
     ],
     "note": "Ask us about any target country availability and timelines vary by jurisdiction."
   },
@@ -410,7 +451,7 @@
       },
       {
         "question": "Which countries do you support?",
-        "answer": "We deliver Employer of Record and global hiring support in 160+ countries, including major European and APAC hubs. Contact us for your specific locations."
+        "answer": "We deliver Employer of Record and global hiring support in 80+ countries, including major European and APAC hubs. Contact us for your specific locations."
       },
       {
         "question": "Who manages day-to-day work?",

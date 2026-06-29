@@ -34,7 +34,9 @@
       "card": "summary_large_image",
       "title": "Contact Us - Global HR Solutions",
       "description": "Contact Jackson & Frank for expert advice on global HR, EOR services, payroll management, and international hiring. Get started today.",
-      "images": ["/assets/logo-dark.svg"]
+      "images": [
+        "/assets/logo-dark.svg"
+      ]
     },
     "alternates": {
       "canonical": "/contact"
@@ -48,7 +50,7 @@
   "introSection": {
     "title": "Why get in touch with Jackson & Frank",
     "paragraphs": [
-      "Whether you're exploring Employer of Record (EOR) services, need global payroll and compliance support, or want to discuss contractor management and immigration, our team is here to help. We work with companies of all sizes to hire and pay talent in 160+ countries without setting up local entities.",
+      "Whether you're exploring Employer of Record (EOR) services, need global payroll and compliance support, or want to discuss contractor management and immigration, our team is here to help. We work with companies of all sizes to hire and pay talent in 80+ countries without setting up local entities.",
       "When you contact us, you'll speak with experts who understand local labor laws, tax requirements, and employment practices in your target markets. We provide tailored proposals, clear timelines, and transparent pricing so you can make informed decisions about your global expansion.",
       "Use the form below to tell us your needs, or call and email directly. We aim to respond within 24 hours with next steps and, where relevant, a custom quote. For existing clients, your account manager remains your main point of contact."
     ]
@@ -57,15 +59,42 @@
     "title": "Send us a message",
     "description": "Get a personalized consultation tailored to your global expansion needs.",
     "contactReasons": [
-      { "value": "general_inquiry", "label": "General inquiry" },
-      { "value": "eor_services", "label": "Employer of Record services" },
-      { "value": "payroll_services", "label": "Payroll services" },
-      { "value": "contractor_management", "label": "Contractor management" },
-      { "value": "immigration_services", "label": "Immigration services" },
-      { "value": "compliance_questions", "label": "Compliance questions" },
-      { "value": "partnership_opportunities", "label": "Partnership opportunities" },
-      { "value": "support_request", "label": "Support request" },
-      { "value": "careers", "label": "Careers" }
+      {
+        "value": "general_inquiry",
+        "label": "General inquiry"
+      },
+      {
+        "value": "eor_services",
+        "label": "Employer of Record services"
+      },
+      {
+        "value": "payroll_services",
+        "label": "Payroll services"
+      },
+      {
+        "value": "contractor_management",
+        "label": "Contractor management"
+      },
+      {
+        "value": "immigration_services",
+        "label": "Immigration services"
+      },
+      {
+        "value": "compliance_questions",
+        "label": "Compliance questions"
+      },
+      {
+        "value": "partnership_opportunities",
+        "label": "Partnership opportunities"
+      },
+      {
+        "value": "support_request",
+        "label": "Support request"
+      },
+      {
+        "value": "careers",
+        "label": "Careers"
+      }
     ],
     "successMessage": {
       "title": "Message Sent!",
@@ -97,9 +126,18 @@
     ]
   },
   "trustIndicators": [
-    { "icon": "Shield", "text": "GDPR compliant" },
-    { "icon": "Award", "text": "ISO certified" },
-    { "icon": "CheckCircle", "text": "SOC 2 Type II" }
+    {
+      "icon": "Shield",
+      "text": "GDPR compliant"
+    },
+    {
+      "icon": "Award",
+      "text": "ISO certified"
+    },
+    {
+      "icon": "CheckCircle",
+      "text": "SOC 2 Type II"
+    }
   ],
   "offices": {
     "title": "Our offices",
@@ -145,7 +183,7 @@
       },
       {
         "question": "Which countries do you support?",
-        "answer": "We support 160+ countries across Europe, Asia-Pacific, and the Americas. Contact us for specific country availability."
+        "answer": "We support 80+ countries across Europe, Asia-Pacific, and the Americas. Contact us for specific country availability."
       },
       {
         "question": "What are your pricing models?",
@@ -170,14 +208,30 @@
       {
         "question": "What if I need support in a language other than English?",
         "answer": "We have local teams in 15+ countries and can support multiple languages. Indicate your preferred language in your message and we'll connect you with the right team."
-      } 
+      }
     ]
   },
   "socialProof": [
-    { "icon": "Globe", "value": "160+", "label": "countries in our network" },
-    { "icon": "Users", "value": "15+", "label": "local offices in countries we operate" },
-    { "icon": "Clock", "value": "€110K-200K", "label": "per country in set-up costs" },
-    { "icon": "Users", "value": "700+", "label": "companies trust us" }
+    {
+      "icon": "Globe",
+      "value": "80+",
+      "label": "countries in our network"
+    },
+    {
+      "icon": "Users",
+      "value": "15+",
+      "label": "local offices in countries we operate"
+    },
+    {
+      "icon": "Clock",
+      "value": "€110K-200K",
+      "label": "per country in set-up costs"
+    },
+    {
+      "icon": "Users",
+      "value": "700+",
+      "label": "companies trust us"
+    }
   ],
   "cta": {
     "title": "Let's build your global team together",
@@ -186,4 +240,3 @@
     "secondaryButtonText": "Call now"
   }
 }
-

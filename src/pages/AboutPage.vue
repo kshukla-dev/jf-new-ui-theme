@@ -104,7 +104,7 @@ onUnmounted(() => {
   <section class="section container">
     <div class="section-head">
       <span class="tag">Our story</span>
-      <h2 class="section-title">From Arnhem to <em>160+ countries</em></h2>
+      <h2 class="section-title">From Arnhem to <em>80+ countries</em></h2>
       <p class="section-lead">
         The milestones that shaped Jackson &amp; Frank into a global workforce solutions
         provider, from our founding in the Netherlands to our expansion worldwide.

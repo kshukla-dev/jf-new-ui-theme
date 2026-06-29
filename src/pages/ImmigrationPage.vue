@@ -22,18 +22,35 @@ const trustAvatars = [
     <div class="immigration-premium-hero-inner">
       <div class="service-hero-copy">
         <h1>
-          Hire, Relocate & Expand Globally <br /><em>Without Boundaries</em>
+          Navigate <em>global immigration</em> with experts
         </h1>
         <p class="service-hero-lede">
-          From Employer of Record and Global Payroll to Immigration and Visa Support, Jackson & Frank helps businesses and talent move across borders with confidence.
+          Support your workforce wherever they are with the right visas and work permits to work legally.
         </p>
+        <ul class="service-hero-features">
+          <li class="hero-feature">
+            <span class="hero-feature-check"></span> Fast setup
+          </li>
+          <li class="hero-feature">
+            <span class="hero-feature-check"></span> Global compliance
+          </li>
+          <li class="hero-feature">
+            <span class="hero-feature-check"></span> Local expertise
+          </li>
+        </ul>
         <div class="cta-row">
           <RouterLink to="/contact?reason=immigration_services" class="btn-primary">
-            Get Free Consultation <span class="arrow">→</span>
+            Start your application <span class="arrow">→</span>
           </RouterLink>
-          <RouterLink to="/services" class="btn-secondary">
-            Explore Services
-          </RouterLink>
+          <a href="https://calendly.com/jacksonandfrank/discover-us?month=2026-06" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="display: flex; align-items: center; justify-content: center;">
+            Speak to expert
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 8px;">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+          </a>
         </div>
         <div class="trust-row">
           <div class="avatars">
@@ -45,7 +62,7 @@ const trustAvatars = [
             />
           </div>
           <span class="trust-text">
-            <strong>99.5%</strong> visa approval rate across 160+ countries
+            <strong>99.5%</strong> visa approval rate across 80+ countries
           </span>
         </div>
       </div>
@@ -56,7 +73,6 @@ const trustAvatars = [
   <section class="section container">
     <div class="definition-block">
       <div>
-        <span class="tag">What is immigration services</span>
         <h2 class="section-title">{{ immigration.mainDescription.title }}</h2>
       </div>
       <div class="definition-text">

@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "Our Advantages - Global HR Solutions",
-    "description": "Discover Jackson & Frank's competitive advantages: 50+ years of HR experience, one-stop solutions, expert team support, compliance excellence, and local agile support across 160+ countries.",
+    "description": "Discover Jackson & Frank's competitive advantages: 50+ years of HR experience, one-stop solutions, expert team support, compliance excellence, and local agile support across 80+ countries.",
     "keywords": [
       "HR advantages",
       "global HR solutions",
@@ -16,7 +16,7 @@
     ],
     "openGraph": {
       "title": "Our Advantages - Global HR Solutions",
-      "description": "Discover Jackson & Frank's competitive advantages: 50+ years of HR experience, one-stop solutions, expert team support, compliance excellence, and local agile support across 160+ countries.",
+      "description": "Discover Jackson & Frank's competitive advantages: 50+ years of HR experience, one-stop solutions, expert team support, compliance excellence, and local agile support across 80+ countries.",
       "url": "/advantages",
       "siteName": "Jackson & Frank",
       "images": [
@@ -34,7 +34,9 @@
       "card": "summary_large_image",
       "title": "Our Advantages - Global HR Solutions",
       "description": "Discover Jackson & Frank's competitive advantages: 50+ years of HR experience, one-stop solutions, expert team support, compliance excellence, and local agile support.",
-      "images": ["/services/service-page/advantags.webp"]
+      "images": [
+        "/services/service-page/advantags.webp"
+      ]
     },
     "alternates": {
       "canonical": "/advantages"
@@ -48,7 +50,7 @@
     "imageAlt": "Professional team collaboration at Jackson & Frank",
     "keyFeatures": [
       "50+ years of combined HR expertise",
-      "160+ countries coverage",
+      "80+ countries coverage",
       "Full compliance & security",
       "24/7 local support"
     ],
@@ -61,7 +63,7 @@
       "subtitle": "Numbers that reflect our commitment to excellence and client success.",
       "stats": [
         {
-          "value": "160+",
+          "value": "80+",
           "label": "countries",
           "description": "in our network"
         },
@@ -89,45 +91,46 @@
     "description": "Discover what sets Jackson & Frank apart in global workforce solutions. With decades of experience, comprehensive services, and unwavering commitment to excellence, we deliver unmatched value to businesses worldwide.",
     "items": [
       {
-      "title": "Extensive industry experience",
-      "points": [
-        "50+ years in HR with offices in 15+ countries.",
-        "Partnerships across 160+ countries.",
-        "Specialized in European labor laws with 19+ years of tax and compliance expertise."
-      ]
-    },
-    {
-      "title": "One-stop HR solutions",
-      "points": [
-        "End-to-end services: immigration, onboarding, payroll, offboarding.",
-        "Tailored strategies for unique business needs.",
-        "Relocation support: housing, schools, language services."
-      ]
-    },
-    {
-      "title": "Expert multidisciplinary team support",
-      "points": [
-        "Skilled tax, compliance, audit, and accounting professionals.",
-        "High-touch services delivered by real experts no reliance on SaaS only tools."
-      ]
-    },
-    {
-      "title": "Commitment to compliance and security",
-      "points": [
-        "Fully licensed and GDPR-compliant across locations.",
-        "Employee leasing authorization (e.g., NEN, AÜG).",
-        "Strong data security backed by 19+ years of regulatory expertise."
-      ]
-    },
-    {
-      "title": "Local support & agile solutions",
-      "points": [
-        "Fast, responsive communication.",
-        "24/7 dedicated team with local expert support.",
-        "Customized solutions based on the clients' business cases."
-      ]
-    }
-  ]},
+        "title": "Extensive industry experience",
+        "points": [
+          "50+ years in HR with offices in 15+ countries.",
+          "Partnerships across 80+ countries.",
+          "Specialized in European labor laws with 19+ years of tax and compliance expertise."
+        ]
+      },
+      {
+        "title": "One-stop HR solutions",
+        "points": [
+          "End-to-end services: immigration, onboarding, payroll, offboarding.",
+          "Tailored strategies for unique business needs.",
+          "Relocation support: housing, schools, language services."
+        ]
+      },
+      {
+        "title": "Expert multidisciplinary team support",
+        "points": [
+          "Skilled tax, compliance, audit, and accounting professionals.",
+          "High-touch services delivered by real experts no reliance on SaaS only tools."
+        ]
+      },
+      {
+        "title": "Commitment to compliance and security",
+        "points": [
+          "Fully licensed and GDPR-compliant across locations.",
+          "Employee leasing authorization (e.g., NEN, AÜG).",
+          "Strong data security backed by 19+ years of regulatory expertise."
+        ]
+      },
+      {
+        "title": "Local support & agile solutions",
+        "points": [
+          "Fast, responsive communication.",
+          "24/7 dedicated team with local expert support.",
+          "Customized solutions based on the clients' business cases."
+        ]
+      }
+    ]
+  },
   "certifications": {
     "title": "Certifications",
     "items": [
@@ -169,7 +172,7 @@
     "items": [
       {
         "question": "What experience does Jackson & Frank have in global HR?",
-        "answer": "We have 50+ years of combined HR expertise, with offices in 15+ countries and partnerships across 160+ countries. We specialize in European labor laws and have 19+ years of tax and compliance experience."
+        "answer": "We have 50+ years of combined HR expertise, with offices in 15+ countries and partnerships across 80+ countries. We specialize in European labor laws and have 19+ years of tax and compliance experience."
       },
       {
         "question": "Do you offer end-to-end HR solutions?",

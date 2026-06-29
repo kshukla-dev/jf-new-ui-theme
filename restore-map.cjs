@@ -43,7 +43,7 @@ const mapVisualHtml = `
             <!-- Stats bar at bottom of map -->
             <div class="ge-map-stats">
               <div class="ge-map-stat">
-                <strong>160+</strong>
+                <strong>80+</strong>
                 <span>Countries</span>
               </div>
               <div class="ge-map-stat-divider"></div>
@@ -58,7 +58,7 @@ const mapVisualHtml = `
               </div>
               <div class="ge-map-stat-divider"></div>
               <div class="ge-map-stat">
-                <strong>98%</strong>
+                <strong>99.5%</strong>
                 <span>Client retention</span>
               </div>
             </div>
@@ -68,7 +68,7 @@ if (code.includes('<div class="ge-map-visual">')) {
   // Insert inside ge-map-visual, right before the first ge-float-card
   const insertTarget = '<div class="ge-float-card card-eu">';
   code = code.replace(insertTarget, mapVisualHtml + '\n            ' + insertTarget);
-  
+
   // also make sure to close the ge-map-svg-wrap at the end of the float cards
   const closeTarget = '<div class="ge-popular-dest">';
   code = code.replace(closeTarget, '</div>\n\n          ' + closeTarget);

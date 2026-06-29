@@ -50,11 +50,11 @@ function howSteps(type: ServiceType, country: string) {
 }
 
 const stats = [
-  { value: '160+', label: 'Countries', desc: 'we serve', icon: 'globe' },
+  { value: '80+', label: 'Countries', desc: 'we serve', icon: 'globe' },
   { value: '12+', label: 'Years of global', desc: 'experience', icon: 'experience' },
   { value: '50,000+', label: 'Employees', desc: 'onboarded globally', icon: 'users' },
   { value: '2–3 days', label: 'Average', desc: 'onboarding time', icon: 'clock' },
-  { value: '98%', label: 'Client satisfaction', desc: 'rate', icon: 'shield' },
+  { value: '99.5%', label: 'Client satisfaction', desc: 'rate', icon: 'shield' },
 ]
 
 const whyFeatures = [

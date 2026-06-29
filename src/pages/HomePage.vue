@@ -210,7 +210,7 @@ const formatBlogDate = (dateStr: string) => {
         <div class="hero-features-inline">
           <div class="hf-item">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"/><path d="M2 12H22"/><path d="M12 2C14.5013 4.73835 15.9228 8.29203 16 12C15.9228 15.708 14.5013 19.2616 12 22C9.49872 19.2616 8.07725 15.708 8 12C8.07725 8.29203 9.49872 4.73835 12 2Z"/></svg>
-            Hire in 160+ countries
+            Hire in 80+ countries
           </div>
           <div class="hf-item">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
@@ -248,7 +248,7 @@ const formatBlogDate = (dateStr: string) => {
   <!-- ============= BRAND STRIP (country presence - infinite marquee) ============= -->
   <section class="brand-strip">
     <div class="brand-strip-inner">
-      <span class="brand-label">Trusted in 160+ countries</span>
+      <span class="brand-label">Trusted in 80+ countries</span>
       <div class="marquee" aria-label="Countries we operate in">
         <!-- Two identical tracks scroll left; the second seamlessly follows the first. -->
         <div class="marquee-track" aria-hidden="false">
@@ -335,7 +335,7 @@ const formatBlogDate = (dateStr: string) => {
           <!-- Stats bar outside and slightly below the map -->
           <div class="ge-map-stats">
             <div class="ge-map-stat">
-              <strong>160+</strong>
+              <strong>80+</strong>
               <span>Countries</span>
             </div>
             <div class="ge-map-stat-divider"></div>
@@ -350,7 +350,7 @@ const formatBlogDate = (dateStr: string) => {
             </div>
             <div class="ge-map-stat-divider"></div>
             <div class="ge-map-stat">
-              <strong>98%</strong>
+              <strong>99.5%</strong>
               <span>Client retention</span>
             </div>
           </div>
@@ -439,7 +439,7 @@ const formatBlogDate = (dateStr: string) => {
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"/><path d="M2 12H22"/><path d="M12 2C14.5013 4.73835 15.9228 8.29203 16 12C15.9228 15.708 14.5013 19.2616 12 22C9.49872 19.2616 8.07725 15.708 8 12C8.07725 8.29203 9.49872 4.73835 12 2Z"/></svg>
               </div>
               <div>
-                <strong>160+</strong>
+                <strong>80+</strong>
                 <span class="sa-stat-label">Countries</span>
                 <span class="sa-stat-sub">Global coverage</span>
               </div>
@@ -461,7 +461,7 @@ const formatBlogDate = (dateStr: string) => {
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
               </div>
               <div>
-                <strong>98%</strong>
+                <strong>99.5%</strong>
                 <span class="sa-stat-label">Client retention</span>
                 <span class="sa-stat-sub">Long-term partnerships</span>
               </div>

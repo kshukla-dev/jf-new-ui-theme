@@ -20,7 +20,7 @@ const faqs = [
   },
   {
     question: 'Which countries do you support?',
-    answer: 'We deliver Employer of Record and global hiring support in 160+ countries, including major European and APAC hubs. Contact us for your specific locations.'
+    answer: 'We deliver Employer of Record and global hiring support in 80+ countries, including major European and APAC hubs. Contact us for your specific locations.'
   },
   {
     question: 'Who manages day-to-day work?',
@@ -71,7 +71,7 @@ const topCountries = [
           <h1>
             Hire <em>employees globally</em> without entities
           </h1>
-          <p class="service-hero-lede">Quickly expand your global workforce across 160+ countries without establishing a local entity. We become your local HR partner.</p>
+          <p class="service-hero-lede">Quickly expand your global workforce across 80+ countries without establishing a local entity. We become your local HR partner.</p>
           
           <ul class="eor-hero-checklist">
             <li>
@@ -612,7 +612,7 @@ const topCountries = [
       <div class="eor-container">
         <div class="eor-countries-header">
           <h2>Where we employ through Employer of Record</h2>
-          <p class="eor-countries-sub">We support Employer of Record and global hiring in 160+ countries. Below are markets where our own entities and specialists are especially active.</p>
+          <p class="eor-countries-sub">We support Employer of Record and global hiring in 80+ countries. Below are markets where our own entities and specialists are especially active.</p>
         </div>
         <div class="eor-countries-grid">
           <a :href="country.href || `/${country.name.toLowerCase().replace(/\s+/g, '-')}`" class="ecg-item" v-for="country in topCountries" :key="country.code">

@@ -24,8 +24,8 @@
     "keyFeatures": [
       "700+ companies served worldwide",
       "Average 4.9 / 5 client satisfaction",
-      "98% client retention rate",
-      "Trusted across 160+ countries"
+      "99.5% client retention rate",
+      "Trusted across 80+ countries"
     ],
     "primaryButtonText": "Talk to our team",
     "secondaryButtonText": "Book a call",
@@ -46,12 +46,12 @@
           "description": "average client rating"
         },
         {
-          "value": "98%",
+          "value": "99.5%",
           "label": "retention",
           "description": "of clients renew with us"
         },
         {
-          "value": "160+",
+          "value": "80+",
           "label": "countries",
           "description": "in our global network"
         }

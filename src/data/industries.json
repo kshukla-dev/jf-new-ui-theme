@@ -1,5 +1,4 @@
 {
-  
   "title": "Tailored solutions for every industry",
   "description": "We provide comprehensive global workforce solutions designed to meet the unique needs of your industry, from startups to enterprises.",
   "industries": [
@@ -41,7 +40,7 @@
     },
     {
       "id": "automotive",
-        "title": "Automotive",
+      "title": "Automotive",
       "description": "Help automotive companies manage international teams and operations, facilitating global expansion with compliant workforce solutions.",
       "icon": "Car",
       "iconBgColor": "bg-red-500",
@@ -51,7 +50,7 @@
     {
       "id": "it",
       "title": "IT",
-      "description": "Enable IT companies to access global talent pools and scale rapidly with compliant EOR services across 160+ countries.",
+      "description": "Enable IT companies to access global talent pools and scale rapidly with compliant EOR services across 80+ countries.",
       "icon": "Code",
       "iconBgColor": "bg-purple-500",
       "image": "/industries/it.webp",
@@ -59,4 +58,3 @@
     }
   ]
 }
-

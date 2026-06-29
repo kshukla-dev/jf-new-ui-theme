@@ -34,7 +34,7 @@ defineProps<{
           <div class="cta-icon-circle">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
           </div>
-          <h3>160+</h3>
+          <h3>80+</h3>
           <span class="cta-card-subtitle">Countries</span>
           <span class="cta-card-divider"></span>
           <p>Hire anywhere in the world without setting up entities.</p>
@@ -44,7 +44,7 @@ defineProps<{
           <div class="cta-icon-circle">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
           </div>
-          <h3>98%</h3>
+          <h3>99.5%</h3>
           <span class="cta-card-subtitle">Compliance</span>
           <span class="cta-card-divider"></span>
           <p>Stay compliant with local laws and regulations.</p>

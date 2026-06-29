@@ -59,7 +59,7 @@ const trustAvatars = [
             />
           </div>
           <span class="trust-text">
-            <strong>99.9%</strong> compliance rate across 160+ countries
+            <strong>99.9%</strong> compliance rate across 80+ countries
           </span>
         </div>
       </div>

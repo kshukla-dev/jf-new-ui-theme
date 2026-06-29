@@ -194,7 +194,7 @@ a custom **+ / −** indicator, the inner `<h3>` rendered inline, warm tint for
 ### Canonical company numbers (keep consistent everywhere)
 - **1,000+** companies · **2,000+** employees hired for clients
 - **12+** countries with local offices · **50+** years combined HR expertise
-- **160+** countries in the partner network
+- **80+** countries in the partner network
 - **Two founders:** Maarten Koekebakker (Partner) & Pawel Michalkiewicz
   (Managing Partner). Always show **both** when featuring leadership.
 

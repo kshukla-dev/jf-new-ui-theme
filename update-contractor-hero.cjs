@@ -34,7 +34,7 @@ const newTemplate = `<header class="service-hero contractor-hero">
             />
           </div>
           <span class="trust-text">
-            Pay contractors in <strong>50+</strong> currencies, across 160+ countries
+            Pay contractors in <strong>50+</strong> currencies, across 80+ countries
           </span>
         </div>
       </div>
